@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let isDarkMode = UserDefaults.standard.bool(forKey: K.appearanceModeKey)
-        UIApplication.shared.keyWindow!.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
         return true
     }
 

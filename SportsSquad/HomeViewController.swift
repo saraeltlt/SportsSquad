@@ -7,8 +7,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate {
     var isDarkMode: Bool = false
+    @IBOutlet weak var footballBtn: UIButton!
+    let transition = CircularTransition()
+    
+    
     @IBOutlet weak var modeLabel: UILabel!
     
     @IBOutlet weak var switchMode: UISwitch!{
@@ -24,12 +28,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         isDarkMode = UserDefaults.standard.bool(forKey: K.appearanceModeKey)
-        setAppearanceMode(isDarkMode)
         switchMode.isOn = isDarkMode
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
+        footballBtn.layer.cornerRadius = footballBtn.frame.size.width / 2
  
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let leaguesVC = segue.destination as! LeaguesViewController
+        leaguesVC.transitioningDelegate = self
+        leaguesVC.modalPresentationStyle = .custom
+    }
     
     @IBAction func sportPressed(_ sender: UIButton) {
         let leaguesVC = self.storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
@@ -43,30 +51,38 @@ class HomeViewController: UIViewController {
         default: //4: Basketball
             leaguesVC.sportType="basketball"
         }
-        self.navigationController?.pushViewController( leaguesVC, animated: true)
+        /*leaguesVC.transitioningDelegate = self
+        leaguesVC.modalPresentationStyle = .custom
+        self.navigationController?.pushViewController( leaguesVC, animated: true)*/
+    }
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = footballBtn.center
+        transition.circleColor = footballBtn.backgroundColor!
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = footballBtn.center
+        transition.circleColor = footballBtn.backgroundColor!
+        
+        return transition
     }
     
     
     @IBAction func modeChanged(_ sender: UISwitch) {
-               isDarkMode = sender.isOn
+        isDarkMode = sender.isOn
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
-
-               setAppearanceMode(isDarkMode)
         UserDefaults.standard.set(isDarkMode, forKey: K.appearanceModeKey)
+        (UIApplication.shared.delegate as! AppDelegate).overrideApplicationThemeStyle()
+        
         
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-          super.traitCollectionDidChange(previousTraitCollection)
-          if traitCollection.userInterfaceStyle != previousTraitCollection?.userInterfaceStyle {
-              setAppearanceMode(isDarkMode)
-              UserDefaults.standard.set(isDarkMode, forKey: K.appearanceModeKey)
-          }
-      }
-    
-    func setAppearanceMode(_ isDarkMode: Bool) {
-         overrideUserInterfaceStyle = isDarkMode ? .dark : .light
-     }
     
 }
 

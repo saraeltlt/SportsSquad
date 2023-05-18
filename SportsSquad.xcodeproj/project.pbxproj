@@ -24,6 +24,8 @@
 		8F95E2EB2A167CE60028D6BB /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */; };
 		8F95E2ED2A167D180028D6BB /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F95E2EC2A167D180028D6BB /* splash.json */; };
 		8F95E2EF2A1698490028D6BB /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */; };
+		8F95E2F32A16B15F0028D6BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2F22A16B15F0028D6BB /* Extensions.swift */; };
+		8F95E2F52A16C1290028D6BB /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2F42A16C1290028D6BB /* CircularTransition.swift */; };
 		8FB30AEDB1F560B9E17E8644 /* Pods_SportsSquadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213252BC35EB05710713247F /* Pods_SportsSquadTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		8F95E2EC2A167D180028D6BB /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
+		8F95E2F22A16B15F0028D6BB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8F95E2F42A16C1290028D6BB /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		987EEADD84CF518200CF59FB /* Pods_SportsSquad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsSquad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59E12AD5EFEC998B3AA137C /* Pods-SportsSquad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsSquad.debug.xcconfig"; path = "Target Support Files/Pods-SportsSquad/Pods-SportsSquad.debug.xcconfig"; sourceTree = "<group>"; };
 		AA34E17055671A9CBA3AE449 /* Pods-SportsSquad-SportsSquadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsSquad-SportsSquadUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportsSquad-SportsSquadUITests/Pods-SportsSquad-SportsSquadUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				8F5608F72A167117009DBD2D /* Constants.swift */,
 				8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */,
 				8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */,
+				8F95E2F22A16B15F0028D6BB /* Extensions.swift */,
+				8F95E2F42A16C1290028D6BB /* CircularTransition.swift */,
 			);
 			path = SportsSquad;
 			sourceTree = "<group>";
@@ -426,9 +432,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F5608F42A1670B7009DBD2D /* HomeViewController.swift in Sources */,
+				8F95E2F32A16B15F0028D6BB /* Extensions.swift in Sources */,
 				8F5608CB2A167012009DBD2D /* SportsSquad.xcdatamodeld in Sources */,
 				8F5608C12A167012009DBD2D /* AppDelegate.swift in Sources */,
 				8F95E2EF2A1698490028D6BB /* LeaguesViewController.swift in Sources */,
+				8F95E2F52A16C1290028D6BB /* CircularTransition.swift in Sources */,
 				8F5608F82A167117009DBD2D /* Constants.swift in Sources */,
 				8F5608C32A167012009DBD2D /* SceneDelegate.swift in Sources */,
 				8F95E2EB2A167CE60028D6BB /* LaunchViewController.swift in Sources */,

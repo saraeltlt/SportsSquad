@@ -26,7 +26,7 @@ class LaunchViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         imageView.center = view.center
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
             self.animate()
         })
         
@@ -48,13 +48,14 @@ class LaunchViewController: UIViewController {
             self.imageView.alpha = 0
         }) { done in
             if done{
+                
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
-                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                    let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                    homeViewController.modalTransitionStyle = .crossDissolve
-                    homeViewController.modalPresentationStyle = .fullScreen
-                    self.present(homeViewController, animated:true, completion:nil)
-                    
+                    let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    let newViewControllers = [homeViewController]
+                    if let navigationController = self.navigationController {
+                        navigationController.setViewControllers(newViewControllers, animated: false)
+                    }
+                   
                     
                     
                 })
