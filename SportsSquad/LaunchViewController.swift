@@ -50,14 +50,14 @@ class LaunchViewController: UIViewController {
             if done{
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
-                    let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                    let newViewControllers = [homeViewController]
+
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                      let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                    let newViewControllers = [mainTabBarController]
                     if let navigationController = self.navigationController {
                         navigationController.setViewControllers(newViewControllers, animated: false)
                     }
-                   
-                    
-                    
+
                 })
             }
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class HomeViewController: UIViewController{
     var isDarkMode: Bool = false
     @IBOutlet weak var footballBtn: UIButton!
     let transition = CircularTransition()
@@ -30,14 +30,9 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
         isDarkMode = UserDefaults.standard.bool(forKey: K.appearanceModeKey)
         switchMode.isOn = isDarkMode
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
-        footballBtn.layer.cornerRadius = footballBtn.frame.size.width / 2
  
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let leaguesVC = segue.destination as! LeaguesViewController
-        leaguesVC.transitioningDelegate = self
-        leaguesVC.modalPresentationStyle = .custom
-    }
+
     
     @IBAction func sportPressed(_ sender: UIButton) {
         let leaguesVC = self.storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
@@ -51,27 +46,10 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
         default: //4: Basketball
             leaguesVC.sportType="basketball"
         }
-        /*leaguesVC.transitioningDelegate = self
-        leaguesVC.modalPresentationStyle = .custom
-        self.navigationController?.pushViewController( leaguesVC, animated: true)*/
+        self.navigationController?.pushViewController( leaguesVC, animated: true)
     }
     
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .present
-        transition.startingPoint = footballBtn.center
-        transition.circleColor = footballBtn.backgroundColor!
-        
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .dismiss
-        transition.startingPoint = footballBtn.center
-        transition.circleColor = footballBtn.backgroundColor!
-        
-        return transition
-    }
+
     
     
     @IBAction func modeChanged(_ sender: UISwitch) {
