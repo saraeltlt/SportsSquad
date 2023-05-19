@@ -22,7 +22,7 @@ class LeaguesViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate=self
         configNavigationBar()
-        APIHandler.sharedInstance.getLeagues(team: sportType) { leagues in
+        APIHandler.sharedInstance.getLeagues(sportType: sportType) { leagues in
             self.leaguesArray = leagues.result
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -83,9 +83,17 @@ extension LeaguesViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "detailsVC") as! ViewController
-//        detailsVC.employee = empArray[indexPath.row]
-//        self.navigationController?.pushViewController(detailsVC, animated: true)
+        var league : League!
+        if (isSearching){
+            league = searchArray[indexPath.row]
+            
+        }else{
+           league = leaguesArray[indexPath.row]
+        }
+     let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
+        detailsVC.leagueDetails = league
+        detailsVC.sportType = sportType
+        self.navigationController?.pushViewController(detailsVC, animated: true)
         
     }
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

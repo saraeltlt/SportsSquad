@@ -16,6 +16,7 @@ struct K {
     //cells
     static let LEAGUES_CELL = "LeaguesCell"
     static let FAVOURITE_CELL = "FavCell"
+    static let UPCOMING_EVENTS_CELL = "UpcomingEventsCell"
     
     //images
     static let LEAGUES_PLACEHOLDER_IMAGE = "LeaguesPlaceHolder"

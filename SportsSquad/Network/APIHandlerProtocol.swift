@@ -7,5 +7,5 @@
 
 import Foundation
 protocol APIHandlerProtocol{
-    func getLeagues(team: String , handler : @escaping(_ leagues:LeaguesModel)  -> (Void) )
+    func getLeagues(sportType: String , handler : @escaping(_ leagues:LeaguesModel)  -> (Void) )
 }

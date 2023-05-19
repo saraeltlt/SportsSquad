@@ -12,6 +12,7 @@ target 'SportsSquad' do
     pod 'SDWebImage', '~> 5.0'
     pod 'IQKeyboardManagerSwift'
 
+
   target 'SportsSquadTests' do
     inherit! :search_paths
     # Pods for testing

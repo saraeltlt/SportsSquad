@@ -17,9 +17,9 @@ class HomeViewController: UIViewController{
     
     @IBOutlet weak var switchMode: UISwitch!{
         didSet{
-            switchMode.onTintColor = UIColor(named: "MidumPurple")
-            switchMode.tintColor =  UIColor(named: "MidumPurple")
-            switchMode.subviews[0].subviews[0].backgroundColor =  UIColor(named: "MidumPurple")
+            switchMode.onTintColor = UIColor(named: K.MEDIUM_PURPLE)
+            switchMode.tintColor =  UIColor(named:  K.MEDIUM_PURPLE)
+            switchMode.subviews[0].subviews[0].backgroundColor =  UIColor(named:  K.MEDIUM_PURPLE)
         }
     }
     
