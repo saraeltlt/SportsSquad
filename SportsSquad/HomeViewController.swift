@@ -27,7 +27,7 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isDarkMode = UserDefaults.standard.bool(forKey: K.appearanceModeKey)
+        isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
         switchMode.isOn = isDarkMode
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
  
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController{
     @IBAction func modeChanged(_ sender: UISwitch) {
         isDarkMode = sender.isOn
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
-        UserDefaults.standard.set(isDarkMode, forKey: K.appearanceModeKey)
+        UserDefaults.standard.set(isDarkMode, forKey: K.APPERANCE_MODE_KEY)
         (UIApplication.shared.delegate as! AppDelegate).overrideApplicationThemeStyle()
         
         
