@@ -36,8 +36,6 @@
 		8FE37A052A17B8B00066B431 /* UpComingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A042A17B8B00066B431 /* UpComingModel.swift */; };
 		8FE37A072A17B90B0066B431 /* LatestEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A062A17B90B0066B431 /* LatestEventModel.swift */; };
 		8FE37A092A17B94E0066B431 /* TeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A082A17B94E0066B431 /* TeamsModel.swift */; };
-		8FE37A0B2A17B98B0066B431 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A0A2A17B98B0066B431 /* Player.swift */; };
-		8FE37A0D2A17B9AE0066B431 /* Coach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A0C2A17B9AE0066B431 /* Coach.swift */; };
 		8FE37A172A17BC420066B431 /* APIHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A162A17BC420066B431 /* APIHandlerProtocol.swift */; };
 		8FE37A232A17D2F00066B431 /* NetworkStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */; };
 /* End PBXBuildFile section */
@@ -93,8 +91,6 @@
 		8FE37A042A17B8B00066B431 /* UpComingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingModel.swift; sourceTree = "<group>"; };
 		8FE37A062A17B90B0066B431 /* LatestEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestEventModel.swift; sourceTree = "<group>"; };
 		8FE37A082A17B94E0066B431 /* TeamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsModel.swift; sourceTree = "<group>"; };
-		8FE37A0A2A17B98B0066B431 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		8FE37A0C2A17B9AE0066B431 /* Coach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coach.swift; sourceTree = "<group>"; };
 		8FE37A162A17BC420066B431 /* APIHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandlerProtocol.swift; sourceTree = "<group>"; };
 		8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusChecker.swift; sourceTree = "<group>"; };
 		987EEADD84CF518200CF59FB /* Pods_SportsSquad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsSquad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,8 +253,6 @@
 				8FE37A042A17B8B00066B431 /* UpComingModel.swift */,
 				8FE37A062A17B90B0066B431 /* LatestEventModel.swift */,
 				8FE37A082A17B94E0066B431 /* TeamsModel.swift */,
-				8FE37A0A2A17B98B0066B431 /* Player.swift */,
-				8FE37A0C2A17B9AE0066B431 /* Coach.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -586,8 +580,6 @@
 				8F95E2EB2A167CE60028D6BB /* LaunchViewController.swift in Sources */,
 				8F5608F62A1670DE009DBD2D /* HomeLandscapeViewController.swift in Sources */,
 				8F0BE1C42A17F342003AD56A /* LeagueDetailsViewController.swift in Sources */,
-				8FE37A0D2A17B9AE0066B431 /* Coach.swift in Sources */,
-				8FE37A0B2A17B98B0066B431 /* Player.swift in Sources */,
 				8FE37A052A17B8B00066B431 /* UpComingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@ class UpcomingEventsCell: UICollectionViewCell {
     @IBOutlet weak var awayTeamLogo: UIImageView!
     @IBOutlet weak var homeTeamLogo: UIImageView!
     @IBOutlet weak var homeTeamName: UILabel!
-    @IBOutlet weak var timeAndDateText: UITextField!
+    @IBOutlet weak var timeAndDateText: UILabel!
     
     override func layoutSublayers(of layer: CALayer) {
         gradientLayer.frame = bgView.bounds

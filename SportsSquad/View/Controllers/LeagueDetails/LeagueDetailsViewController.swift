@@ -52,7 +52,7 @@ class LeagueDetailsViewController: UIViewController {
 
         //group
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
+        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0)
 
 
         //section
@@ -85,12 +85,14 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView == upcomingCollectionView){
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.UPCOMING_EVENTS_CELL, for: indexPath) as! UpcomingEventsCell
+           
             let event = upComingList[indexPath.row]
             cell.awayTeamName.text = event.event_away_team
             cell.homeTeamName.text = event.event_home_team
             cell.awayTeamLogo.sd_setImage(with: URL(string:event.away_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
             cell.homeTeamLogo.sd_setImage(with: URL(string:event.home_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.timeAndDateText.text = (event.event_date ?? "") + "/" + (event.event_time ?? "")
+            cell.timeAndDateText.layer.borderColor = UIColor(named: K.BLACK)?.cgColor
+            cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             return cell
         }
         else{
