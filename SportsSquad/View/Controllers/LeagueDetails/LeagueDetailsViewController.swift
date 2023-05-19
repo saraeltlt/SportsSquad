@@ -23,6 +23,7 @@ class LeagueDetailsViewController: UIViewController {
         //upComing collection
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
+        //upcomingCollectionView.layer.cornerRadius = 40
         APIHandler.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueDetails.league_key!) { upComing in
             self.upComingList = upComing.result
             DispatchQueue.main.async {
@@ -50,15 +51,15 @@ class LeagueDetailsViewController: UIViewController {
 
 
         //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(100)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1)), subitems: [item])
+        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
 
 
         //section
         let section = NSCollectionLayoutSection(group: group)
 
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top:8, leading: 8, bottom: 0, trailing: 8)
+       
 
         return section
 

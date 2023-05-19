@@ -3,4 +3,222 @@
    uuid = "E074671B-5649-479D-8CE3-04DA93D8C244"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "UpcomingEventsCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - 53ccceffd907b21f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.awayTeamLogo.getter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - f1e6625de1896613"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.awayTeamLogo.setter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - ff1a196002ab2f1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.awayTeamLogo.modify : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - b7e65620d0462ce0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.awayTeamLogo.modify : Swift.Optional&lt;__C.UIImageView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - cde14137da2a0a12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.init(frame: __C.CGRect) -&gt; SportsSquad.UpcomingEventsCell"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "358">
+               </Location>
+               <Location
+                  uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - 5038f963cf71ba10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SportsSquad.UpcomingEventsCell&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "UpcomingEventsCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 679079301e63ea67"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.homeTeamLogo.getter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 5cb0c9626e5de7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.homeTeamLogo.setter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 13ef83ba4707876a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.homeTeamLogo.modify : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 625c00244925ec9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.homeTeamLogo.modify : Swift.Optional&lt;__C.UIImageView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - cde14137da2a0a73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.init(frame: __C.CGRect) -&gt; SportsSquad.UpcomingEventsCell"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "413">
+               </Location>
+               <Location
+                  uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 5038f963cf71ba71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsSquad.UpcomingEventsCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SportsSquad.UpcomingEventsCell&gt;"
+                  moduleName = "SportsSquad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraeltlt/Desktop/swift/SportsSquad%20copy%202/SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "307">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
