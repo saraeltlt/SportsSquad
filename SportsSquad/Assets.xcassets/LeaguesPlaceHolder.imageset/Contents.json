@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "uefa-europa-league-4.png",
+      "filename" : "league-4.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "uefa-europa-league-4 1.png",
+      "filename" : "league-4 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,12 +23,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "uefa-europa-league.png",
+      "filename" : "league.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "uefa-europa-league-5.png",
+      "filename" : "league-5.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -39,7 +39,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "uefa-europa-league-5 1.png",
+      "filename" : "league-5 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -50,12 +50,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "uefa-europa-league-2.png",
+      "filename" : "league-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "uefa-europa-league-6.png",
+      "filename" : "league-6.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -66,7 +66,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "uefa-europa-league-6 1.png",
+      "filename" : "league-6 1.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -77,7 +77,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "uefa-europa-league-3.png",
+      "filename" : "league-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

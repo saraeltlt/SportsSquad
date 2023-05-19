@@ -1,0 +1,39 @@
+//
+//  APIHandler.swift
+//  SportsSquad
+//
+//  Created by Sara Eltlt on 19/05/2023.
+//
+
+import Foundation
+import Alamofire
+class APIHandler : APIHandlerProtocol{
+    static let sharedInstance = APIHandler()
+    private init(){
+        
+    }
+    static func getInstance() -> APIHandler{
+        return sharedInstance
+    }
+    func getLeagues(team: String , handler : @escaping(_ leagues:LeaguesModel)  -> (Void) ) {
+        let url = "\(K.BASIC_URL)\(team)/?met=Leagues&APIkey=\(K.API_KEY)"
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
+            switch response.result{
+            case .success(let data): do{
+                print("Data recived")
+               let jsonData = try JSONDecoder().decode(LeaguesModel.self, from: data!)
+                handler(jsonData)
+            }catch{
+                print(error.localizedDescription)
+            }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    
+    
+    
+}
