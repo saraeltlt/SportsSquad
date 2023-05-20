@@ -35,7 +35,6 @@
 		8FB4B16E2A18E9FF00D785CC /* UpComingEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB4B16C2A18E9FF00D785CC /* UpComingEventsCell.xib */; };
 		8FB4B1752A18F5A100D785CC /* LatestEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4B1732A18F5A100D785CC /* LatestEventCell.swift */; };
 		8FB4B1762A18F5A100D785CC /* LatestEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB4B1742A18F5A100D785CC /* LatestEventCell.xib */; };
-		8FB4B1782A18F63B00D785CC /* LeagueDetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4B1772A18F63B00D785CC /* LeagueDetailsCollectionViewController.swift */; };
 		8FB4B17A2A190B0E00D785CC /* LeagueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4B1792A190B0E00D785CC /* LeagueDetailsViewController.swift */; };
 		8FD0C5B02A18B35A00A77E84 /* DatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0C5AF2A18B35A00A77E84 /* DatabaseServiceProtocol.swift */; };
 		8FD0C5B22A18B39700A77E84 /* FetchLeaguesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0C5B12A18B39700A77E84 /* FetchLeaguesProtocol.swift */; };
@@ -98,7 +97,6 @@
 		8FB4B16C2A18E9FF00D785CC /* UpComingEventsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingEventsCell.xib; sourceTree = "<group>"; };
 		8FB4B1732A18F5A100D785CC /* LatestEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestEventCell.swift; sourceTree = "<group>"; };
 		8FB4B1742A18F5A100D785CC /* LatestEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestEventCell.xib; sourceTree = "<group>"; };
-		8FB4B1772A18F63B00D785CC /* LeagueDetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		8FB4B1792A190B0E00D785CC /* LeagueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsViewController.swift; sourceTree = "<group>"; };
 		8FD0C5AF2A18B35A00A77E84 /* DatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceProtocol.swift; sourceTree = "<group>"; };
 		8FD0C5B12A18B39700A77E84 /* FetchLeaguesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLeaguesProtocol.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				8FB4B16C2A18E9FF00D785CC /* UpComingEventsCell.xib */,
 				8FB4B1732A18F5A100D785CC /* LatestEventCell.swift */,
 				8FB4B1742A18F5A100D785CC /* LatestEventCell.xib */,
-				8FB4B1772A18F63B00D785CC /* LeagueDetailsCollectionViewController.swift */,
 				8FB4B1792A190B0E00D785CC /* LeagueDetailsViewController.swift */,
 			);
 			path = LeagueDetails;
@@ -618,7 +615,6 @@
 				8FD0C5B62A18B48100A77E84 /* FetchTeamsProtocol.swift in Sources */,
 				8FB4B1752A18F5A100D785CC /* LatestEventCell.swift in Sources */,
 				8FD0C5B02A18B35A00A77E84 /* DatabaseServiceProtocol.swift in Sources */,
-				8FB4B1782A18F63B00D785CC /* LeagueDetailsCollectionViewController.swift in Sources */,
 				8FB4B17A2A190B0E00D785CC /* LeagueDetailsViewController.swift in Sources */,
 				8FE37A052A17B8B00066B431 /* UpComingModel.swift in Sources */,
 			);

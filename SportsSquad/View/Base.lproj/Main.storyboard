@@ -456,48 +456,27 @@
             </objects>
             <point key="canvasLocation" x="3927.9069767441861" y="32.188841201716741"/>
         </scene>
-        <!--League Details Collection View Controller-->
-        <scene sceneID="Xsn-Jv-XDN">
-            <objects>
-                <collectionViewController storyboardIdentifier="LeagueDetailsCollectionViewController" id="v0Z-MB-4H6" customClass="LeagueDetailsCollectionViewController" customModule="SportsSquad" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7qO-w2-1AL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lRy-xf-yYt">
-                            <size key="itemSize" width="393" height="166"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                        <connections>
-                            <outlet property="dataSource" destination="v0Z-MB-4H6" id="l8v-du-Og8"/>
-                            <outlet property="delegate" destination="v0Z-MB-4H6" id="0Xs-3L-0GB"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GNc-Cx-dhx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6869" y="31"/>
-        </scene>
-        <!--View Controller-->
+        <!--League Details View Controller-->
         <scene sceneID="0U4-91-u1P">
             <objects>
-                <viewController id="P9Z-Oo-lBy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeagueDetailsViewController" id="P9Z-Oo-lBy" customClass="LeagueDetailsViewController" customModule="SportsSquad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYa-k7-pIz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-b8-lDc">
-                                <rect key="frame" x="10" y="69" width="373" height="32.666666666666657"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                                <color key="textColor" name="DarkPurple"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Up Coming Events" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-b8-lDc">
+                                <rect key="frame" x="0.0" y="69" width="393" height="30"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kAh-aD-DF9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                <color key="textColor" name="MidumPurple"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1HU-1r-n9f">
-                                <rect key="frame" x="0.0" y="106.66666666666667" width="393" height="187.33333333333331"/>
-                                <color key="backgroundColor" name="MidumPurple"/>
+                                <rect key="frame" x="0.0" y="99.000000000000014" width="393" height="187.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ur6-60-bPk">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -506,22 +485,9 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afZ-wd-CWF">
-                                <rect key="frame" x="10" y="317" width="373" height="32.666666666666686"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                                <color key="textColor" name="DarkPurple"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hS-3C-tAZ">
-                                <rect key="frame" x="15" y="304" width="363" height="3"/>
-                                <color key="backgroundColor" name="DarkPurple"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="cAU-WB-hgj"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NZX-ys-CAp">
-                                <rect key="frame" x="0.0" y="359.66666666666669" width="393" height="238.66666666666669"/>
-                                <color key="backgroundColor" name="MidumPurple"/>
+                                <rect key="frame" x="0.0" y="326.33333333333331" width="393" height="212.99999999999994"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7b2-dR-t0C">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -530,22 +496,8 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-AE-ZRW">
-                                <rect key="frame" x="15" y="608.33333333333337" width="363" height="3"/>
-                                <color key="backgroundColor" name="DarkPurple"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="vbe-cx-nDT"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDx-YL-pH8">
-                                <rect key="frame" x="10" y="621.33333333333337" width="373" height="32.666666666666629"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                                <color key="textColor" name="DarkPurple"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="avY-3h-cKb">
-                                <rect key="frame" x="0.0" y="664" width="393" height="110.66666666666663"/>
-                                <color key="backgroundColor" name="MidumPurple"/>
+                                <rect key="frame" x="0.0" y="569.33333333333337" width="393" height="111"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="08h-Iv-XbC">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -554,39 +506,58 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Latest Events" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rq-ey-OYk">
+                                <rect key="frame" x="0.0" y="296.33333333333331" width="393" height="30"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MLq-I0-uM5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                <color key="textColor" name="MidumPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Teams" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfQ-bm-q6U">
+                                <rect key="frame" x="0.0" y="539.33333333333337" width="393" height="30"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="y7A-Oi-peZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                <color key="textColor" name="MidumPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fsf-Pw-2tb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="White"/>
                         <constraints>
-                            <constraint firstItem="afZ-wd-CWF" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" constant="10" id="1Kp-Tc-bkT"/>
-                            <constraint firstItem="dqh-AE-ZRW" firstAttribute="top" secondItem="NZX-ys-CAp" secondAttribute="bottom" constant="10" id="2Ia-Jc-HDj"/>
-                            <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="afZ-wd-CWF" secondAttribute="trailing" constant="10" id="4gc-vq-zVa"/>
-                            <constraint firstItem="0hS-3C-tAZ" firstAttribute="top" secondItem="1HU-1r-n9f" secondAttribute="bottom" constant="10" id="7xA-Bp-RBl"/>
-                            <constraint firstItem="dqh-AE-ZRW" firstAttribute="leading" secondItem="sYa-k7-pIz" secondAttribute="leading" constant="15" id="9KH-Jh-yva"/>
+                            <constraint firstItem="avY-3h-cKb" firstAttribute="top" secondItem="sfQ-bm-q6U" secondAttribute="bottom" id="8zh-wG-TLF"/>
+                            <constraint firstItem="NZX-ys-CAp" firstAttribute="top" secondItem="1Rq-ey-OYk" secondAttribute="bottom" id="9US-GJ-jiL"/>
+                            <constraint firstAttribute="trailing" secondItem="sfQ-bm-q6U" secondAttribute="trailing" id="9pi-mF-0vA"/>
+                            <constraint firstItem="1Rq-ey-OYk" firstAttribute="trailing" secondItem="Fsf-Pw-2tb" secondAttribute="trailing" id="En4-Z0-BUK"/>
                             <constraint firstItem="NZX-ys-CAp" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="GBV-Sh-k9p"/>
-                            <constraint firstItem="1HU-1r-n9f" firstAttribute="top" secondItem="9fR-b8-lDc" secondAttribute="bottom" constant="5" id="Gwb-5g-MgZ"/>
-                            <constraint firstItem="NZX-ys-CAp" firstAttribute="height" secondItem="sYa-k7-pIz" secondAttribute="height" multiplier="0.28" id="IEw-xl-4rx"/>
-                            <constraint firstItem="jDx-YL-pH8" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" constant="10" id="JbD-aO-PMu"/>
+                            <constraint firstItem="1HU-1r-n9f" firstAttribute="top" secondItem="9fR-b8-lDc" secondAttribute="bottom" id="Gwb-5g-MgZ"/>
+                            <constraint firstItem="NZX-ys-CAp" firstAttribute="height" secondItem="sYa-k7-pIz" secondAttribute="height" multiplier="0.25" id="IEw-xl-4rx"/>
                             <constraint firstItem="1HU-1r-n9f" firstAttribute="height" secondItem="sYa-k7-pIz" secondAttribute="height" multiplier="0.22" id="K7l-ng-3a8"/>
-                            <constraint firstItem="afZ-wd-CWF" firstAttribute="top" secondItem="0hS-3C-tAZ" secondAttribute="bottom" constant="10" id="LWf-7i-pKV"/>
-                            <constraint firstItem="avY-3h-cKb" firstAttribute="top" secondItem="jDx-YL-pH8" secondAttribute="bottom" constant="10" id="LcB-bc-BEg"/>
-                            <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="0hS-3C-tAZ" secondAttribute="trailing" constant="15" id="PPX-QL-SPT"/>
-                            <constraint firstItem="9fR-b8-lDc" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" constant="10" id="Pdo-9u-YIf"/>
-                            <constraint firstItem="0hS-3C-tAZ" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" constant="15" id="R22-hQ-si8"/>
+                            <constraint firstItem="9fR-b8-lDc" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="Pdo-9u-YIf"/>
+                            <constraint firstItem="sfQ-bm-q6U" firstAttribute="top" secondItem="NZX-ys-CAp" secondAttribute="bottom" id="Qm2-Sz-3XU"/>
                             <constraint firstItem="avY-3h-cKb" firstAttribute="trailing" secondItem="Fsf-Pw-2tb" secondAttribute="trailing" id="Uti-H3-oMY"/>
-                            <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="jDx-YL-pH8" secondAttribute="trailing" constant="10" id="VDd-1z-8Il"/>
                             <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="1HU-1r-n9f" secondAttribute="trailing" id="Y3S-Jg-ZjU"/>
                             <constraint firstItem="9fR-b8-lDc" firstAttribute="top" secondItem="Fsf-Pw-2tb" secondAttribute="top" constant="10" id="Y5Y-z1-wk6"/>
                             <constraint firstItem="avY-3h-cKb" firstAttribute="height" secondItem="sYa-k7-pIz" secondAttribute="height" multiplier="0.13" id="Y8c-7F-GwB"/>
                             <constraint firstItem="NZX-ys-CAp" firstAttribute="trailing" secondItem="Fsf-Pw-2tb" secondAttribute="trailing" id="YGl-Oe-f8q"/>
-                            <constraint firstItem="jDx-YL-pH8" firstAttribute="top" secondItem="dqh-AE-ZRW" secondAttribute="bottom" constant="10" id="bzx-Y1-kff"/>
-                            <constraint firstAttribute="trailing" secondItem="dqh-AE-ZRW" secondAttribute="trailing" constant="15" id="iJp-g7-bgi"/>
+                            <constraint firstItem="1Rq-ey-OYk" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="ftH-eC-q5p"/>
                             <constraint firstItem="avY-3h-cKb" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="mhF-Rv-AFi"/>
                             <constraint firstItem="1HU-1r-n9f" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="pmT-BK-BWq"/>
-                            <constraint firstItem="NZX-ys-CAp" firstAttribute="top" secondItem="afZ-wd-CWF" secondAttribute="bottom" constant="10" id="ua7-6l-mle"/>
-                            <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="9fR-b8-lDc" secondAttribute="trailing" constant="10" id="wh8-aM-F8K"/>
+                            <constraint firstItem="sfQ-bm-q6U" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="qoa-wS-V6o"/>
+                            <constraint firstItem="1Rq-ey-OYk" firstAttribute="top" secondItem="1HU-1r-n9f" secondAttribute="bottom" constant="10" id="uAb-2w-gcC"/>
+                            <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="9fR-b8-lDc" secondAttribute="trailing" id="wh8-aM-F8K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="LatestCollectionView" destination="NZX-ys-CAp" id="uCa-2l-yCS"/>
+                        <outlet property="teamsCollectionView" destination="avY-3h-cKb" id="FkY-TJ-OPG"/>
+                        <outlet property="upcomingCollectionView" destination="1HU-1r-n9f" id="XFq-Dp-rTC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TS2-gm-mcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -602,9 +573,6 @@
         <image name="football" width="42.666667938232422" height="42.666667938232422"/>
         <image name="logoColors" width="40" height="40"/>
         <image name="tennis" width="42.666667938232422" height="42.666667938232422"/>
-        <namedColor name="DarkPurple">
-            <color red="0.2199999988079071" green="0.14100000262260437" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="MidumPurple">
             <color red="0.35199999809265137" green="0.22400000691413879" blue="0.68900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -614,6 +582,9 @@
         <namedColor name="greyish">
             <color red="0.81300002336502075" green="0.82300001382827759" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

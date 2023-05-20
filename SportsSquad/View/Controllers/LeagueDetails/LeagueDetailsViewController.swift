@@ -75,8 +75,8 @@ class LeagueDetailsViewController: UIViewController {
         
         
         //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.23)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(190)), subitems: [item])
+        group.contentInsets  = NSDirectionalEdgeInsets(top: 16, leading: 10, bottom: 11, trailing: 0)
         
         
         //section
@@ -89,7 +89,7 @@ class LeagueDetailsViewController: UIViewController {
         
     }
     
-    // MARK: - up coming events
+    // MARK: - Latest events
     func latestSection() -> NSCollectionLayoutSection{
         //section consists of group of items......
         
@@ -99,8 +99,8 @@ class LeagueDetailsViewController: UIViewController {
         
         
         //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.23)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.8)), subitems: [item])
+        group.contentInsets  = NSDirectionalEdgeInsets(top: 5, leading: 32, bottom: 5, trailing: 32)
         
         
         //section
