@@ -24,6 +24,8 @@
 		8F5608F42A1670B7009DBD2D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5608F32A1670B7009DBD2D /* HomeViewController.swift */; };
 		8F5608F62A1670DE009DBD2D /* HomeLandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5608F52A1670DE009DBD2D /* HomeLandscapeViewController.swift */; };
 		8F5608F82A167117009DBD2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5608F72A167117009DBD2D /* Constants.swift */; };
+		8F56E1482A19367C00624EDC /* TeamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F56E1462A19367C00624EDC /* TeamsCell.swift */; };
+		8F56E1492A19367C00624EDC /* TeamsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F56E1472A19367C00624EDC /* TeamsCell.xib */; };
 		8F95E2EB2A167CE60028D6BB /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */; };
 		8F95E2ED2A167D180028D6BB /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F95E2EC2A167D180028D6BB /* splash.json */; };
 		8F95E2EF2A1698490028D6BB /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */; };
@@ -87,6 +89,8 @@
 		8F5608F32A1670B7009DBD2D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F5608F52A1670DE009DBD2D /* HomeLandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLandscapeViewController.swift; sourceTree = "<group>"; };
 		8F5608F72A167117009DBD2D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8F56E1462A19367C00624EDC /* TeamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCell.swift; sourceTree = "<group>"; };
+		8F56E1472A19367C00624EDC /* TeamsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsCell.xib; sourceTree = "<group>"; };
 		8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		8F95E2EC2A167D180028D6BB /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
@@ -169,11 +173,13 @@
 		8F0BE1C22A17F32B003AD56A /* LeagueDetails */ = {
 			isa = PBXGroup;
 			children = (
+				8FB4B1792A190B0E00D785CC /* LeagueDetailsViewController.swift */,
 				8FB4B16B2A18E9FF00D785CC /* UpComingEventsCell.swift */,
 				8FB4B16C2A18E9FF00D785CC /* UpComingEventsCell.xib */,
 				8FB4B1732A18F5A100D785CC /* LatestEventCell.swift */,
 				8FB4B1742A18F5A100D785CC /* LatestEventCell.xib */,
-				8FB4B1792A190B0E00D785CC /* LeagueDetailsViewController.swift */,
+				8F56E1462A19367C00624EDC /* TeamsCell.swift */,
+				8F56E1472A19367C00624EDC /* TeamsCell.xib */,
 			);
 			path = LeagueDetails;
 			sourceTree = "<group>";
@@ -192,7 +198,6 @@
 		8F53ACB02A17A37700FE580F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8FE37A102A17BB170066B431 /* Classes */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			children = (
 				8F5608CE2A167018009DBD2D /* LaunchScreen.storyboard */,
 				8F5608C62A167012009DBD2D /* Main.storyboard */,
+				8FE37A102A17BB170066B431 /* Classes */,
 				8FE37A1D2A17BD050066B431 /* Controllers */,
 			);
 			path = View;
@@ -458,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F56E1492A19367C00624EDC /* TeamsCell.xib in Resources */,
 				8F5608D02A167018009DBD2D /* LaunchScreen.storyboard in Resources */,
 				8FB4B1762A18F5A100D785CC /* LatestEventCell.xib in Resources */,
 				8F5608CD2A167018009DBD2D /* Assets.xcassets in Resources */,
@@ -596,6 +603,7 @@
 				8FE37A072A17B90B0066B431 /* LatestEventModel.swift in Sources */,
 				8F5608F42A1670B7009DBD2D /* HomeViewController.swift in Sources */,
 				8FE37A232A17D2F00066B431 /* NetworkStatusChecker.swift in Sources */,
+				8F56E1482A19367C00624EDC /* TeamsCell.swift in Sources */,
 				8F0BE1C12A17E254003AD56A /* FavouriteViewController.swift in Sources */,
 				8F95E2F32A16B15F0028D6BB /* Extensions.swift in Sources */,
 				8F53ACAF2A17A33400FE580F /* LeaguesModel.swift in Sources */,

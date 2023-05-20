@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 class LeaguesViewController: UIViewController {
+    @IBOutlet weak var noSearchResult: UIImageView!
     @IBOutlet weak var logoBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -42,7 +43,7 @@ class LeaguesViewController: UIViewController {
         //edit title
         let textAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(named: K.DARK_PURPLE)!,
-            .font: UIFont(name: "Chalkduster", size: 20.0)!,
+            .font: UIFont(name: "Chalkduster", size: 17.0)!,
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.title = "\(sportType!) leagues"
@@ -60,6 +61,8 @@ class LeaguesViewController: UIViewController {
 extension LeaguesViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (isSearching){
+           noSearchResult.isHidden = !searchArray.isEmpty
+            
              return searchArray.count
         }
         return leaguesArray.count

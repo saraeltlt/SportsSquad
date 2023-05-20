@@ -6,6 +6,6 @@
 //
 
 import Foundation
-protocol APIHandlerProtocol : FetchLeaguesProtocol , FetchLeagueDetailsProtocol {
+protocol APIHandlerProtocol : FetchLeaguesProtocol , FetchLeagueDetailsProtocol, FetchTeamsProtocol {
 
 }

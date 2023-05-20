@@ -10,7 +10,7 @@ protocol FetchLeagueDetailsProtocol{
     
     func getUpComingEvents(sportType: String ,leagueId: Int, completionHandler : @escaping(_ UpComingEvents:UpComingModel)  -> (Void) )
     
-    static func getLatestEvents(sportType: String ,leagueId: Int , completionHandler: @escaping (LatestEventModel?) -> Void )
+    func getLatestEvents(sportType: String ,leagueId: Int , completionHandler: @escaping (LatestEventModel) -> Void )
     
     
 }
