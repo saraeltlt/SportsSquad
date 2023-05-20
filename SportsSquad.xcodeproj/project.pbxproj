@@ -198,6 +198,7 @@
 		8F53ACB02A17A37700FE580F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8FE37A102A17BB170066B431 /* Classes */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,7 +297,6 @@
 			children = (
 				8F5608CE2A167018009DBD2D /* LaunchScreen.storyboard */,
 				8F5608C62A167012009DBD2D /* Main.storyboard */,
-				8FE37A102A17BB170066B431 /* Classes */,
 				8FE37A1D2A17BD050066B431 /* Controllers */,
 			);
 			path = View;

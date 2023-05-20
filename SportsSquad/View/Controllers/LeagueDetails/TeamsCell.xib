@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANm-OB-4gj">
                         <rect key="frame" x="0.0" y="0.0" width="286" height="152"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoColors" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-tG-1nT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TeamPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-tG-1nT">
                                 <rect key="frame" x="113" y="0.0" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="PXR-c1-ktR"/>
@@ -64,6 +64,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="logoColors" width="40" height="40"/>
+        <image name="TeamPlaceHolder" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>
