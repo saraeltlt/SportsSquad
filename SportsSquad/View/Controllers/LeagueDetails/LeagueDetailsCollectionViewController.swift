@@ -1,5 +1,5 @@
 //
-//  LeagueDetailsViewController.swift
+//  LeagueDetailsCollectionViewController.swift
 //  SportsSquad
 //
 //  Created by Sara Eltlt on 20/05/2023.
@@ -7,63 +7,49 @@
 
 import UIKit
 
-class LeagueDetailsViewController: UIViewController {
+
+class LeagueDetailsCollectionViewController: UICollectionViewController {
     var leagueDetails : League!
     var sportType : String!
     
-    @IBOutlet weak var upcomingCollectionView: UICollectionView!
     var upComingList = [UpCommingEvent]()
     
-    @IBOutlet weak var LatestCollectionView: UICollectionView!
     var latestEventsList = [LatestEvents]()
     
-    @IBOutlet weak var teamsCollectionView: UICollectionView!
     var teamsList = [Teams]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        upcomingCollectionView.delegate = self
-        upcomingCollectionView.dataSource = self
-        LatestCollectionView.delegate = self
-        LatestCollectionView.dataSource = self
-        teamsCollectionView.delegate = self
-        teamsCollectionView.dataSource = self
         
-        
-        upcomingCollectionView.register(UINib(nibName: K.UPCOMING_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.UPCOMING_EVENTS_CELL)
-        
-        LatestCollectionView.register(UINib(nibName: K.LATEST_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.LATEST_EVENTS_CELL)
-        
-        teamsCollectionView.register(UINib(nibName: K.UPCOMING_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.UPCOMING_EVENTS_CELL)
+        // Register cell classes
+    
+        collectionView.register(UINib(nibName: K.UPCOMING_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.UPCOMING_EVENTS_CELL)
+        collectionView.register(UINib(nibName: K.LATEST_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.LATEST_EVENTS_CELL)
         
         APIHandler.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueDetails.league_key!) { upComing in
             self.upComingList = upComing.result
             DispatchQueue.main.async {
-                self.upcomingCollectionView.reloadData()
-                self.LatestCollectionView.reloadData()
-                self.teamsCollectionView.reloadData()
+                self.collectionView.reloadData()
             }
         }
         let layout = UICollectionViewCompositionalLayout{
             index, enviroment in
-            return self.upComingSection()
+            switch index {
+            case 0:
+                return self.upComingSection()
+            case 1:
+                return self.latestSection()
+            default:
+                return self.upComingSection()
+                
+            }
+            
             
         }
-        
-        let layoutLatest = UICollectionViewCompositionalLayout{
-            index, enviroment in
-            return self.latestSection()
-            
-        }
-        upcomingCollectionView.setCollectionViewLayout(layout, animated: true)
-        LatestCollectionView.setCollectionViewLayout(layoutLatest, animated: true)
-        teamsCollectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.setCollectionViewLayout(layout, animated: true)
         
         
-
-
     }
-    
     
     // MARK: - up coming events
     func upComingSection() -> NSCollectionLayoutSection{
@@ -112,36 +98,22 @@ class LeagueDetailsViewController: UIViewController {
         
     }
     
-
-
-
-}
-
-
-// MARK: - UICollectionView
-
-extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    // MARK: - UICollectionViewDataSource
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 1
+        return 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (collectionView == upcomingCollectionView){
-            return upComingList.count
-        }
-        else if (collectionView == LatestCollectionView){
-            return upComingList.count
-        }
-        else{
-            return upComingList.count
-            
-        }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return upComingList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (collectionView == upcomingCollectionView){
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch indexPath.section{
+        case 0 :
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.UPCOMING_EVENTS_CELL, for: indexPath) as! UpComingEventsCell
             
             let event = upComingList[indexPath.row]
@@ -152,8 +124,7 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
             cell.timeAndDateText.layer.borderColor = UIColor(named: K.BLACK)?.cgColor
             cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             return cell
-        }
-        else if (collectionView == LatestCollectionView){
+        case 2:
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.LATEST_EVENTS_CELL, for: indexPath) as! LatestEventCell
             
             let event = upComingList[indexPath.row]
@@ -165,9 +136,8 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
             cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             cell.score.text = "2 : 3"
             return cell
-
-        }
-        else{
+            
+        default:
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.UPCOMING_EVENTS_CELL, for: indexPath) as! UpComingEventsCell
             
             let event = upComingList[indexPath.row]
@@ -179,10 +149,12 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
             cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             return cell
             
+            
         }
-  
+       
+        
     }
     
-  
+    
+    
 }
-

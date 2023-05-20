@@ -14,10 +14,10 @@
             filePath = "SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "UpcomingEventsCell"
-            landmarkType = "3">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "235850C9-38A1-4E82-BA3E-6F1974E42BDD - 53ccceffd907b21f"
@@ -122,10 +122,10 @@
             filePath = "SportsSquad/View/Controllers/LeagueDetails/UpcomingEventsCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "UpcomingEventsCell"
-            landmarkType = "3">
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "228743A4-13FE-4D07-BBFD-2F96591ABB1D - 679079301e63ea67"

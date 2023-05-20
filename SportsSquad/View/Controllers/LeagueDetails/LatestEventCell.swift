@@ -1,5 +1,5 @@
 //
-//  UpComingEventsCell.swift
+//  LatestEventCell.swift
 //  SportsSquad
 //
 //  Created by Sara Eltlt on 20/05/2023.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UpComingEventsCell: UICollectionViewCell {
+class LatestEventCell: UICollectionViewCell {
+
     let gradientLayer = CAGradientLayer()
     
     @IBOutlet weak var bgView: UIView!
@@ -16,6 +17,7 @@ class UpComingEventsCell: UICollectionViewCell {
     @IBOutlet weak var homeTeamLogo: UIImageView!
     @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var timeAndDateText: UILabel!
+    @IBOutlet weak var score: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

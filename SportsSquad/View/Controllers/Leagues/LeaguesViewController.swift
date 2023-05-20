@@ -90,7 +90,7 @@ extension LeaguesViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
            league = leaguesArray[indexPath.row]
         }
-     let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
+     let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "LeagueDetailsCollectionViewController") as! LeagueDetailsCollectionViewController
         detailsVC.leagueDetails = league
         detailsVC.sportType = sportType
         self.navigationController?.pushViewController(detailsVC, animated: true)

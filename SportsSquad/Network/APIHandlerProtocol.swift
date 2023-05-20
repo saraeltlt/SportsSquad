@@ -6,6 +6,6 @@
 //
 
 import Foundation
-protocol APIHandlerProtocol{
-    func getLeagues(sportType: String , handler : @escaping(_ leagues:LeaguesModel)  -> (Void) )
+protocol APIHandlerProtocol : FetchLeaguesProtocol , FetchLeagueDetailsProtocol {
+
 }

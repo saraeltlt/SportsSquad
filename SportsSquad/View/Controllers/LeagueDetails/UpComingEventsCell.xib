@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpComingEventsCell" id="gTV-IL-0wX" customClass="UpComingEventsCell" customModule="SportsSquad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="205"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="368" height="205"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rv7-yk-VYM">
+                        <rect key="frame" x="0.0" y="0.0" width="368" height="205"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwc-nV-V4A">
+                                <rect key="frame" x="0.0" y="0.0" width="368" height="205"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWB-TS-Xud">
+                                <rect key="frame" x="73" y="81.333333333333329" width="275" height="17.666666666666671"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xzU-Qj-5Bm">
+                                <rect key="frame" x="13" y="65" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Q7z-zx-Ixq"/>
+                                    <constraint firstAttribute="width" constant="50" id="wn7-VR-ae7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AWo-vu-FiB">
+                                <rect key="frame" x="303" y="140" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bix-jA-idS"/>
+                                    <constraint firstAttribute="width" constant="50" id="e0N-xe-iex"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vs" translatesAutoresizingMaskIntoConstraints="NO" id="H7d-9t-asO">
+                                <rect key="frame" x="151.66666666666666" y="105" width="65" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="OzI-G8-g4n"/>
+                                    <constraint firstAttribute="width" constant="65" id="W3a-8N-g7T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoy-MB-f0r">
+                                <rect key="frame" x="20" y="156.33333333333334" width="273" height="17.666666666666657"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-05-31   23:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkP-vn-MNd">
+                                <rect key="frame" x="74" y="32" width="220" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="k75-kx-5Pk"/>
+                                    <constraint firstAttribute="width" constant="220" id="y72-PL-A45"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AWo-vu-FiB" firstAttribute="top" secondItem="H7d-9t-asO" secondAttribute="bottom" constant="-10" id="3a2-zQ-uDp"/>
+                            <constraint firstAttribute="bottom" secondItem="wwc-nV-V4A" secondAttribute="bottom" id="4M0-cn-MPh"/>
+                            <constraint firstItem="FWB-TS-Xud" firstAttribute="centerY" secondItem="xzU-Qj-5Bm" secondAttribute="centerY" id="5cQ-ID-ijV"/>
+                            <constraint firstItem="AWo-vu-FiB" firstAttribute="leading" secondItem="yoy-MB-f0r" secondAttribute="trailing" constant="10" id="5lU-J7-bIf"/>
+                            <constraint firstItem="H7d-9t-asO" firstAttribute="top" secondItem="xzU-Qj-5Bm" secondAttribute="bottom" constant="-10" id="7XP-6a-n7E"/>
+                            <constraint firstAttribute="bottom" secondItem="AWo-vu-FiB" secondAttribute="bottom" constant="15" id="Ke1-R1-9AW"/>
+                            <constraint firstAttribute="trailing" secondItem="AWo-vu-FiB" secondAttribute="trailing" constant="15" id="MSb-d2-Ilm"/>
+                            <constraint firstItem="FWB-TS-Xud" firstAttribute="leading" secondItem="xzU-Qj-5Bm" secondAttribute="trailing" constant="10" id="QQQ-t4-tVM"/>
+                            <constraint firstItem="wwc-nV-V4A" firstAttribute="top" secondItem="rv7-yk-VYM" secondAttribute="top" id="QQn-y7-qtK"/>
+                            <constraint firstItem="yoy-MB-f0r" firstAttribute="leading" secondItem="rv7-yk-VYM" secondAttribute="leading" constant="20" id="WVt-Fg-whc"/>
+                            <constraint firstItem="xzU-Qj-5Bm" firstAttribute="top" secondItem="mkP-vn-MNd" secondAttribute="bottom" constant="8" symbolic="YES" id="XAg-5R-qOf"/>
+                            <constraint firstItem="yoy-MB-f0r" firstAttribute="centerY" secondItem="AWo-vu-FiB" secondAttribute="centerY" id="Xs9-55-VIa"/>
+                            <constraint firstAttribute="trailing" secondItem="wwc-nV-V4A" secondAttribute="trailing" id="ZHn-Ap-2Tr"/>
+                            <constraint firstItem="H7d-9t-asO" firstAttribute="centerX" secondItem="rv7-yk-VYM" secondAttribute="centerX" id="dss-pW-d1T"/>
+                            <constraint firstItem="wwc-nV-V4A" firstAttribute="leading" secondItem="rv7-yk-VYM" secondAttribute="leading" id="enk-bz-ySq"/>
+                            <constraint firstAttribute="trailing" secondItem="FWB-TS-Xud" secondAttribute="trailing" constant="20" id="p80-hn-xrV"/>
+                            <constraint firstItem="xzU-Qj-5Bm" firstAttribute="leading" secondItem="rv7-yk-VYM" secondAttribute="leading" constant="13" id="wMN-P4-PDu"/>
+                            <constraint firstItem="mkP-vn-MNd" firstAttribute="centerX" secondItem="rv7-yk-VYM" secondAttribute="centerX" id="yB0-C6-wbe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="40"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rv7-yk-VYM" secondAttribute="bottom" id="2Ys-aZ-DBz"/>
+                <constraint firstAttribute="trailing" secondItem="rv7-yk-VYM" secondAttribute="trailing" id="Bg4-6T-RMO"/>
+                <constraint firstItem="rv7-yk-VYM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JKE-GD-ZAd"/>
+                <constraint firstItem="rv7-yk-VYM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tQA-iw-jP2"/>
+            </constraints>
+            <size key="customSize" width="368" height="205"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="40"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="awayTeamLogo" destination="AWo-vu-FiB" id="mFB-Yu-l2o"/>
+                <outlet property="awayTeamName" destination="yoy-MB-f0r" id="Lt7-uw-PAd"/>
+                <outlet property="bgView" destination="wwc-nV-V4A" id="cky-En-bPB"/>
+                <outlet property="homeTeamLogo" destination="xzU-Qj-5Bm" id="5X3-Rl-7uJ"/>
+                <outlet property="homeTeamName" destination="FWB-TS-Xud" id="xXg-VM-hmh"/>
+                <outlet property="timeAndDateText" destination="mkP-vn-MNd" id="hXO-rE-8M5"/>
+            </connections>
+            <point key="canvasLocation" x="19.847328244274809" y="8.8028169014084519"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="vs" width="42.666667938232422" height="42.666667938232422"/>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
