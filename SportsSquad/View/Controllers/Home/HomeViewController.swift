@@ -10,7 +10,6 @@ import UIKit
 class HomeViewController: UIViewController{
     var isDarkMode: Bool = false
     @IBOutlet weak var footballBtn: UIButton!
-    let transition = CircularTransition()
     
     
     @IBOutlet weak var modeLabel: UILabel!
