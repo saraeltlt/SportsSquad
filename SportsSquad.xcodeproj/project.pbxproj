@@ -182,19 +182,29 @@
 			path = LeagueDetails;
 			sourceTree = "<group>";
 		};
-		8F53ACA92A17989100FE580F /* Utills */ = {
+		8F2CAFC62A19F90F004BE9CC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8FD0C5AF2A18B35A00A77E84 /* DatabaseServiceProtocol.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8F53ACA92A17989100FE580F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				8F5608F72A167117009DBD2D /* Constants.swift */,
 				8F95E2F22A16B15F0028D6BB /* Extensions.swift */,
 				8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */,
 			);
-			path = Utills;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		8F53ACB02A17A37700FE580F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8F2CAFC62A19F90F004BE9CC /* CoreData */,
+				8FE37A0F2A17BA250066B431 /* Network */,
 				8FE37A102A17BB170066B431 /* Classes */,
 			);
 			path = Model;
@@ -225,12 +235,10 @@
 		8F5608BF2A167012009DBD2D /* SportsSquad */ = {
 			isa = PBXGroup;
 			children = (
-				8FD0C5AE2A18B32F00A77E84 /* Database */,
-				8FE37A212A17BD800066B431 /* ViewModel */,
 				8F53ACB02A17A37700FE580F /* Model */,
 				8FE37A182A17BC840066B431 /* View */,
-				8FE37A0F2A17BA250066B431 /* Network */,
-				8F53ACA92A17989100FE580F /* Utills */,
+				8FE37A212A17BD800066B431 /* ViewModel */,
+				8F53ACA92A17989100FE580F /* Utilities */,
 				8F5608D12A167018009DBD2D /* Info.plist */,
 				8F5608CC2A167018009DBD2D /* Assets.xcassets */,
 				8F5608C02A167012009DBD2D /* AppDelegate.swift */,
@@ -256,14 +264,6 @@
 				8F5608E62A167019009DBD2D /* SportsSquadUITestsLaunchTests.swift */,
 			);
 			path = SportsSquadUITests;
-			sourceTree = "<group>";
-		};
-		8FD0C5AE2A18B32F00A77E84 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				8FD0C5AF2A18B35A00A77E84 /* DatabaseServiceProtocol.swift */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 		8FE37A0F2A17BA250066B431 /* Network */ = {
