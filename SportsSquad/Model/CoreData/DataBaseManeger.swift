@@ -80,5 +80,20 @@ class DataBaseManeger : DatabaseServiceProtocol{
             print("error")
         }
     }
+    
+    func isFav(teamId: Int) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "teamId == %@", argumentArray: [teamId])
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return !results.isEmpty // Return true if the team with the given ID exists, indicating it is a favorite
+        } catch {
+            print("Error checking favorite status: \(error)")
+            return false
+        }
+    }
+    
+    
 
 }

@@ -35,7 +35,14 @@ class TeamsDetailsViewController: UIViewController {
                 self.teamName.text = self.team.team_name
                 self.coachNameBtn.setTitle("  \(self.team.coaches[0].coach_name ?? "unknown")", for: .normal)
             }
-            
+          
+        
+        }
+        
+        if DataBaseManeger.shared().isFav(teamId: teamId) {
+            favBtn.tintColor = UIColor(named: K.favColor)
+        }else{
+            favBtn.tintColor = UIColor(named: K.WHITE)
         }
         
        

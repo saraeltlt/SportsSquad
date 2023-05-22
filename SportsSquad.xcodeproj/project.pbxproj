@@ -211,9 +211,9 @@
 		8F53ACA92A17989100FE580F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */,
 				8F5608F72A167117009DBD2D /* Constants.swift */,
 				8F95E2F22A16B15F0028D6BB /* Extensions.swift */,
-				8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

@@ -23,9 +23,10 @@ class FavouriteViewController: UIViewController {
         favTableView.reloadData()
         setupAnimation()
         
+        
 
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         DataBaseManeger.shared().getData(teamsList: &teamsList)
         favTableView.reloadData()
         setupAnimation()
@@ -61,6 +62,7 @@ extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource{
      let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
         detailsVC.teamId = teamsList[indexPath.row].team_key!
         detailsVC.teamNameText = teamsList[indexPath.row].team_name!
+        detailsVC.isFav = true
         self.navigationController?.pushViewController(detailsVC, animated: true)
         
     }
@@ -78,7 +80,6 @@ extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource{
             
             completionHandler(true)
         }
-        
 
         deleteAction.backgroundColor = UIColor(named: K.MEDIUM_PURPLE)
         
