@@ -29,12 +29,18 @@ class LeagueDetailsViewController: UIViewController {
         configNavigationBar()
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
+        upcomingCollectionView.backgroundView?.backgroundColor = UIColor.clear
+        upcomingCollectionView.backgroundColor = UIColor.clear
         
         LatestCollectionView.delegate = self
         LatestCollectionView.dataSource = self
+        LatestCollectionView.backgroundView?.backgroundColor = UIColor.clear
+        LatestCollectionView.backgroundColor = UIColor.clear
         
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
+        teamsCollectionView.backgroundView?.backgroundColor = UIColor.clear
+        teamsCollectionView.backgroundColor = UIColor.clear
         
         if sportType == "tennis" || sportType == "cricket"{
             TeamsOrPlayerLabel.text="  Players"
@@ -60,7 +66,7 @@ class LeagueDetailsViewController: UIViewController {
             }
             
         }
-        
+
         APIHandler.sharedInstance.getTeams(sportType: sportType, leagueId: leagueDetails.league_key!) { teams in
             self.teamsList = teams.result
             DispatchQueue.main.async {
@@ -222,7 +228,7 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
             cell.homeTeamName.text = event.event_home_team
             cell.awayTeamLogo.sd_setImage(with: URL(string:event.away_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
             cell.homeTeamLogo.sd_setImage(with: URL(string:event.home_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.timeAndDateText.layer.borderColor = UIColor(named: K.BLACK)?.cgColor
+            cell.timeAndDateText.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
             cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             return cell
         }
@@ -234,15 +240,15 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
             cell.homeTeamName.text = event.event_home_team
             cell.awayTeamLogo.sd_setImage(with: URL(string:event.away_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
             cell.homeTeamLogo.sd_setImage(with: URL(string:event.home_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.timeAndDateText.layer.borderColor = UIColor(named: K.BLACK)?.cgColor
+            cell.timeAndDateText.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
             cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             cell.score.text = event.event_final_result
             return cell
 
         }
-        else{
+        else{ //teams
+        
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.TEAMS_CELL, for: indexPath) as! TeamsCell
-            
             let team = teamsList[indexPath.row]
             cell.teamImage.sd_setImage(with: URL(string:team.team_logo ?? " "), placeholderImage: UIImage(named: K.TEAMS_PLACEHOLDER_IMAGE))
             cell.teamName.text = team.team_name
@@ -252,6 +258,22 @@ extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionVi
         }
   
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (collectionView == teamsCollectionView){
+            if sportType == "tennis" || sportType == "cricket"{
+               //display aler
+                print("NO TEAMS")
+            }
+            else{
+                let teamDetailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
+                teamDetailsVC.teamId=teamsList[indexPath.row].team_key!
+                teamDetailsVC.teamNameText=teamsList[indexPath.row].team_name!
+                self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+                
+            }
+        }
+    }
+    
     
   
 }

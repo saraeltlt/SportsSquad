@@ -7,5 +7,7 @@
 
 import Foundation
 protocol DatabaseServiceProtocol {
-    
+    func saveData(teamData : Teams)
+    func getData(teamsList: inout [Teams])
+    func deleteData(teamId:Int)
 }

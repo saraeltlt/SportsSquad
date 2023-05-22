@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class LeaguesTableViewCell: UITableViewCell {
+class LeaguesCell: UITableViewCell {
 
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var LeagueName: UILabel!
@@ -15,7 +15,7 @@ class LeaguesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        leagueImage.layer.borderColor = UIColor(named: K.BLACK)?.cgColor
+        leagueImage.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
     }
 
     override func layoutSubviews() {

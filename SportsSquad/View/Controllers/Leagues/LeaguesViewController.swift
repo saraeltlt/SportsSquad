@@ -21,6 +21,8 @@ class LeaguesViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundView?.backgroundColor = UIColor.clear
+        tableView.backgroundColor = UIColor.clear
         searchBar.delegate=self
         configNavigationBar()
         APIHandler.sharedInstance.getLeagues(sportType: sportType) { leagues in
@@ -29,6 +31,10 @@ class LeaguesViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        searchBar.barTintColor = UIColor.clear
+        searchBar.backgroundColor = UIColor.clear
+        searchBar.isTranslucent = true
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     
     }
 // MARK: - Back
@@ -62,14 +68,13 @@ extension LeaguesViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (isSearching){
            noSearchResult.isHidden = !searchArray.isEmpty
-            
              return searchArray.count
         }
         return leaguesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.LEAGUES_CELL, for: indexPath) as! LeaguesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.LEAGUES_CELL, for: indexPath) as! LeaguesCell
         var league : League!
         if (isSearching){
             league = searchArray[indexPath.row]

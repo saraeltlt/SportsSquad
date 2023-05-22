@@ -14,13 +14,8 @@ class HomeViewController: UIViewController{
     
     @IBOutlet weak var modeLabel: UILabel!
     
-    @IBOutlet weak var switchMode: UISwitch!{
-        didSet{
-            switchMode.onTintColor = UIColor(named: K.MEDIUM_PURPLE)
-            switchMode.tintColor =  UIColor(named:  K.MEDIUM_PURPLE)
-            switchMode.subviews[0].subviews[0].backgroundColor =  UIColor(named:  K.MEDIUM_PURPLE)
-        }
-    }
+    @IBOutlet weak var switchMode: UISwitch!
+     
     
     
     
@@ -29,6 +24,7 @@ class HomeViewController: UIViewController{
         isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
         switchMode.isOn = isDarkMode
         modeLabel.text = isDarkMode ? "Dark Mode" : "Light Mode"
+        
  
     }
 
