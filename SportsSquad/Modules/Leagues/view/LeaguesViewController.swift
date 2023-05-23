@@ -20,8 +20,7 @@ class LeaguesViewController: UIViewController{
     var searchArray = [League]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-           view.addGestureRecognizer(tapGesture)
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundView?.backgroundColor = UIColor.clear
@@ -143,9 +142,5 @@ extension LeaguesViewController : UISearchBarDelegate{
         }
         searchBar.resignFirstResponder()
     }
-    @objc func handleTap() {
-        
-        searchBar.resignFirstResponder()
-    }
-  
+
 }
