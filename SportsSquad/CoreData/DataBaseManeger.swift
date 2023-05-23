@@ -40,29 +40,26 @@ class DataBaseManeger : DatabaseServiceProtocol{
         }
 
     }
-    func getData(teamsList: inout [Teams]){
-        teamsList.removeAll()
+    func getData() -> [Teams] {
+        var teamsList = [Teams]()
         print("Team get")
         let req = NSFetchRequest<NSManagedObject>(entityName: K.ENTITY_NAME)
         do {
             teamsArrayNS = try context.fetch(req)
-            for team in teamsArrayNS{
-
-                 let name = team.value(forKey: "teamName") as? String
-                   let logo = team.value(forKey: "teamLogo") as? String
+            for team in teamsArrayNS {
+                let name = team.value(forKey: "teamName") as? String
+                let logo = team.value(forKey: "teamLogo") as? String
                 let id = team.value(forKey: "teamId") as? Int
                 let t = Teams()
                 t.team_name = name
                 t.team_logo = logo
                 t.team_key = id
                 teamsList.append(t)
-               
             }
-      
-        }catch{
+        } catch {
             print("ERROR")
         }
-        
+        return teamsList
     }
     
     func deleteData(teamId:Int){

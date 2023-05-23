@@ -12,9 +12,12 @@ extension AppDelegate {
     func overrideApplicationThemeStyle() {
         if #available(iOS 13.0, *) {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
-            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+            print (isDarkMode)
+            let appearanceMode: UIUserInterfaceStyle = isDarkMode ? .dark : .light
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = appearanceMode
         } else {
-
+            let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
+            UIApplication.shared.statusBarStyle = isDarkMode ? .lightContent : .default
         }
     }
 }

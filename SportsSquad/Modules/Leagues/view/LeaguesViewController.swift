@@ -112,6 +112,11 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
 extension LeaguesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         leaguesViewModel?.filterLeagues(with: searchText)
+        if searchBar.text!.isEmpty{
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

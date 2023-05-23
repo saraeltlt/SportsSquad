@@ -15,11 +15,11 @@ class LeaguesModel : Decodable {
     var success : Int?
 }
 class League : Decodable {
+    //football
     var league_key:Int?
     var league_name:String?
+    //not in basket,cricket or tennis
     var league_logo:String?
-    var country_key:Int?
-    var country_name:String?
 }
  //MARK: - struct to leagues View
 

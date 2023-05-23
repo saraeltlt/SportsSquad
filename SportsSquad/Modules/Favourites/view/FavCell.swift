@@ -12,6 +12,13 @@ class FavCell: UITableViewCell {
     @IBOutlet weak var teamImage: UIImageView!
     @IBOutlet weak var bgView: UIView!
     let gradientLayer = CAGradientLayer()
+    
+    func configure(with team: Teams) {
+            teamImage.sd_setImage(with: URL(string: team.team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+            teamName.text = team.team_name
+        }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         teamImage.layer.borderColor = UIColor(named: K.WHITE)?.cgColor

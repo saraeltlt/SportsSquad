@@ -197,7 +197,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
                 let teamId = detailsViewModel.teamsList[indexPath.row].team_key!
                 let teamNameText = detailsViewModel.teamsList[indexPath.row].team_name!
                 let teamViewModel = TeamDetailsViewModel(teamId: teamId,teamName: teamNameText)
-                teamDetailsVC.teamDetailsViewModel = teamViewModel
+                teamDetailsVC.viewModel = teamViewModel
                 self.navigationController?.pushViewController(teamDetailsVC, animated: true)
              
             } else {

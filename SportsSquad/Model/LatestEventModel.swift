@@ -16,9 +16,14 @@ class LatestEvents : Decodable {
     var  event_home_team : String?
     var  event_away_team : String?
     var  event_final_result : String?
+    
+    //football
     var  home_team_logo : String?
     var  away_team_logo: String?
-  
+    
+    //basket
+    var event_home_team_logo: String?
+    var event_away_team_logo: String?
     
   
 }

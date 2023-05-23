@@ -10,6 +10,7 @@ class LeagueDetailsViewModel {
     var bindLatestEventListToLeagueDetailsVC: (() -> Void)?
     var bindTeamsListToLeagueDetailsVC: (() -> Void)?
     
+    
     var upcomingList = [UpCommingEvent]()
     var latestEventsList = [LatestEvents]()
     var teamsList = [Teams]()

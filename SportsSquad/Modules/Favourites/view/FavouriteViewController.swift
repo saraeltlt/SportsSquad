@@ -7,88 +7,73 @@
 
 import UIKit
 import Lottie
+
 class FavouriteViewController: UIViewController {
-
-    
-
-    @IBOutlet weak var networkIndecator: UIActivityIndicatorView!
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var favTableView: UITableView!
-    var teamsList = [Teams]()
-    
+
+    var viewModel: FavouriteViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = FavouriteViewModel()
         favTableView.delegate = self
         favTableView.dataSource = self
-        DataBaseManeger.shared().getData(teamsList: &teamsList)
-        favTableView.reloadData()
         setupAnimation()
-        
-        
-
     }
+
     override func viewWillAppear(_ animated: Bool) {
-        DataBaseManeger.shared().getData(teamsList: &teamsList)
-        favTableView.reloadData()
+        super.viewWillAppear(animated)
+        viewModel.bindFavListToFavouriteTableViewController = { [weak self] in
+            DispatchQueue.main.async {
+                self?.favTableView.reloadData()
+            }
+        }
+        viewModel.fetchTeams()
         setupAnimation()
     }
-    
-    //MARK: - NO Favourite animation View
-    private func setupAnimation(){
-    animationView.isHidden = !teamsList.isEmpty
-      
-        
+
+    private func setupAnimation() {
+        animationView.isHidden = viewModel.teamsCount > 0
     }
-    
-    
-    
-
-
 }
-//MARK: - TableView
-extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource{
+
+// MARK: - TableView
+
+extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teamsList.count
+        return viewModel.teamsCount
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.FAVOURITE_CELL, for: indexPath) as! FavCell
-        cell.teamImage.sd_setImage(with: URL(string: teamsList[indexPath.row].team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-        cell.teamName.text = teamsList[indexPath.row].team_name
+        let team = viewModel.team(at: indexPath.row)
+        cell.configure(with: team)
         return cell
     }
-   
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-     let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
-        var teamId = teamsList[indexPath.row].team_key!
-        var teamNameText = teamsList[indexPath.row].team_name!
-        var teamViewModel = TeamDetailsViewModel(teamId: teamId,teamName: teamNameText, isFav: true)
-        detailsVC.teamDetailsViewModel = teamViewModel
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
+        let team = viewModel.team(at: indexPath.row)
+        let teamViewModel = TeamDetailsViewModel(teamId: team.team_key!, teamName: team.team_name!)
+        detailsVC.viewModel = teamViewModel
         self.navigationController?.pushViewController(detailsVC, animated: true)
-        
     }
-   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 100
-   }
-    
-    
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completionHandler) in
-            DataBaseManeger.shared().deleteData(teamId: self.teamsList[indexPath.row].team_key ?? 0)
-            self.teamsList.remove(at:indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+            self?.viewModel.deleteTeam(at: indexPath.row)
             completionHandler(true)
         }
 
         deleteAction.backgroundColor = UIColor(named: K.MEDIUM_PURPLE)
-        
+
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
-    
 }
 
