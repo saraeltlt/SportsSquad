@@ -15,10 +15,11 @@ class TeamsDetailsViewController: UIViewController {
     @IBOutlet weak var coachNameBtn: UIButton!
     @IBOutlet weak var teamName: UILabel!
     @IBOutlet weak var teamLogo: UIImageView!
-    var teamId : Int = 0
-    var isFav  = false
-    var team = Teams()
-    var teamNameText = ""
+
+    @IBOutlet weak var networkIndecator: UIActivityIndicatorView!
+    
+    var teamDetailsViewModel: TeamDetailsViewModel!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
@@ -27,117 +28,84 @@ class TeamsDetailsViewController: UIViewController {
         playersCollectionView.backgroundView?.backgroundColor = UIColor.clear
        playersCollectionView.backgroundColor = UIColor.clear
 
-        APIHandler.sharedInstance.getTeamDetails(teamId: teamId) { players in
-            self.team = players.result[0]
+        teamDetailsViewModel.getTeamDetails { [weak self] team in
             DispatchQueue.main.async {
-                self.playersCollectionView.reloadData()
-                self.teamLogo.sd_setImage(with: URL(string:self.team.team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-                self.teamName.text = self.team.team_name
-                self.coachNameBtn.setTitle("  \(self.team.coaches[0].coach_name ?? "unknown")", for: .normal)
+                self?.playersCollectionView.reloadData()
+                self?.teamLogo.sd_setImage(with: URL(string: team.team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+                self?.teamName.text = team.team_name
+                self?.coachNameBtn.setTitle("  \(team.coaches[0].coach_name ?? "unknown")", for: .normal)
             }
-          
-        
         }
         
-        if DataBaseManeger.shared().isFav(teamId: teamId) {
-            favBtn.tintColor = UIColor(named: K.favColor)
-        }else{
-            favBtn.tintColor = UIColor(named: K.WHITE)
+        teamDetailsViewModel.bindTeamsListToTeamDetailsVC = { [weak self] in
+            if self?.teamDetailsViewModel.isFav ?? false {
+                self?.favBtn.tintColor = UIColor(named: K.favColor)
+            } else {
+                self?.favBtn.tintColor = UIColor(named: K.WHITE)
+            }
         }
         
-       
-        
-        
-        let layout = UICollectionViewCompositionalLayout{
-            index, enviroment in
+        let layout = UICollectionViewCompositionalLayout {
+            index, environment in
             return self.playersSection()
         }
         playersCollectionView.setCollectionViewLayout(layout, animated: true)
 
     }
-    // MARK: - add to favourite
+
     @IBAction func addToFav(_ sender: Any) {
-        if (!isFav){
-            favBtn.tintColor = UIColor(named: K.favColor)
-            DataBaseManeger.shared().saveData(teamData: team)
-            isFav=true
-        }
-        else{
-            favBtn.tintColor = UIColor(named: K.WHITE)
-            DataBaseManeger.shared().deleteData(teamId: teamId)
-            isFav = false
-        }
+        teamDetailsViewModel.updateFavoriteStatus()
     }
-    // MARK: - Latest events
-    func playersSection() -> NSCollectionLayoutSection{
-        //section consists of group of items......
-        
-        //item
+
+    func playersSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
-        item.contentInsets  = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
-        
-        
-        //group
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
+
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(240)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
-        
-        
-        //section
+        group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
+
         let section = NSCollectionLayoutSection(group: group)
 
-        
         return section
-        
     }
-    
 
-  
-   
-    
-    // MARK: - Back
-     
-        private func configNavigationBar(){
-            //edit back button
-            let backButton = UIButton(type: .custom)
-            backButton.setImage(UIImage(named: K.BACK_ARROW), for: .normal)
-            backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-            navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backButton)
-            
-            //edit title
-            let textAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor(named: K.MEDIUM_PURPLE)!,
-                .font: UIFont(name: "Chalkduster", size: 17.0)!,
-            ]
-            navigationController?.navigationBar.titleTextAttributes = textAttributes
-            navigationItem.title = teamNameText
-        }
-        @objc func backButtonTapped() {
-            self.navigationController?.popViewController(animated: true)
-        }
-        
+    private func configNavigationBar() {
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: K.BACK_ARROW), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
 
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(named: K.MEDIUM_PURPLE)!,
+            .font: UIFont(name: "Chalkduster", size: 17.0)!,
+        ]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.title = teamDetailsViewModel.teamName
+    }
+
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
-    
-// MARK: - UICollectionView
-extension TeamsDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+
+extension TeamsDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let teamPlayers = team.players{
+        if let teamPlayers = teamDetailsViewModel.team.players {
             return teamPlayers.count
         }
         return 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.TEAM_DETAILS_CELL, for: indexPath) as! TeamDetailsCell
-        
-        cell.playerName.text = team.players![indexPath.row].player_name
-        cell.playerType.text = team.players![indexPath.row].player_type
-        cell.playerAge.text = team.players![indexPath.row].player_age
-        cell.playerNumber.text = team.players![indexPath.row].player_number
-        cell.playerImg.sd_setImage(with: URL(string: team.players![indexPath.row].player_image ?? " "), placeholderImage: UIImage(named: K.Player_PLACEHOLDER_IMAGE))
-       
-        
+
+        cell.playerName.text = teamDetailsViewModel.team.players![indexPath.row].player_name
+        cell.playerType.text = teamDetailsViewModel.team.players![indexPath.row].player_type
+        cell.playerAge.text = teamDetailsViewModel.team.players![indexPath.row].player_age
+        cell.playerNumber.text = teamDetailsViewModel.team.players![indexPath.row].player_number
+        cell.playerImg.sd_setImage(with: URL(string: teamDetailsViewModel.team.players![indexPath.row].player_image ?? " "), placeholderImage: UIImage(named: K.Player_PLACEHOLDER_IMAGE))
+
         let existingColor = UIColor(named: K.WHITE)
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -147,5 +115,4 @@ extension TeamsDetailsViewController : UICollectionViewDelegate, UICollectionVie
         cell.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.5)
         return cell
     }
-    
 }

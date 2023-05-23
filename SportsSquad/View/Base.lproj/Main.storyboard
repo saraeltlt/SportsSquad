@@ -484,6 +484,11 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NZX-ys-CAp">
                                 <rect key="frame" x="0.0" y="326.33333333333331" width="393" height="212.99999999999994"/>
@@ -495,6 +500,11 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxR-d8-AhT">
                                 <rect key="frame" x="16" y="326.33333333333331" width="361" height="212.99999999999994"/>
@@ -513,6 +523,11 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCK-iS-mUg">
                                 <rect key="frame" x="0.0" y="569.33333333333337" width="393" height="111"/>
@@ -550,6 +565,14 @@
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-jL-Bhh">
+                                <rect key="frame" x="171.66666666666666" y="386" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Ct-fe-qQe"/>
+                                    <constraint firstAttribute="width" constant="50" id="7Bh-WG-oR6"/>
+                                </constraints>
+                                <color key="color" name="favColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fsf-Pw-2tb"/>
                         <color key="backgroundColor" name="White"/>
@@ -560,6 +583,7 @@
                             <constraint firstItem="avY-3h-cKb" firstAttribute="top" secondItem="sfQ-bm-q6U" secondAttribute="bottom" id="8zh-wG-TLF"/>
                             <constraint firstItem="NZX-ys-CAp" firstAttribute="top" secondItem="1Rq-ey-OYk" secondAttribute="bottom" id="9US-GJ-jiL"/>
                             <constraint firstAttribute="trailing" secondItem="sfQ-bm-q6U" secondAttribute="trailing" id="9pi-mF-0vA"/>
+                            <constraint firstItem="aNf-jL-Bhh" firstAttribute="centerX" secondItem="sYa-k7-pIz" secondAttribute="centerX" id="AuW-wa-tZ4"/>
                             <constraint firstItem="1Rq-ey-OYk" firstAttribute="trailing" secondItem="Fsf-Pw-2tb" secondAttribute="trailing" id="En4-Z0-BUK"/>
                             <constraint firstItem="NZX-ys-CAp" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="GBV-Sh-k9p"/>
                             <constraint firstItem="1HU-1r-n9f" firstAttribute="top" secondItem="9fR-b8-lDc" secondAttribute="bottom" id="Gwb-5g-MgZ"/>
@@ -570,6 +594,7 @@
                             <constraint firstItem="9fR-b8-lDc" firstAttribute="leading" secondItem="Fsf-Pw-2tb" secondAttribute="leading" id="Pdo-9u-YIf"/>
                             <constraint firstItem="sfQ-bm-q6U" firstAttribute="top" secondItem="NZX-ys-CAp" secondAttribute="bottom" id="Qm2-Sz-3XU"/>
                             <constraint firstItem="jxR-d8-AhT" firstAttribute="top" secondItem="1Rq-ey-OYk" secondAttribute="bottom" id="RQD-GL-Bye"/>
+                            <constraint firstItem="aNf-jL-Bhh" firstAttribute="centerY" secondItem="sYa-k7-pIz" secondAttribute="centerY" constant="-15" id="Rdv-OD-q4e"/>
                             <constraint firstItem="avY-3h-cKb" firstAttribute="trailing" secondItem="Fsf-Pw-2tb" secondAttribute="trailing" id="Uti-H3-oMY"/>
                             <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="jxR-d8-AhT" secondAttribute="trailing" constant="16" id="Vbf-RT-zh1"/>
                             <constraint firstItem="Fsf-Pw-2tb" firstAttribute="trailing" secondItem="1HU-1r-n9f" secondAttribute="trailing" id="Y3S-Jg-ZjU"/>
@@ -591,11 +616,12 @@
                     </view>
                     <connections>
                         <outlet property="LatestCollectionView" destination="NZX-ys-CAp" id="uCa-2l-yCS"/>
-                        <outlet property="TeamsOrPlayerLabel" destination="sfQ-bm-q6U" id="kyf-Q5-Ruu"/>
+                        <outlet property="networkIndecator" destination="aNf-jL-Bhh" id="rZ2-Zi-HO0"/>
                         <outlet property="noLatest" destination="jxR-d8-AhT" id="UU9-pf-zbw"/>
                         <outlet property="noTeams" destination="jCK-iS-mUg" id="h9D-tV-hFl"/>
-                        <outlet property="noUpComing" destination="kkh-QJ-V4r" id="JWn-H3-n0z"/>
+                        <outlet property="noUpcoming" destination="kkh-QJ-V4r" id="aES-ZY-Mvp"/>
                         <outlet property="teamsCollectionView" destination="avY-3h-cKb" id="FkY-TJ-OPG"/>
+                        <outlet property="teamsOrPlayerLabel" destination="sfQ-bm-q6U" id="Uhc-8r-CgT"/>
                         <outlet property="upcomingCollectionView" destination="1HU-1r-n9f" id="XFq-Dp-rTC"/>
                     </connections>
                 </viewController>
@@ -827,15 +853,25 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FiS-Vs-KCb">
+                                        <rect key="frame" x="171.66666666666666" y="354.66666666666669" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="QRl-ml-JnA"/>
+                                            <constraint firstAttribute="height" constant="50" id="gmf-Ad-OnF"/>
+                                        </constraints>
+                                        <color key="color" name="favColor"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="lO3-G1-VV0" firstAttribute="top" secondItem="Gbk-yi-4WH" secondAttribute="top" id="Dai-JW-z9e"/>
                                     <constraint firstItem="lO3-G1-VV0" firstAttribute="leading" secondItem="Gbk-yi-4WH" secondAttribute="leading" id="EQd-pM-pW3"/>
+                                    <constraint firstItem="FiS-Vs-KCb" firstAttribute="centerX" secondItem="Gbk-yi-4WH" secondAttribute="centerX" id="Hz0-Tm-IN8"/>
                                     <constraint firstItem="FGE-uM-lvF" firstAttribute="leading" secondItem="Gbk-yi-4WH" secondAttribute="leading" id="KH4-he-fyd"/>
                                     <constraint firstAttribute="bottom" secondItem="FGE-uM-lvF" secondAttribute="bottom" id="Neu-if-xzA"/>
                                     <constraint firstItem="6GY-Y8-UO1" firstAttribute="width" secondItem="lO3-G1-VV0" secondAttribute="width" id="Nz1-GP-ecI"/>
                                     <constraint firstAttribute="trailing" secondItem="lO3-G1-VV0" secondAttribute="trailing" id="VLG-FT-mBW"/>
                                     <constraint firstItem="6GY-Y8-UO1" firstAttribute="top" secondItem="lO3-G1-VV0" secondAttribute="top" id="YJC-ny-sEU"/>
+                                    <constraint firstItem="FiS-Vs-KCb" firstAttribute="centerY" secondItem="Gbk-yi-4WH" secondAttribute="centerY" id="gVz-Ab-MgF"/>
                                     <constraint firstAttribute="trailing" secondItem="6GY-Y8-UO1" secondAttribute="trailing" id="lAc-9f-thG"/>
                                     <constraint firstAttribute="trailing" secondItem="FGE-uM-lvF" secondAttribute="trailing" id="nxo-jW-olT"/>
                                     <constraint firstItem="6GY-Y8-UO1" firstAttribute="height" secondItem="lO3-G1-VV0" secondAttribute="height" id="p0z-AA-8rY"/>
@@ -865,6 +901,7 @@
                     <connections>
                         <outlet property="coachNameBtn" destination="SEA-5G-qmg" id="Zs4-hh-bEb"/>
                         <outlet property="favBtn" destination="pa5-w2-lOC" id="VxQ-Yt-uQZ"/>
+                        <outlet property="networkIndecator" destination="FiS-Vs-KCb" id="EDN-jr-k9u"/>
                         <outlet property="playersCollectionView" destination="FGE-uM-lvF" id="Xp3-he-BGt"/>
                         <outlet property="teamLogo" destination="Gdz-JG-XzW" id="8QK-db-dcM"/>
                         <outlet property="teamName" destination="Xy8-fo-433" id="Fqo-gf-535"/>
@@ -948,6 +985,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noSearch" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-CT-KjM">
                                 <rect key="frame" x="35" y="307" width="323" height="298"/>
@@ -955,6 +997,14 @@
                             <searchBar contentMode="redraw" placeholder="Search League" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-eh-N6p">
                                 <rect key="frame" x="67" y="71" width="326" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="HpO-D0-vw0" id="9l9-cg-dIX"/>
                                 </connections>
@@ -972,6 +1022,14 @@
                                     <action selector="logoPressed:" destination="HpO-D0-vw0" eventType="touchUpInside" id="wZD-MZ-szv"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-rN-yVe">
+                                <rect key="frame" x="171.66666666666666" y="401" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="O1D-Y3-82h"/>
+                                    <constraint firstAttribute="width" constant="50" id="t8c-OP-iJt"/>
+                                </constraints>
+                                <color key="color" name="favColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5a5-Ey-Rbb"/>
                         <color key="backgroundColor" name="White"/>
@@ -980,7 +1038,9 @@
                             <constraint firstItem="Whe-CT-KjM" firstAttribute="height" secondItem="rKy-yq-AfL" secondAttribute="height" multiplier="0.35" id="Alb-N8-Rlg"/>
                             <constraint firstItem="Oim-eh-N6p" firstAttribute="top" secondItem="5a5-Ey-Rbb" secondAttribute="top" constant="12" id="C0S-0s-bSb"/>
                             <constraint firstItem="lhn-VY-Hok" firstAttribute="top" secondItem="lSG-3g-tv0" secondAttribute="bottom" constant="5" id="CQU-LQ-geT"/>
+                            <constraint firstItem="eoR-rN-yVe" firstAttribute="centerX" secondItem="rKy-yq-AfL" secondAttribute="centerX" id="Ofc-eY-aMc"/>
                             <constraint firstItem="Whe-CT-KjM" firstAttribute="centerY" secondItem="rKy-yq-AfL" secondAttribute="centerY" constant="30" id="Wos-uZ-Y0D"/>
+                            <constraint firstItem="eoR-rN-yVe" firstAttribute="centerY" secondItem="rKy-yq-AfL" secondAttribute="centerY" id="aE9-b5-ecO"/>
                             <constraint firstItem="5a5-Ey-Rbb" firstAttribute="trailing" secondItem="Whe-CT-KjM" secondAttribute="trailing" constant="35" id="cCp-mL-vbg"/>
                             <constraint firstItem="lSG-3g-tv0" firstAttribute="leading" secondItem="5a5-Ey-Rbb" secondAttribute="leading" constant="3" id="cZO-eF-Yb3"/>
                             <constraint firstItem="lhn-VY-Hok" firstAttribute="leading" secondItem="5a5-Ey-Rbb" secondAttribute="leading" id="cut-eE-CIs"/>
@@ -994,6 +1054,7 @@
                     <navigationItem key="navigationItem" id="GyN-C9-aQj"/>
                     <connections>
                         <outlet property="logoBtn" destination="lSG-3g-tv0" id="gwB-ZL-ar7"/>
+                        <outlet property="networkIndecator" destination="eoR-rN-yVe" id="H6p-WI-2Ov"/>
                         <outlet property="noSearchResult" destination="Whe-CT-KjM" id="zyB-2U-rnK"/>
                         <outlet property="searchBar" destination="Oim-eh-N6p" id="nen-In-wzc"/>
                         <outlet property="tableView" destination="lhn-VY-Hok" id="pxu-kf-lv7"/>
@@ -1055,6 +1116,9 @@
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="favColor">
+            <color red="0.6809999942779541" green="0.19900000095367432" blue="0.92599999904632568" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="greyish">
             <color red="0.81300002336502075" green="0.82300001382827759" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

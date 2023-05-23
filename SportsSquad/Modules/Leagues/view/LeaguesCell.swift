@@ -26,12 +26,8 @@ class LeaguesCell: UITableViewCell {
         let location = [0.2, 1.0]
         
         bgView.layer.insertSublayer(gradientLayer, at: 0)
-        
+
         bgView.addGradient(with: gradientLayer, colorSet: colorSet, locations: location)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
 }

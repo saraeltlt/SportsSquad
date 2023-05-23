@@ -11,6 +11,7 @@ class FavouriteViewController: UIViewController {
 
     
 
+    @IBOutlet weak var networkIndecator: UIActivityIndicatorView!
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var favTableView: UITableView!
     var teamsList = [Teams]()
@@ -60,9 +61,11 @@ extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
      let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
-        detailsVC.teamId = teamsList[indexPath.row].team_key!
-        detailsVC.teamNameText = teamsList[indexPath.row].team_name!
-        detailsVC.isFav = true
+        var teamId = teamsList[indexPath.row].team_key!
+        var teamNameText = teamsList[indexPath.row].team_name!
+        var teamViewModel = TeamDetailsViewModel(teamId: teamId,teamName: teamNameText, isFav: true)
+        detailsVC.teamDetailsViewModel = teamViewModel
+        
         self.navigationController?.pushViewController(detailsVC, animated: true)
         
     }

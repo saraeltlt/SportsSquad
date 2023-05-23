@@ -19,6 +19,16 @@ class LatestEventCell: UICollectionViewCell {
     @IBOutlet weak var timeAndDateText: UILabel!
     @IBOutlet weak var score: UILabel!
 
+    func configure(with event: LatestEvents) {
+           awayTeamName.text = event.event_away_team
+           homeTeamName.text = event.event_home_team
+           awayTeamLogo.sd_setImage(with: URL(string: event.away_team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+           homeTeamLogo.sd_setImage(with: URL(string: event.home_team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+           timeAndDateText.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
+           timeAndDateText.text = "\(event.event_date ?? "")  ⎟  \(event.event_time ?? "")"
+           score.text = event.event_final_result
+       }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

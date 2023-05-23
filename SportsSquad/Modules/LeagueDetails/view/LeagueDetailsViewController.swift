@@ -4,277 +4,206 @@
 //
 //  Created by Sara Eltlt on 20/05/2023.
 //
-
 import UIKit
 
 class LeagueDetailsViewController: UIViewController {
-    var leagueDetails : League!
-    var sportType : String!
-  
-    @IBOutlet weak var noUpComing: UIButton!
+    
+    var detailsViewModel: LeagueDetailsViewModel!
+    
+    @IBOutlet weak var networkIndecator: UIActivityIndicatorView!
+    @IBOutlet weak var noUpcoming: UIButton!
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
-    var upComingList = [UpCommingEvent]()
     
     @IBOutlet weak var noLatest: UIButton!
-    @IBOutlet weak var LatestCollectionView: UICollectionView!
-    var latestEventsList = [LatestEvents]()
+    @IBOutlet weak var latestCollectionView: UICollectionView!
     
     @IBOutlet weak var noTeams: UIButton!
-    @IBOutlet weak var TeamsOrPlayerLabel: UILabel!
+    @IBOutlet weak var teamsOrPlayerLabel: UILabel!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
-    var teamsList = [Teams]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
+        setupCollectionViewDelegates()
+        setupCollectionViewCells()
+        bindViewModel()
+        fetchData()
+        setupCollectionViewLayouts()
+    }
+    
+    private func configNavigationBar() {
+        // Edit back button
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: K.BACK_ARROW), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        // Edit title
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(named: K.DARK_PURPLE)!,
+            .font: UIFont(name: "Chalkduster", size: 17.0)!,
+        ]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.title = "\(detailsViewModel.getleagueName())"
+    }
+    
+    // MARK: - View Model Binding
+    
+    private func bindViewModel() {
+        detailsViewModel.bindUpcomingListToLeagueDetailsVC = { [weak self] in
+            DispatchQueue.main.async {
+                self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
+                self?.upcomingCollectionView.reloadData()
+            }
+        }
+        
+        detailsViewModel.bindLatestEventListToLeagueDetailsVC = { [weak self] in
+            DispatchQueue.main.async {
+                self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
+                self?.latestCollectionView.reloadData()
+            }
+        }
+        
+        detailsViewModel.bindTeamsListToLeagueDetailsVC = { [weak self] in
+            DispatchQueue.main.async {
+                self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
+                self?.teamsCollectionView.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - Fetch Data
+    
+    private func fetchData() {
+        detailsViewModel.fetchUpcomingEvents()
+        detailsViewModel.fetchLatestEvents()
+        detailsViewModel.fetchTeams()
+    }
+    
+    // MARK: - Button Actions
+    
+    @IBAction func logoPressed(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Collection View Setup
+    
+    private func setupCollectionViewDelegates() {
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
-        upcomingCollectionView.backgroundView?.backgroundColor = UIColor.clear
-        upcomingCollectionView.backgroundColor = UIColor.clear
         
-        LatestCollectionView.delegate = self
-        LatestCollectionView.dataSource = self
-        LatestCollectionView.backgroundView?.backgroundColor = UIColor.clear
-        LatestCollectionView.backgroundColor = UIColor.clear
+        latestCollectionView.delegate = self
+        latestCollectionView.dataSource = self
         
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
-        teamsCollectionView.backgroundView?.backgroundColor = UIColor.clear
-        teamsCollectionView.backgroundColor = UIColor.clear
-        
-        if sportType == "tennis" || sportType == "cricket"{
-            TeamsOrPlayerLabel.text="  Players"
-        }
-        
+    }
+    
+    private func setupCollectionViewCells() {
         upcomingCollectionView.register(UINib(nibName: K.UPCOMING_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.UPCOMING_EVENTS_CELL)
         
-        LatestCollectionView.register(UINib(nibName: K.LATEST_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.LATEST_EVENTS_CELL)
+        latestCollectionView.register(UINib(nibName: K.LATEST_EVENTS_CELL, bundle: nil), forCellWithReuseIdentifier: K.LATEST_EVENTS_CELL)
         
         teamsCollectionView.register(UINib(nibName: K.TEAMS_CELL, bundle: nil), forCellWithReuseIdentifier: K.TEAMS_CELL)
-        
-        APIHandler.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueDetails.league_key!) { upComing in
-            self.upComingList = upComing.result
-            DispatchQueue.main.async {
-                self.upcomingCollectionView.reloadData()
-            }
-        }
-        
-        APIHandler.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueDetails.league_key!) { latest in
-            self.latestEventsList = latest.result
-            DispatchQueue.main.async {
-                self.LatestCollectionView.reloadData()
-            }
-            
-        }
-
-        APIHandler.sharedInstance.getTeams(sportType: sportType, leagueId: leagueDetails.league_key!) { teams in
-            self.teamsList = teams.result
-            DispatchQueue.main.async {
-                self.teamsCollectionView.reloadData()
-            }
-            
-        }
-        
+    }
+    
+    private func setupCollectionViewLayouts() {
         let layout = UICollectionViewCompositionalLayout{
             index, enviroment in
-            return self.upComingSection()
+            return self.createSection(groupWidthFraction: 0.8, groupHeightFraction: 1, groupContentInsets: NSDirectionalEdgeInsets(top: 16, leading: 10, bottom: 11, trailing: 0), orthogonalScrollingBehavior: .continuous)
         }
         upcomingCollectionView.setCollectionViewLayout(layout, animated: true)
         
         let layoutLatest = UICollectionViewCompositionalLayout{
             index, enviroment in
-            return self.latestSection()
+            return self.createSection(groupWidthFraction: 1, groupHeightFraction: 0.8, groupContentInsets: NSDirectionalEdgeInsets(top: 5, leading: 32, bottom: 5, trailing: 32))
         }
+        latestCollectionView.setCollectionViewLayout(layoutLatest, animated: true)
         let layoutTeams = UICollectionViewCompositionalLayout{
             index, enviroment in
-            return self.teamsSection()
+            return self.createSection(groupWidthFraction: 0.8, groupHeightFraction: 1, groupContentInsets: NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 0), itemFractionalWidth: 0.3333, orthogonalScrollingBehavior: .continuous)
         }
-        LatestCollectionView.setCollectionViewLayout(layoutLatest, animated: true)
         teamsCollectionView.setCollectionViewLayout(layoutTeams, animated: true)
-        
-        
-
-
     }
     
-    
-    // MARK: - up coming events
-    func upComingSection() -> NSCollectionLayoutSection{
-        //item
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-
-        //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(195)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 16, leading: 10, bottom: 11, trailing: 0)
+    private func createSection(groupWidthFraction: CGFloat, groupHeightFraction: CGFloat, groupContentInsets: NSDirectionalEdgeInsets, itemFractionalWidth:CGFloat = 1, orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior? = nil) -> NSCollectionLayoutSection {
+        // Item
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(itemFractionalWidth), heightDimension: .fractionalHeight(1)))
         
+        // Group
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupWidthFraction), heightDimension: .fractionalHeight(groupHeightFraction)), subitems: [item])
+        group.contentInsets = groupContentInsets
         
-        //section
+        // Section
         let section = NSCollectionLayoutSection(group: group)
         
-        section.orthogonalScrollingBehavior = .continuous
-        
-        
-        return section
-        
-    }
-    
-    // MARK: - Latest events
-    func latestSection() -> NSCollectionLayoutSection{
-        //section consists of group of items......
-        
-        //item
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        
-        
-        
-        //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.8)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 5, leading: 32, bottom: 5, trailing: 32)
-        
-        
-        //section
-        let section = NSCollectionLayoutSection(group: group)
-        
-        //section.orthogonalScrollingBehavior = .continuous
-        
-        return section
-        
-    }
-    
-    // MARK: - teams
-    func teamsSection() -> NSCollectionLayoutSection{
-        //item
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3333), heightDimension: .fractionalHeight(1)))
-
-        //group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1)), subitems: [item])
-        group.contentInsets  = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 0)
-        
-        
-        //section
-        let section = NSCollectionLayoutSection(group: group)
-        
-        section.orthogonalScrollingBehavior = .continuous
-        
-        
-        return section
-        
-    }
-    
-    
-    
-    
-    
-    // MARK: - Back
-     
-        private func configNavigationBar(){
-            //edit back button
-            let backButton = UIButton(type: .custom)
-            backButton.setImage(UIImage(named: K.BACK_ARROW), for: .normal)
-            backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-            navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backButton)
-            
-            //edit title
-            let textAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor(named: K.DARK_PURPLE)!,
-                .font: UIFont(name: "Chalkduster", size: 17.0)!,
-            ]
-            navigationController?.navigationBar.titleTextAttributes = textAttributes
-            self.title = "\(leagueDetails.league_name!)"
-        }
-        @IBAction func logoPressed(_ sender: UIButton) {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        @objc func backButtonTapped() {
-            self.navigationController?.popViewController(animated: true)
+        if let scrollingBehavior = orthogonalScrollingBehavior {
+            section.orthogonalScrollingBehavior = scrollingBehavior
         }
         
-
-
+        return section
+    }
 }
-
 
 // MARK: - UICollectionView
 
-extension LeagueDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (collectionView == upcomingCollectionView){
-           noUpComing.isHidden = !upComingList.isEmpty
-            return upComingList.count
-        }
-        else if (collectionView == LatestCollectionView){
-           noLatest.isHidden = !latestEventsList.isEmpty
-            return latestEventsList.count
-        }
-        else{
-           noTeams.isHidden = !teamsList.isEmpty
-            return teamsList.count
-            
+        if collectionView == upcomingCollectionView {
+            return detailsViewModel.upcomingList.count
+        } else if collectionView == latestCollectionView {
+            return detailsViewModel.latestEventsList.count
+        } else {
+            return detailsViewModel.teamsList.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (collectionView == upcomingCollectionView){
+        if collectionView == upcomingCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.UPCOMING_EVENTS_CELL, for: indexPath) as! UpComingEventsCell
+            let event = detailsViewModel.upcomingList[indexPath.row]
+                  cell.configure(with: event)
             
-            let event = upComingList[indexPath.row]
-            cell.awayTeamName.text = event.event_away_team
-            cell.homeTeamName.text = event.event_home_team
-            cell.awayTeamLogo.sd_setImage(with: URL(string:event.away_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.homeTeamLogo.sd_setImage(with: URL(string:event.home_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.timeAndDateText.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
-            cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
             return cell
-        }
-        else if (collectionView == LatestCollectionView){
+        } else if collectionView == latestCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.LATEST_EVENTS_CELL, for: indexPath) as! LatestEventCell
-            
-            let event = latestEventsList[indexPath.row]
-            cell.awayTeamName.text = event.event_away_team
-            cell.homeTeamName.text = event.event_home_team
-            cell.awayTeamLogo.sd_setImage(with: URL(string:event.away_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.homeTeamLogo.sd_setImage(with: URL(string:event.home_team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            cell.timeAndDateText.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
-            cell.timeAndDateText.text = (event.event_date ?? "") + "  ⎟  " + (event.event_time ?? "")
-            cell.score.text = event.event_final_result
+                  let event = detailsViewModel.latestEventsList[indexPath.row]
+                  cell.configure(with: event)
             return cell
-
-        }
-        else{ //teams
-        
+            
+        } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.TEAMS_CELL, for: indexPath) as! TeamsCell
-            let team = teamsList[indexPath.row]
-            cell.teamImage.sd_setImage(with: URL(string:team.team_logo ?? " "), placeholderImage: UIImage(named: K.TEAMS_PLACEHOLDER_IMAGE))
-            cell.teamName.text = team.team_name
-      
-            return cell
+    
+                let team = detailsViewModel.teamsList[indexPath.row]
+                cell.configure(with: team)
             
+            return cell
         }
-  
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (collectionView == teamsCollectionView){
-            if sportType == "tennis" || sportType == "cricket"{
-               //display aler
-                print("NO TEAMS")
-            }
-            else{
+        if collectionView == teamsCollectionView {
+            if detailsViewModel.getSportType() == "football" {
                 let teamDetailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
-                teamDetailsVC.teamId=teamsList[indexPath.row].team_key!
-                teamDetailsVC.teamNameText=teamsList[indexPath.row].team_name!
+                let teamId = detailsViewModel.teamsList[indexPath.row].team_key!
+                let teamNameText = detailsViewModel.teamsList[indexPath.row].team_name!
+                let teamViewModel = TeamDetailsViewModel(teamId: teamId,teamName: teamNameText)
+                teamDetailsVC.teamDetailsViewModel = teamViewModel
                 self.navigationController?.pushViewController(teamDetailsVC, animated: true)
-                
+             
+            } else {
+                print("NO TEAMS Alert")
             }
         }
     }
-    
-    
-  
 }
 
