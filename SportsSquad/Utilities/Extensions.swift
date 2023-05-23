@@ -14,7 +14,7 @@ extension AppDelegate {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
             UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
         } else {
-            // Fallback on earlier versions
+
         }
     }
 }

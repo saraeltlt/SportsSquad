@@ -7,8 +7,9 @@
 
 import UIKit
 import SDWebImage
+import IQKeyboardManagerSwift
 
-class LeaguesViewController: UIViewController {
+class LeaguesViewController: UIViewController{
     @IBOutlet weak var noSearchResult: UIImageView!
     @IBOutlet weak var logoBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,6 +20,8 @@ class LeaguesViewController: UIViewController {
     var searchArray = [League]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+           view.addGestureRecognizer(tapGesture)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundView?.backgroundColor = UIColor.clear
@@ -37,6 +40,7 @@ class LeaguesViewController: UIViewController {
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     
     }
+
 // MARK: - Back
  
     private func configNavigationBar(){
@@ -119,7 +123,9 @@ extension LeaguesViewController : UISearchBarDelegate{
         
         if searchBar.text == nil || searchBar.text == ""{
             isSearching=false
-            view.endEditing(true)
+            noSearchResult.isHidden = true
+            searchBar.resignFirstResponder()
+
         }
         else{
             isSearching=true
@@ -127,6 +133,16 @@ extension LeaguesViewController : UISearchBarDelegate{
 
         }
         tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text != nil || searchBar.text != "" {
+            isSearching=true
+            searchArray = leaguesArray.filter { $0.league_name!.lowercased().contains(searchBar.text?.lowercased() ?? "") }
+        }
+        searchBar.resignFirstResponder()
+    }
+    @objc func handleTap() {
+        searchBar.resignFirstResponder()
     }
   
 }
