@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-import IQKeyboardManagerSwift
+
 
 class LeaguesViewController: UIViewController{
     @IBOutlet weak var noSearchResult: UIImageView!
@@ -124,7 +124,9 @@ extension LeaguesViewController : UISearchBarDelegate{
         if searchBar.text == nil || searchBar.text == ""{
             isSearching=false
             noSearchResult.isHidden = true
-            searchBar.resignFirstResponder()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
 
         }
         else{
@@ -142,6 +144,7 @@ extension LeaguesViewController : UISearchBarDelegate{
         searchBar.resignFirstResponder()
     }
     @objc func handleTap() {
+        
         searchBar.resignFirstResponder()
     }
   
