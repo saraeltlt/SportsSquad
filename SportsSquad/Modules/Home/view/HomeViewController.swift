@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func sportPressed(_ sender: UIButton) {
-        if homeViewModel.isInternetAvailable() {
+        if NetworkStatusChecker.isInternetAvailable() {
             let leaguesVC = storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
             let sportType = homeViewModel.getSportType(for: sender.tag)
             let leagueViewModel = LeaguesViewModel(sportType: sportType)

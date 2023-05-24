@@ -11,7 +11,7 @@ class APIHandler : APIHandlerProtocol{
     
     
   
-    static let sharedInstance = APIHandler()
+    static var sharedInstance = APIHandler()
     private init(){
         
     }

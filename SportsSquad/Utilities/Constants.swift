@@ -36,6 +36,7 @@ struct K {
     static let BACK_ARROW = "BackArrow"
     static let TEAMS_PLACEHOLDER_IMAGE = "TeamPlaceHolder"
     static let Player_PLACEHOLDER_IMAGE="playerPlaceHolder"
+    static let NO_WIFI = "noWifi"
     
     //colors
     static let MEDIUM_PURPLE = "MidumPurple"

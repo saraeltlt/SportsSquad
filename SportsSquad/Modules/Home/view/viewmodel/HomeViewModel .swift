@@ -29,13 +29,5 @@ class HomeViewModel {
         }
     }
     
-    func isInternetAvailable() -> Bool {
-        if NetworkStatusChecker.isInternetAvailable(){
-            return true
-        }
-        else{
-            return false
-            
-        }
-    }
+
 }

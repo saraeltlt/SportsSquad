@@ -5,12 +5,14 @@ PODS:
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
+  - SwiftToast (1.1.3)
 
 DEPENDENCIES:
   - Alamofire
   - lottie-ios
   - ReachabilitySwift
   - SDWebImage (~> 5.0)
+  - SwiftToast (~> 1.1)
 
 SPEC REPOS:
   trunk:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - lottie-ios
     - ReachabilitySwift
     - SDWebImage
+    - SwiftToast
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SwiftToast: 029cbeda85c04fb3fa5df774ba461b19971bc6c5
 
-PODFILE CHECKSUM: 5079d853557f805f77eeb06adc282d5d508849d0
+PODFILE CHECKSUM: 9b9b75fe94717df4c4e89a0b30e73631a3d2b345
 
 COCOAPODS: 1.12.1

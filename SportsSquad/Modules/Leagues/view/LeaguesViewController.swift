@@ -26,13 +26,18 @@ class LeaguesViewController: UIViewController{
         tableView.delegate = self
         tableView.backgroundView?.backgroundColor = UIColor.clear
         searchBar.delegate = self
+        noSearchResult.isHidden = true
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         configNavigationBar()
+        if !NetworkStatusChecker.isInternetAvailable() {
+            showNoConnectionToast()
+        }
         
         leaguesViewModel?.bindNetworkIndicator = { [weak self] isLoading in
               DispatchQueue.main.async {
                   if isLoading {
                       self?.networkIndecator.startAnimating()
+                  
                   } else {
                       self?.networkIndecator.stopAnimating()
                   }
@@ -42,6 +47,7 @@ class LeaguesViewController: UIViewController{
         leaguesViewModel?.bindListToLeagueTableViewController = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.updateNoSearchResultVisibility()
             }
         }
         
@@ -118,9 +124,19 @@ extension LeaguesViewController: UISearchBarDelegate {
                 searchBar.resignFirstResponder()
             }
         }
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
+    private func updateNoSearchResultVisibility() {
+        if leaguesViewModel.numberOfLeagues == 0 {
+            noSearchResult.isHidden = false
+        } else {
+            noSearchResult.isHidden = true
+        }
+    }
 }
+

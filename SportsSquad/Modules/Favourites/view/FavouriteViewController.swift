@@ -9,7 +9,9 @@ import UIKit
 import Lottie
 
 class FavouriteViewController: UIViewController {
-    @IBOutlet weak var animationView: UIView!
+
+    @IBOutlet weak var animationView: LottieAnimationView!
+    @IBOutlet weak var noFavLabel: UILabel!
     @IBOutlet weak var favTableView: UITableView!
 
     var viewModel: FavouriteViewModel!
@@ -34,7 +36,18 @@ class FavouriteViewController: UIViewController {
     }
 
     private func setupAnimation() {
-        animationView.isHidden = viewModel.teamsCount > 0
+        if viewModel.teamsCount <= 0{
+            animationView.isHidden=false
+            noFavLabel.isHidden=false
+            animationView.contentMode = .scaleAspectFill
+             animationView.loopMode = .loop
+           //  animationView.animationSpeed = 0.5
+             animationView.play()
+        }else{
+            animationView.isHidden=true
+            noFavLabel.isHidden=true
+            animationView.stop()
+        }
     }
 }
 
@@ -74,6 +87,7 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
                 self?.viewModel.deleteTeam(at: indexPath.row)
                 completionHandler(true)
+                self?.setupAnimation()
             }
             
             deleteAction.backgroundColor = UIColor(named: K.MEDIUM_PURPLE)

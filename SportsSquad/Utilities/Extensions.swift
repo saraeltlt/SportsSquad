@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftToast
 //MARK: - change mood
 extension AppDelegate {
     func overrideApplicationThemeStyle() {
@@ -51,5 +52,22 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    func showNoConnectionToast(){
+        let toast =  SwiftToast(
+                            text: "No internet connection",
+                            textAlignment: .center,
+                            image: UIImage(named: K.NO_WIFI),
+                            backgroundColor: UIColor(named:  K.LIGHT_PURPLE),
+                            textColor:UIColor(named: K.DARK_PURPLE),
+                            font: UIFont(name: "Chalkduster", size: 23.0),
+                            duration: 2.0,
+                            minimumHeight: CGFloat(100.0),
+                            statusBarStyle: .default,
+                            aboveStatusBar: false,
+                            target: nil,
+                            style: .bottomToTop)
+        present(toast, animated: true)
     
+      
+    }
 }

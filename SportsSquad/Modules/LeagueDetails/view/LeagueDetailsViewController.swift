@@ -31,6 +31,9 @@ class LeagueDetailsViewController: UIViewController {
         fetchData()
         setupCollectionViewLayouts()
         teamsOrPlayerLabel.text =  detailsViewModel.setTeamsLabel()
+        if !NetworkStatusChecker.isInternetAvailable() {
+            showNoConnectionToast()
+        }
     }
     
     private func configNavigationBar() {
@@ -56,11 +59,14 @@ class LeagueDetailsViewController: UIViewController {
               DispatchQueue.main.async {
                   if isLoading < 3 {
                       self?.networkIndecator.startAnimating()
+
                   } else {
+                     
                       self?.networkIndecator.stopAnimating()
                       self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
                       self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
                       self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
+                     
                   }
               }
           }

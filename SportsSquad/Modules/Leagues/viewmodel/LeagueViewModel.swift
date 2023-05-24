@@ -28,13 +28,13 @@ class LeaguesViewModel {
     
     func filterLeagues(with searchText: String) {
         if searchText.isEmpty {
-            isSearching = false
-            searchArray.removeAll()
-        } else {
-            isSearching = true
-            searchArray = leagueList.filter { $0.league_name?.lowercased().contains(searchText.lowercased()) ?? false }
-        }
-        bindListToLeagueTableViewController?()
+             isSearching = false
+             searchArray.removeAll()
+         } else {
+             isSearching = true
+             searchArray = leagueList.filter { $0.league_name?.lowercased().contains(searchText.lowercased()) ?? false }
+         }
+         bindListToLeagueTableViewController?()
     }
     
     func getLeague(at index: Int) -> LeagueStructView {

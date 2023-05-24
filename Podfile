@@ -10,6 +10,7 @@ target 'SportsSquad' do
     pod 'Alamofire'
     pod 'ReachabilitySwift'
     pod 'SDWebImage', '~> 5.0'
+    pod 'SwiftToast', '~> 1.1'
 
 
   target 'SportsSquadTests' do
