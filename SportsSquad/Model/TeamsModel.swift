@@ -7,14 +7,15 @@
 
 import Foundation
 class TeamsModel :Decodable{
-    var success : Int?
     var result : [Teams]
 }
 
-class Teams : Decodable {
+class Teams : Decodable { //tennis mlhash khales
     var team_key : Int?
     var team_name : String?
     var team_logo : String?
+    
+    //football bs
     var players : [Player]?
     var coaches = [Coach]()
     
