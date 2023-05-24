@@ -8,9 +8,8 @@
 import Foundation
 protocol FetchLeagueDetailsProtocol{
     
-    func getUpComingEvents(sportType: String ,leagueId: Int, completionHandler : @escaping(_ UpComingEvents:UpComingModel)  -> (Void) )
+    func getUpComingEvents(sportType: String ,leagueId: Int, completionHandler : @escaping(_ UpComingEvents:EventsModel) -> Void)
     
-    func getLatestEvents(sportType: String ,leagueId: Int , completionHandler: @escaping (LatestEventModel) -> Void )
-    
+    func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (EventsModel) -> Void)
     
 }

@@ -49,7 +49,7 @@ class TeamsDetailsViewController: UIViewController {
     func updateUI(){
         teamLogo.sd_setImage(with: URL(string: viewModel.team.team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
                    self.teamName.text = viewModel.team.team_name
-                   self.coachNameBtn.setTitle("  \(viewModel.team.coaches[0].coach_name ?? "unknown")", for: .normal)
+                   self.coachNameBtn.setTitle("  \(viewModel.team.coaches![0].coach_name ?? "unknown")", for: .normal)
                    self.playersCollectionView.reloadData()
     }
     

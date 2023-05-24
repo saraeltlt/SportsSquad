@@ -9,7 +9,7 @@ class TeamDetailsViewModel {
     var teamId: Int
     var teamName: String
     var isFav: Bool
-    var team: Teams = Teams()
+    var team = Team()
     var bindTeamsListToTeamDetailsVC: (() -> Void)?
     
     init(teamId: Int, teamName: String) {
@@ -20,8 +20,10 @@ class TeamDetailsViewModel {
     
     func fetchTeamDetails() {
         APIHandler.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] players in
-            self?.team = players.result[0]
-            self?.bindTeamsListToTeamDetailsVC?()
+            if let list = players.result{
+                self?.team = list[0]
+                self?.bindTeamsListToTeamDetailsVC?()
+            }
         }
     }
     

@@ -19,7 +19,7 @@ class LatestEventCell: UICollectionViewCell {
     @IBOutlet weak var timeAndDateText: UILabel!
     @IBOutlet weak var score: UILabel!
 
-    func configure(with event: LatestEvents) {
+    func configure(with event: LatestStructView) {
            awayTeamName.text = event.event_away_team
            homeTeamName.text = event.event_home_team
            awayTeamLogo.sd_setImage(with: URL(string: event.away_team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))

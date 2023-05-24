@@ -11,7 +11,7 @@ import UIKit
 
 
 class LeaguesModel : Decodable {
-    var result : [League]
+    var result : [League]?
     var success : Int?
 }
 class League : Decodable {

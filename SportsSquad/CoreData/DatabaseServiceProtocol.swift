@@ -7,8 +7,8 @@
 
 import Foundation
 protocol DatabaseServiceProtocol {
-    func saveData(teamData : Teams)
-    func getData() -> [Teams] 
+    func saveData(teamData : Team)
+    func getData() -> [Team] 
     func deleteData(teamId:Int)
     func isFav(teamId: Int) -> Bool 
 }

@@ -24,7 +24,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
         return sharedInstance
     }
     
-    func saveData(teamData : Teams) {
+    func saveData(teamData : Team) {
         entity = NSEntityDescription.entity(forEntityName: K.ENTITY_NAME, in: context)
         team = NSManagedObject(entity: entity!, insertInto: context)
         team.setValue(teamData.team_logo, forKey: "teamLogo")
@@ -40,8 +40,8 @@ class DataBaseManeger : DatabaseServiceProtocol{
         }
 
     }
-    func getData() -> [Teams] {
-        var teamsList = [Teams]()
+    func getData() -> [Team] {
+        var teamsList = [Team]()
         print("Team get")
         let req = NSFetchRequest<NSManagedObject>(entityName: K.ENTITY_NAME)
         do {
@@ -50,7 +50,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
                 let name = team.value(forKey: "teamName") as? String
                 let logo = team.value(forKey: "teamLogo") as? String
                 let id = team.value(forKey: "teamId") as? Int
-                let t = Teams()
+                let t = Team()
                 t.team_name = name
                 t.team_logo = logo
                 t.team_key = id

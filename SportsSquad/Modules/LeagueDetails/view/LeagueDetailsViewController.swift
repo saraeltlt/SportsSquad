@@ -29,6 +29,7 @@ class LeagueDetailsViewController: UIViewController {
         bindViewModel()
         fetchData()
         setupCollectionViewLayouts()
+        teamsOrPlayerLabel.text =  detailsViewModel.setTeamsLabel()
     }
     
     private func configNavigationBar() {
@@ -50,20 +51,21 @@ class LeagueDetailsViewController: UIViewController {
     // MARK: - View Model Binding
     
     private func bindViewModel() {
+        noUpcoming.isHidden = !(self.detailsViewModel.upcomingList.isEmpty )
         detailsViewModel.bindUpcomingListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
                 self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
                 self?.upcomingCollectionView.reloadData()
             }
         }
-        
+        noLatest.isHidden = !(detailsViewModel.latestEventsList.isEmpty )
         detailsViewModel.bindLatestEventListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
                 self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
                 self?.latestCollectionView.reloadData()
             }
         }
-        
+        noTeams.isHidden = !(detailsViewModel.teamsList.isEmpty )
         detailsViewModel.bindTeamsListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
                 self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
@@ -170,21 +172,21 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == upcomingCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.UPCOMING_EVENTS_CELL, for: indexPath) as! UpComingEventsCell
-            let event = detailsViewModel.upcomingList[indexPath.row]
+            let event = detailsViewModel.getUpComingEvents(at: indexPath.row)
                   cell.configure(with: event)
             
             return cell
         } else if collectionView == latestCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.LATEST_EVENTS_CELL, for: indexPath) as! LatestEventCell
-                  let event = detailsViewModel.latestEventsList[indexPath.row]
+            let event = detailsViewModel.getLatestEvents(at:indexPath.row)
                   cell.configure(with: event)
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.TEAMS_CELL, for: indexPath) as! TeamsCell
     
-                let team = detailsViewModel.teamsList[indexPath.row]
-                cell.configure(with: team)
+            let team = detailsViewModel.getTeams(at: indexPath.row)
+            cell.configure(with: team, sportType: detailsViewModel.getSportType())
             
             return cell
         }
@@ -192,7 +194,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == teamsCollectionView {
-            if detailsViewModel.getSportType() == "football" {
+            if detailsViewModel.getSportType() == K.sportsType.football.rawValue {
                 let teamDetailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
                 let teamId = detailsViewModel.teamsList[indexPath.row].team_key!
                 let teamNameText = detailsViewModel.teamsList[indexPath.row].team_name!

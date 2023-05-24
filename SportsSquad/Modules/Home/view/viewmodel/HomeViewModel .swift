@@ -22,10 +22,10 @@ class HomeViewModel {
 
     func getSportType(for tag: Int) -> String {
         switch tag {
-        case 1: return "football"
-        case 2: return "cricket"
-        case 3: return "tennis"
-        default: return "basketball"
+        case 1: return K.sportsType.football.rawValue
+        case 2: return K.sportsType.cricket.rawValue
+        case 3: return K.sportsType.tennis.rawValue
+        default: return K.sportsType.basketball.rawValue
         }
     }
 }

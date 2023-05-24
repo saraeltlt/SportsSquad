@@ -8,6 +8,7 @@
 import Foundation
 protocol FetchTeamsProtocol {
      func getTeams(sportType: String ,leagueId: Int , completionHandler: @escaping (TeamsModel) -> Void )
+     func getTennisPlayers(sportType: String, leagueId: Int, completionHandler: @escaping (TeamsModel) -> Void)
     
      func getTeamDetails(teamId: Int , completionHandler: @escaping (TeamsModel) -> Void )
 }

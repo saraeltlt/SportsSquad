@@ -7,6 +7,13 @@
 
 import Foundation
 struct K {
+    enum sportsType:String {
+        case football = "football"
+        case basketball = "basketball"
+        case tennis = "tennis"
+        case cricket = "cricket"
+    }
+
     //URL
     static let BASIC_URL = "https://apiv2.allsportsapi.com/"
     //keys

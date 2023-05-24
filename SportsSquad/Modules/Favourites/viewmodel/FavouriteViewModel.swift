@@ -10,7 +10,7 @@ import Foundation
 class FavouriteViewModel {
     var bindFavListToFavouriteTableViewController: (() -> Void)?
 
-    private var teamsList: [Teams] = []
+    private var teamsList: [Team] = []
 
     var teamsCount: Int {
         return teamsList.count
@@ -28,7 +28,7 @@ class FavouriteViewModel {
         bindFavListToFavouriteTableViewController?()
     }
 
-    func team(at index: Int) -> Teams {
+    func team(at index: Int) -> Team {
         return teamsList[index]
     }
 }

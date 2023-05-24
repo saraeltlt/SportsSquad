@@ -13,7 +13,7 @@ class FavCell: UITableViewCell {
     @IBOutlet weak var bgView: UIView!
     let gradientLayer = CAGradientLayer()
     
-    func configure(with team: Teams) {
+    func configure(with team: Team) {
             teamImage.sd_setImage(with: URL(string: team.team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
             teamName.text = team.team_name
         }
