@@ -39,9 +39,7 @@ class FavouriteViewController: UIViewController {
         if viewModel.teamsCount <= 0{
             animationView.isHidden=false
             noFavLabel.isHidden=false
-            animationView.contentMode = .scaleAspectFill
              animationView.loopMode = .loop
-           //  animationView.animationSpeed = 0.5
              animationView.play()
         }else{
             animationView.isHidden=true

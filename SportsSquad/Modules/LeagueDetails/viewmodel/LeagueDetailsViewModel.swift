@@ -118,7 +118,6 @@ class LeagueDetailsViewModel {
     }
     
     func getTeamsListCount() -> Int {
-        print ("---------- \(teamsList.count)")
         return teamsList.count
     }
     func getSportType() -> String {

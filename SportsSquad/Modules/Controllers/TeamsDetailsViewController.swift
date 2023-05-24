@@ -98,7 +98,7 @@ class TeamsDetailsViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(240)
+                heightDimension: .absolute(210)
             ),
             subitems: [item]
         )
