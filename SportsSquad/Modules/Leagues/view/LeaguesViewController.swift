@@ -26,6 +26,7 @@ class LeaguesViewController: UIViewController{
         tableView.delegate = self
         tableView.backgroundView?.backgroundColor = UIColor.clear
         searchBar.delegate = self
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         configNavigationBar()
         
         leaguesViewModel?.bindNetworkIndicator = { [weak self] isLoading in
@@ -46,7 +47,7 @@ class LeaguesViewController: UIViewController{
         
         leaguesViewModel.getLeaguesAPI()
         
-        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+   
     }
   
 //MARK: - handle back navigation

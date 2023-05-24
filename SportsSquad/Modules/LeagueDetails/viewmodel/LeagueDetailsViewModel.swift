@@ -9,6 +9,9 @@ class LeagueDetailsViewModel {
     var bindUpcomingListToLeagueDetailsVC: (() -> Void)?
     var bindLatestEventListToLeagueDetailsVC: (() -> Void)?
     var bindTeamsListToLeagueDetailsVC: (() -> Void)?
+    var bindNetworkIndicator: ((Int) -> Void)?
+    var i = 0
+
     
     
     var upcomingList = [Event]()
@@ -21,7 +24,10 @@ class LeagueDetailsViewModel {
     }
     
     func fetchUpcomingEvents() {
+        bindNetworkIndicator?(i)
         APIHandler.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) {  [weak self]  UpComingEvents in
+            self?.i=self!.i+1;
+            self?.bindNetworkIndicator?(self!.i)
             if let list = UpComingEvents.result{
                 self?.upcomingList = list
                 self?.bindUpcomingListToLeagueDetailsVC?()
@@ -30,7 +36,10 @@ class LeagueDetailsViewModel {
     }
     
     func fetchLatestEvents() {
+        bindNetworkIndicator?(i)
         APIHandler.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] latest in
+            self?.i=self!.i+1;
+            self?.bindNetworkIndicator?(self!.i)
             if let list = latest.result{
                 self?.latestEventsList = list
                 self?.bindLatestEventListToLeagueDetailsVC?()
@@ -39,10 +48,15 @@ class LeagueDetailsViewModel {
     }
     
     func fetchTeams() {
+        bindNetworkIndicator?(i)
         if sportType == K.sportsType.tennis.rawValue{
+       
             APIHandler.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] teams in
+                self?.i=self!.i+1;
+                self?.bindNetworkIndicator?(self!.i)
+
                 if let list = teams.result{
-                    print ("gebt result \(list[0].event_first_player)")
+
                     for team in list{
                         let player1 = Team()
                         player1.team_name = team.event_first_player
@@ -53,15 +67,14 @@ class LeagueDetailsViewModel {
                         player2.team_logo = team.event_second_player
                         self?.teamsList.append(player2)
                     }
-                    
-                    
-                    
                     self?.bindTeamsListToLeagueDetailsVC?()
                 }
             }
         }
         else{
             APIHandler.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] teams in
+                self?.i=self!.i+1;
+                self?.bindNetworkIndicator?(self!.i)
                 if let list = teams.result{
                     self?.teamsList = list
                     self?.bindTeamsListToLeagueDetailsVC?()

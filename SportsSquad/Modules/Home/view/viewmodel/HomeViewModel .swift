@@ -28,4 +28,14 @@ class HomeViewModel {
         default: return K.sportsType.basketball.rawValue
         }
     }
+    
+    func isInternetAvailable() -> Bool {
+        if NetworkStatusChecker.isInternetAvailable(){
+            return true
+        }
+        else{
+            return false
+            
+        }
+    }
 }

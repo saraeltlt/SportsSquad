@@ -7,6 +7,7 @@
 
 import Foundation
 class EventsModel : Decodable {
+    var success : Int?
     var result : [Event]?
 }
 class Event : Decodable {

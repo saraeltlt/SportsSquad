@@ -38,7 +38,7 @@ class APIHandler : APIHandlerProtocol{
         
         
         let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=2023-05-02&to=2024-06-02&APIkey=\(K.API_KEY)"
-       // print(url)
+        print("upcoming events -> \(url) \n")
   
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
             switch response.result{
@@ -58,7 +58,7 @@ class APIHandler : APIHandlerProtocol{
     
      func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (EventsModel) -> Void) {
          let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-01-23&to=2023-12-30&leagueId=\(leagueId)"
-       //  print(url)
+         print("latest events -> \(url) \n")
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
             switch response.result{
             case .success(let data): do{
@@ -76,10 +76,10 @@ class APIHandler : APIHandlerProtocol{
     
      func getTeams(sportType: String, leagueId: Int, completionHandler: @escaping (TeamsModel) -> Void) {
         let url = "\(K.BASIC_URL)\(sportType)/?met=Teams&?met=Leagues&leagueId=\(leagueId)&APIkey=\(K.API_KEY)"
+         print("teams-> \(url) \n")
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
             switch response.result{
             case .success(let data): do{
-                print("Data recived TEAMS")
                     let jsonData = try JSONDecoder().decode(TeamsModel.self, from: data!)
             
                     completionHandler(jsonData)
@@ -95,7 +95,7 @@ class APIHandler : APIHandlerProtocol{
     }
     func getTennisPlayers(sportType: String, leagueId: Int, completionHandler: @escaping (TeamsModel) -> Void) {
         let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=2021-01-23&to=2023-12-30&APIkey=\(K.API_KEY)"
-        print(url)
+        print("- tennis players -> \(url) \n")
        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
            switch response.result{
            case .success(let data): do{
@@ -113,6 +113,7 @@ class APIHandler : APIHandlerProtocol{
    }
      func getTeamDetails( teamId: Int, completionHandler: @escaping (TeamsModel) -> Void) {
          let url = "\(K.BASIC_URL)football/?&met=Teams&teamId=\(teamId)&APIkey=\(K.API_KEY)"
+         print("team details -> \(url) \n")
          AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
              switch response.result{
              case .success(let data): do{

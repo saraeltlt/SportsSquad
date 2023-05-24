@@ -9,6 +9,7 @@ import Foundation
 
 class FavouriteViewModel {
     var bindFavListToFavouriteTableViewController: (() -> Void)?
+    var bindNetworkIndicator: ((Bool) -> Void)?
 
     private var teamsList: [Team] = []
 
@@ -30,5 +31,14 @@ class FavouriteViewModel {
 
     func team(at index: Int) -> Team {
         return teamsList[index]
+    }
+    func isInternetAvailable() -> Bool {
+        if NetworkStatusChecker.isInternetAvailable(){
+            return true
+        }
+        else{
+            return false
+            
+        }
     }
 }

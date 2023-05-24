@@ -11,6 +11,7 @@ class TeamDetailsViewModel {
     var isFav: Bool
     var team = Team()
     var bindTeamsListToTeamDetailsVC: (() -> Void)?
+    var bindNetworkIndicator: ((Bool) -> Void)?
     
     init(teamId: Int, teamName: String) {
         self.teamId = teamId
@@ -19,10 +20,12 @@ class TeamDetailsViewModel {
     }
     
     func fetchTeamDetails() {
+        bindNetworkIndicator?(true)
         APIHandler.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] players in
             if let list = players.result{
                 self?.team = list[0]
                 self?.bindTeamsListToTeamDetailsVC?()
+                self?.bindNetworkIndicator?(false)
             }
         }
     }

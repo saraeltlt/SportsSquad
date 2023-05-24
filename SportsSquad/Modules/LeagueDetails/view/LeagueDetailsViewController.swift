@@ -11,6 +11,7 @@ class LeagueDetailsViewController: UIViewController {
     var detailsViewModel: LeagueDetailsViewModel!
     
     @IBOutlet weak var networkIndecator: UIActivityIndicatorView!
+    
     @IBOutlet weak var noUpcoming: UIButton!
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     
@@ -51,24 +52,36 @@ class LeagueDetailsViewController: UIViewController {
     // MARK: - View Model Binding
     
     private func bindViewModel() {
-        noUpcoming.isHidden = !(self.detailsViewModel.upcomingList.isEmpty )
+        detailsViewModel?.bindNetworkIndicator = { [weak self] isLoading in
+              DispatchQueue.main.async {
+                  if isLoading < 3 {
+                      self?.networkIndecator.startAnimating()
+                  } else {
+                      self?.networkIndecator.stopAnimating()
+                      self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
+                      self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
+                      self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
+                  }
+              }
+          }
+     
         detailsViewModel.bindUpcomingListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
-                self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
+
                 self?.upcomingCollectionView.reloadData()
             }
         }
-        noLatest.isHidden = !(detailsViewModel.latestEventsList.isEmpty )
+
         detailsViewModel.bindLatestEventListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
-                self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
+             
                 self?.latestCollectionView.reloadData()
             }
         }
-        noTeams.isHidden = !(detailsViewModel.teamsList.isEmpty )
+     
         detailsViewModel.bindTeamsListToLeagueDetailsVC = { [weak self] in
             DispatchQueue.main.async {
-                self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
+
                 self?.teamsCollectionView.reloadData()
             }
         }
@@ -203,7 +216,11 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
                 self.navigationController?.pushViewController(teamDetailsVC, animated: true)
              
             } else {
-                print("NO TEAMS Alert")
+                let alert = UIAlertController(title:"Details Unavailable" , message: "There are no player/team details to show", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+
             }
         }
     }

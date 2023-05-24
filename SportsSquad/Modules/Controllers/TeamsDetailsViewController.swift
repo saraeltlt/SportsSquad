@@ -29,7 +29,15 @@ class TeamsDetailsViewController: UIViewController {
         playersCollectionView.dataSource = self
         playersCollectionView.backgroundView?.backgroundColor = UIColor.clear
         
-
+        viewModel?.bindNetworkIndicator = { [weak self] isLoading in
+              DispatchQueue.main.async {
+                  if isLoading {
+                      self?.networkIndecator.startAnimating()
+                  } else {
+                      self?.networkIndecator.stopAnimating()
+                  }
+              }
+          }
         viewModel?.bindTeamsListToTeamDetailsVC = { [weak self] in
             DispatchQueue.main.async {
                 self?.playersCollectionView.reloadData()

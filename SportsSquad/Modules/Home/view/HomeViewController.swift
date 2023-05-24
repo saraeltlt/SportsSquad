@@ -24,11 +24,15 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func sportPressed(_ sender: UIButton) {
-        let leaguesVC = storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
-        let sportType = homeViewModel.getSportType(for: sender.tag)
-        let leagueViewModel = LeaguesViewModel(sportType: sportType)
-        leaguesVC.leaguesViewModel = leagueViewModel
-        navigationController?.pushViewController(leaguesVC, animated: true)
+        if homeViewModel.isInternetAvailable() {
+            let leaguesVC = storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
+            let sportType = homeViewModel.getSportType(for: sender.tag)
+            let leagueViewModel = LeaguesViewModel(sportType: sportType)
+            leaguesVC.leaguesViewModel = leagueViewModel
+            navigationController?.pushViewController(leaguesVC, animated: true)
+        }else{
+            showNoInternetAlert()
+        }
     }
 
     @IBAction func modeChanged(_ sender: UISwitch) {

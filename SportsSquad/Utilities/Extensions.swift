@@ -44,4 +44,12 @@ extension UIView {
 }
 
     //MARK: - Custom alert
-
+extension UIViewController {
+    func showNoInternetAlert() {
+        let alert = UIAlertController(title:"No internet connection" , message: "Please check your wifi or celluar data and try again", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+}
