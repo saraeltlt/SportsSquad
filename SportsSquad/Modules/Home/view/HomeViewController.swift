@@ -26,9 +26,7 @@ class HomeViewController: UIViewController {
     @IBAction func sportPressed(_ sender: UIButton) {
         if NetworkStatusChecker.isInternetAvailable() {
             let leaguesVC = storyboard!.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
-            let sportType = homeViewModel.getSportType(for: sender.tag)
-            let leagueViewModel = LeaguesViewModel(sportType: sportType)
-            leaguesVC.leaguesViewModel = leagueViewModel
+            leaguesVC.leaguesViewModel = homeViewModel.navigationConfig(for: sender.tag)
             navigationController?.pushViewController(leaguesVC, animated: true)
         }else{
             showNoInternetAlert()

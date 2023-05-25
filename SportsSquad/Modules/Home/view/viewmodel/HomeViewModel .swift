@@ -20,14 +20,18 @@ class HomeViewModel {
         }
     }
 
-    func getSportType(for tag: Int) -> String {
-        switch tag {
-        case 1: return K.sportsType.football.rawValue
-        case 2: return K.sportsType.cricket.rawValue
-        case 3: return K.sportsType.tennis.rawValue
-        default: return K.sportsType.basketball.rawValue
+    func navigationConfig(for tag: Int) -> LeaguesViewModel{
+        var sportType: String {
+            switch tag {
+                case 1: return K.sportsType.football.rawValue
+                case 2: return K.sportsType.cricket.rawValue
+                case 3: return K.sportsType.tennis.rawValue
+                default: return K.sportsType.basketball.rawValue
+            }
         }
+        return LeaguesViewModel(sportType: sportType)
     }
+    
     
 
 }

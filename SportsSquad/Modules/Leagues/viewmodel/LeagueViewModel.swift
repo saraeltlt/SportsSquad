@@ -7,7 +7,7 @@
 
 import Foundation
 class LeaguesViewModel {
-    private var sportType: String!
+    private var sportType: String! 
     private var leagueList: [League] = []
     private var searchArray: [League] = []
     init( sportType: String){
@@ -56,8 +56,13 @@ class LeaguesViewModel {
     func getSportType() -> String {
         return sportType
     }
-    func getLeagueName() -> String {
-        return sportType
+    
+    
+    func  navigationConfig(for rowIndex:Int) -> LeagueDetailsViewModel {
+       let leagueId = self.getLeague(at: rowIndex).league_key
+       let leagueName = self.getLeague(at: rowIndex).league_name
+       
+       return LeagueDetailsViewModel(leagueId: leagueId, leagueName: leagueName, sportType: sportType)
     }
 
    

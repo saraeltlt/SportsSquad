@@ -14,6 +14,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
     private var entity : NSEntityDescription!
     private var team : NSManagedObject!
     private var teamsArrayNS = [NSManagedObject]()
+    
         private init() {
             appDelegate = (UIApplication.shared.delegate as! AppDelegate)
             context = appDelegate.persistentContainer.viewContext
@@ -29,7 +30,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
         team = NSManagedObject(entity: entity!, insertInto: context)
         team.setValue(teamData.team_logo, forKey: "teamLogo")
         team.setValue(teamData.team_name, forKey: "teamName")
-        team.setValue(Int32(teamData.team_key!), forKey: "teamId")
+        team.setValue(Int64(teamData.team_key!), forKey: "teamId")
         do {
             try context.save()
             

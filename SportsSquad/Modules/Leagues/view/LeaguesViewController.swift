@@ -30,7 +30,7 @@ class LeaguesViewController: UIViewController{
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         configNavigationBar()
         if !NetworkStatusChecker.isInternetAvailable() {
-            showNoConnectionToast()
+            showToast(text: "No Internet Connection", imageName: K.NO_WIFI)
         }
         
         leaguesViewModel?.bindNetworkIndicator = { [weak self] isLoading in
@@ -100,12 +100,11 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let leagueId = leaguesViewModel!.getLeague(at: indexPath.row).league_key
-        let leagueName = leaguesViewModel!.getLeague(at: indexPath.row).league_name
-        let sportType = leaguesViewModel.getSportType()
+
         let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
-        let detailsViewModel = LeagueDetailsViewModel(leagueId: leagueId, leagueName: leagueName, sportType: sportType)
-        detailsVC.detailsViewModel = detailsViewModel
+        
+        detailsVC.detailsViewModel = leaguesViewModel.navigationConfig(for: indexPath.row)
+
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

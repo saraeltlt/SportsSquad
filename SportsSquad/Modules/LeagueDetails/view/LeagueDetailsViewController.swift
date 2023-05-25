@@ -32,7 +32,7 @@ class LeagueDetailsViewController: UIViewController {
         setupCollectionViewLayouts()
         teamsOrPlayerLabel.text =  detailsViewModel.setTeamsLabel()
         if !NetworkStatusChecker.isInternetAvailable() {
-            showNoConnectionToast()
+            showToast(text: "No Internet Connection", imageName: K.NO_WIFI)
         }
     }
     
@@ -215,10 +215,8 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         if collectionView == teamsCollectionView {
             if detailsViewModel.getSportType() == K.sportsType.football.rawValue {
                 let teamDetailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
-                let teamId = detailsViewModel.teamsList[indexPath.row].team_key!
-                let teamNameText = detailsViewModel.teamsList[indexPath.row].team_name!
-                let teamViewModel = TeamDetailsViewModel(teamId: teamId,teamName: teamNameText)
-                teamDetailsVC.viewModel = teamViewModel
+                
+                teamDetailsVC.viewModel = detailsViewModel.navigationConfig(for: indexPath.row)
                 self.navigationController?.pushViewController(teamDetailsVC, animated: true)
              
             } else {

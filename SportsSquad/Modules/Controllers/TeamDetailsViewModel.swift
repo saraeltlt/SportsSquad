@@ -8,7 +8,9 @@
 class TeamDetailsViewModel {
     var teamId: Int
     var teamName: String
-    var isFav: Bool
+    var isFav: Bool {
+     DataBaseManeger.shared().isFav(teamId: teamId)
+    }
     var team = Team()
     var bindTeamsListToTeamDetailsVC: (() -> Void)?
     var bindNetworkIndicator: ((Bool) -> Void)?
@@ -16,7 +18,7 @@ class TeamDetailsViewModel {
     init(teamId: Int, teamName: String) {
         self.teamId = teamId
         self.teamName = teamName
-        isFav = DataBaseManeger.shared().isFav(teamId: teamId)
+
     }
     
     func fetchTeamDetails() {
@@ -36,6 +38,5 @@ class TeamDetailsViewModel {
         } else {
             DataBaseManeger.shared().saveData(teamData: team)
         }
-        isFav = !isFav
     }
 }

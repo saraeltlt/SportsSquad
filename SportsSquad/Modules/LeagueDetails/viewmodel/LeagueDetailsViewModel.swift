@@ -108,6 +108,16 @@ class LeagueDetailsViewModel {
     }
     
     
+    func  navigationConfig(for rowIndex:Int) -> TeamDetailsViewModel {
+        let teamId = teamsList[rowIndex].team_key!
+        let teamName = teamsList[rowIndex].team_name!
+        
+        return TeamDetailsViewModel(teamId: teamId, teamName: teamName)
+        
+    }
+    
+    
+    
     
     func getUpcomingListCount() -> Int {
         return upcomingList.count
@@ -126,6 +136,7 @@ class LeagueDetailsViewModel {
     func getleagueName() -> String {
         return leagueName
     }
+    
     
     
 }

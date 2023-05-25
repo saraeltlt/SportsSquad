@@ -66,11 +66,9 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if viewModel.isInternetAvailable() {
             
-            
             let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "TeamsDetailsViewController") as! TeamsDetailsViewController
-            let team = viewModel.team(at: indexPath.row)
-            let teamViewModel = TeamDetailsViewModel(teamId: team.team_key!, teamName: team.team_name!)
-            detailsVC.viewModel = teamViewModel
+        
+            detailsVC.viewModel = viewModel.navigationConfig(for: indexPath.row)
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }else{
             showNoInternetAlert()
@@ -83,9 +81,12 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
-                self?.viewModel.deleteTeam(at: indexPath.row)
-                completionHandler(true)
-                self?.setupAnimation()
+                self?.confirmDeleteAlert {
+                    self?.viewModel.deleteTeam(at: indexPath.row)
+                    completionHandler(true)
+                    self?.setupAnimation()
+                }
+            
             }
             
             deleteAction.backgroundColor = UIColor(named: K.MEDIUM_PURPLE)

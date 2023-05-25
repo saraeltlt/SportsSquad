@@ -52,17 +52,32 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    func showNoConnectionToast(){
+    
+    func confirmDeleteAlert(handler: (() -> Void)?) {
+        let alert = UIAlertController(title: "Delete Favorite", message: "Are you sure you want to delete this team from favorites?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Yes, delete", style: .cancel) { _ in
+            handler?()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(yesAction)
+      
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func showToast(text: String, imageName: String){
         let toast =  SwiftToast(
-                            text: "No internet connection",
+                            text: text,
                             textAlignment: .center,
-                            image: UIImage(named: K.NO_WIFI),
+                            image: UIImage(named: imageName),
                             backgroundColor: UIColor(named:  K.LIGHT_PURPLE),
                             textColor:UIColor(named: K.DARK_PURPLE),
                             font: UIFont(name: "Chalkduster", size: 23.0),
                             duration: 2.0,
                             minimumHeight: CGFloat(100.0),
-                            statusBarStyle: .default,
+                            statusBarStyle: .none,
                             aboveStatusBar: false,
                             target: nil,
                             style: .bottomToTop)

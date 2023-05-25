@@ -29,7 +29,7 @@ class TeamsDetailsViewController: UIViewController {
         playersCollectionView.dataSource = self
         playersCollectionView.backgroundView?.backgroundColor = UIColor.clear
         if !NetworkStatusChecker.isInternetAvailable() {
-           showNoConnectionToast()
+           showToast(text: "No Internet Connection", imageName: K.NO_WIFI)
         }
         
         viewModel?.bindNetworkIndicator = { [weak self] isLoading in
@@ -49,7 +49,6 @@ class TeamsDetailsViewController: UIViewController {
             }
         }
         viewModel.fetchTeamDetails()
-        updateFavoriteButtonState()
         
         let layout = UICollectionViewCompositionalLayout { _, _ in
             return self.playersSection()
@@ -57,6 +56,9 @@ class TeamsDetailsViewController: UIViewController {
         playersCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateFavoriteButtonState()
+    }
     //MARK: - update UI
     func updateUI(){
         teamLogo.sd_setImage(with: URL(string: viewModel.team.team_logo ?? " "), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
@@ -68,13 +70,24 @@ class TeamsDetailsViewController: UIViewController {
     // MARK: - Add to Favorite
     
     @IBAction func addToFav(_ sender: Any) {
-        viewModel.toggleFavorite()
-        updateFavoriteButtonState()
+        if viewModel.isFav {
+            confirmDeleteAlert {
+                self.viewModel.toggleFavorite()
+                self.favBtn.tintColor = UIColor(named: K.WHITE)
+            }
+           
+    
+        } else {
+            favBtn.tintColor = UIColor(named: K.FAV_COLOR)
+            showToast(text: "Added To Favourite", imageName: K.FAV_IMAGE)
+            viewModel.toggleFavorite()
+        }
     }
     
     private func updateFavoriteButtonState() {
         if viewModel.isFav {
-            favBtn.tintColor = UIColor(named: K.favColor)
+            favBtn.tintColor = UIColor(named: K.FAV_COLOR)
+    
         } else {
             favBtn.tintColor = UIColor(named: K.WHITE)
         }

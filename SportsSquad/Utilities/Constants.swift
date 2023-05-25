@@ -37,6 +37,7 @@ struct K {
     static let TEAMS_PLACEHOLDER_IMAGE = "TeamPlaceHolder"
     static let Player_PLACEHOLDER_IMAGE="playerPlaceHolder"
     static let NO_WIFI = "noWifi"
+    static let FAV_IMAGE = "addFav"
     
     //colors
     static let MEDIUM_PURPLE = "MidumPurple"
@@ -45,7 +46,7 @@ struct K {
     static let DARK_PURPLE = "DarkPurple"
     static let BLACK = "Black"
     static let WHITE = "White"
-    static let favColor = "favColor"
+    static let FAV_COLOR = "favColor"
     
 }
 
