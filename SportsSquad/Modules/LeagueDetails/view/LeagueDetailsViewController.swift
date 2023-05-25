@@ -220,10 +220,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
                 self.navigationController?.pushViewController(teamDetailsVC, animated: true)
              
             } else {
-                let alert = UIAlertController(title:"Details Unavailable" , message: "There are no player/team details to show", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
+               showNoDetailsAlert()
 
             }
         }

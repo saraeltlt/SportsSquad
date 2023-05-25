@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 import SwiftToast
+import SCLAlertView
 //MARK: - change mood
 extension AppDelegate {
     func overrideApplicationThemeStyle() {
         if #available(iOS 13.0, *) {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
+            print(isDarkMode)
             let appearanceMode: UIUserInterfaceStyle = isDarkMode ? .dark : .light
-            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = appearanceMode
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = appearanceMode
         } else {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
             UIApplication.shared.statusBarStyle = isDarkMode ? .lightContent : .default
@@ -44,45 +46,71 @@ extension UIView {
     }
 }
 
-    //MARK: - Custom alert
+//MARK: - Custom alerts
 extension UIViewController {
+    
     func showNoInternetAlert() {
-        let alert = UIAlertController(title:"No internet connection" , message: "Please check your wifi or celluar data and try again", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        myAlert.titles="No internet connection"
+        myAlert.subTitle="Please check your wifi or celluar data and try again"
+        myAlert.imageName=K.WIFI_Alert_IMAGE
+        myAlert.okBtn="OK"
+        
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(myAlert, animated: true, completion: nil)
     }
     
     func confirmDeleteAlert(handler: (() -> Void)?) {
-        let alert = UIAlertController(title: "Delete Favorite", message: "Are you sure you want to delete this team from favorites?", preferredStyle: .alert)
         
-        let yesAction = UIAlertAction(title: "Yes, delete", style: .cancel) { _ in
-            handler?()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(cancelAction)
-        alert.addAction(yesAction)
-      
-        present(alert, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        
+        myAlert.titles="Delete Favorite"
+        myAlert.subTitle="Are you sure you want to delete this team from favorites?"
+        myAlert.imageName=K.DELETE_ALERT_IMAGE
+        myAlert.okBtn="Yes, Delete"
+        myAlert.okBtnHandler=handler
+        myAlert.cancelBtn="Cancel"
+        
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(myAlert, animated: true, completion: nil)
+    }
+    
+    
+    func showNoDetailsAlert() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        myAlert.titles="Details Unavailable"
+        myAlert.subTitle="There are no player/team details to show"
+        myAlert.imageName=K.NO_INO_IMAGE
+        myAlert.okBtn="OK"
+        
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(myAlert, animated: true, completion: nil)
     }
     
     
     func showToast(text: String, imageName: String){
         let toast =  SwiftToast(
-                            text: text,
-                            textAlignment: .center,
-                            image: UIImage(named: imageName),
-                            backgroundColor: UIColor(named:  K.LIGHT_PURPLE),
-                            textColor:UIColor(named: K.DARK_PURPLE),
-                            font: UIFont(name: "Chalkduster", size: 23.0),
-                            duration: 2.0,
-                            minimumHeight: CGFloat(100.0),
-                            statusBarStyle: .none,
-                            aboveStatusBar: false,
-                            target: nil,
-                            style: .bottomToTop)
+            text: text,
+            textAlignment: .center,
+            image: UIImage(named: imageName),
+            backgroundColor: UIColor(named:  K.LIGHT_PURPLE),
+            textColor:UIColor(named: K.DARK_PURPLE),
+            font: UIFont(name: "Chalkduster", size: 23.0),
+            duration: 2.0,
+            minimumHeight: CGFloat(100.0),
+            statusBarStyle: .none,
+            aboveStatusBar: false,
+            target: nil,
+            style: .bottomToTop)
         present(toast, animated: true)
-    
-      
+        
+        
     }
 }

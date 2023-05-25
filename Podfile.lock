@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.7.1)
   - lottie-ios (4.2.0)
   - ReachabilitySwift (5.0.0)
+  - SCLAlertView (0.8)
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire
   - lottie-ios
   - ReachabilitySwift
+  - SCLAlertView
   - SDWebImage (~> 5.0)
   - SwiftToast (~> 1.1)
 
@@ -19,6 +21,7 @@ SPEC REPOS:
     - Alamofire
     - lottie-ios
     - ReachabilitySwift
+    - SCLAlertView
     - SDWebImage
     - SwiftToast
 
@@ -26,9 +29,10 @@ SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SwiftToast: 029cbeda85c04fb3fa5df774ba461b19971bc6c5
 
-PODFILE CHECKSUM: 9b9b75fe94717df4c4e89a0b30e73631a3d2b345
+PODFILE CHECKSUM: 7109cdd8a4194f71c3f8218ac1f92aa6ed832ce0
 
 COCOAPODS: 1.12.1

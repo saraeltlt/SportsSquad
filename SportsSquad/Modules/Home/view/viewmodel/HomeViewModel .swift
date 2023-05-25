@@ -11,7 +11,7 @@ import UIKit
 class HomeViewModel {
     var isDarkMode: Bool {
         get {
-
+            (UIApplication.shared.delegate as! AppDelegate).overrideApplicationThemeStyle()
             return UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
         }
         set {

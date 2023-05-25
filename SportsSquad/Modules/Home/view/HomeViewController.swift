@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         homeViewModel = HomeViewModel()
         switchMode.isOn = homeViewModel.isDarkMode
         modeLabel.text = homeViewModel.isDarkMode ? "Dark Mode" : "Light Mode"
+
     }
     override func viewDidAppear(_ animated: Bool) {
         updateOrientation()
