@@ -14,7 +14,6 @@ extension AppDelegate {
     func overrideApplicationThemeStyle() {
         if #available(iOS 13.0, *) {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
-            print(isDarkMode)
             let appearanceMode: UIUserInterfaceStyle = isDarkMode ? .dark : .light
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = appearanceMode
         } else {

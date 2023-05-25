@@ -11,12 +11,12 @@ class LeagueDetailsViewModel {
     var bindTeamsListToLeagueDetailsVC: (() -> Void)?
     var bindNetworkIndicator: ((Int) -> Void)?
     var i = 0
-
-    
-    
     var upcomingList = [Event]()
     var latestEventsList = [Event]()
     var teamsList = [Team]()
+    
+    
+    
     init(leagueId: Int,leagueName: String, sportType: String) {
         self.leagueId = leagueId
         self.sportType = sportType
@@ -41,7 +41,7 @@ class LeagueDetailsViewModel {
             self?.i=self!.i+1;
             self?.bindNetworkIndicator?(self!.i)
             if let list = latest.result{
-                self?.latestEventsList = list
+                self?.latestEventsList = list.reversed()
                 self?.bindLatestEventListToLeagueDetailsVC?()
             }
         }
