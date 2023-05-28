@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBGLandScape" translatesAutoresizingMaskIntoConstraints="NO" id="OeI-sJ-SNU">
-                                        <rect key="frame" x="0.0" y="-5" width="428" height="848"/>
+                                        <rect key="frame" x="0.0" y="-5" width="428" height="888"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports Squad" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNR-9m-zSK">
                                         <rect key="frame" x="295.33333333333331" y="-15" width="132.66666666666669" height="160"/>
@@ -185,7 +185,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVb-Ev-kV8">
-                                        <rect key="frame" x="104" y="277.66666666666669" width="32" height="152.66666666666669"/>
+                                        <rect key="frame" x="104" y="285" width="32" height="159.66666666666663"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="tennis" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -219,7 +219,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cricket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBO-cv-0vk">
-                                        <rect key="frame" x="144" y="166.33333333333334" width="120" height="30"/>
+                                        <rect key="frame" x="144" y="170" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Wrx-kR-4he"/>
                                             <constraint firstAttribute="width" constant="120" id="ZYG-Sm-3U3"/>
@@ -229,7 +229,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tennis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf4-Oi-Loj">
-                                        <rect key="frame" x="144" y="339" width="120" height="30"/>
+                                        <rect key="frame" x="144" y="349.66666666666669" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Z91-GL-Zge"/>
                                             <constraint firstAttribute="height" constant="30" id="q3D-JE-3Jp"/>
@@ -239,7 +239,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-5n-AXL">
-                                        <rect key="frame" x="191" y="251.66666666666666" width="66.666666666666686" height="66.666666666666657"/>
+                                        <rect key="frame" x="191" y="259.66666666666669" width="66.666666666666686" height="66.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="tennis" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -287,7 +287,7 @@
                                         </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSj-71-HlT">
-                                        <rect key="frame" x="104" y="104.99999999999999" width="32" height="152.66666666666663"/>
+                                        <rect key="frame" x="104" y="105" width="32" height="160"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Cricket" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -304,7 +304,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basketball" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qh-tF-Z4k">
-                                        <rect key="frame" x="265.66666666666669" y="270" width="150" height="30"/>
+                                        <rect key="frame" x="265.66666666666669" y="278" width="150" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="W5H-bZ-AdC"/>
                                             <constraint firstAttribute="height" constant="30" id="e1L-Gk-6yw"/>
@@ -339,7 +339,7 @@
                                     <constraint firstItem="AeV-Eo-cZj" firstAttribute="height" secondItem="NNR-9m-zSK" secondAttribute="height" multiplier="0.5" id="iJz-L8-YEK"/>
                                     <constraint firstItem="gWA-Ln-TW8" firstAttribute="leading" secondItem="cSj-71-HlT" secondAttribute="trailing" constant="60" id="n5g-Px-nby"/>
                                     <constraint firstItem="cSj-71-HlT" firstAttribute="height" secondItem="OeI-sJ-SNU" secondAttribute="height" multiplier="0.18" id="nT3-7z-O0F"/>
-                                    <constraint firstItem="Tjc-5n-AXL" firstAttribute="top" secondItem="gWA-Ln-TW8" secondAttribute="bottom" constant="147" id="rke-Dn-MyN"/>
+                                    <constraint firstItem="Tjc-5n-AXL" firstAttribute="top" secondItem="gWA-Ln-TW8" secondAttribute="bottom" constant="155" id="rke-Dn-MyN"/>
                                     <constraint firstItem="2Qh-fa-Qb5" firstAttribute="top" secondItem="NNR-9m-zSK" secondAttribute="bottom" constant="-20" id="sJ5-uT-59W"/>
                                     <constraint firstItem="OVb-Ev-kV8" firstAttribute="height" secondItem="cSj-71-HlT" secondAttribute="height" id="tCk-df-JCT"/>
                                     <constraint firstAttribute="trailing" secondItem="OeI-sJ-SNU" secondAttribute="trailing" id="wl2-n7-Tjs"/>
@@ -361,11 +361,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBGPortrit" translatesAutoresizingMaskIntoConstraints="NO" id="UI6-Mg-cNr">
-                                        <rect key="frame" x="0.0" y="-5" width="433.33333333333331" height="851.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="-5" width="433.33333333333331" height="886.33333333333337"/>
                                         <color key="tintColor" red="0.3135415614" green="0.58827346560000005" blue="0.96475082639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tennis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-Ra-kJi">
-                                        <rect key="frame" x="287.33333333333337" y="624.33333333333337" width="120" height="30"/>
+                                        <rect key="frame" x="287.33333333333337" y="623" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="46g-Tw-vyo"/>
                                             <constraint firstAttribute="width" constant="120" id="n5v-dM-3fY"/>
@@ -375,7 +375,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cricket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwV-XA-Jke">
-                                        <rect key="frame" x="287.33333333333337" y="458" width="120" height="30"/>
+                                        <rect key="frame" x="287.33333333333337" y="454.33333333333331" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="d5S-2s-NxF"/>
                                             <constraint firstAttribute="width" constant="120" id="dbo-j3-ptS"/>
@@ -385,7 +385,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Football" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-K1-iq1">
-                                        <rect key="frame" x="187" y="339.33333333333331" width="150" height="30"/>
+                                        <rect key="frame" x="187" y="340.66666666666669" width="150" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="YP9-qg-pXH"/>
                                             <constraint firstAttribute="width" constant="150" id="y3A-od-I46"/>
@@ -401,7 +401,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6w-Qm-wYy">
-                                        <rect key="frame" x="208" y="438.33333333333331" width="71.333333333333314" height="69.666666666666686"/>
+                                        <rect key="frame" x="208" y="433" width="71.333333333333314" height="72.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Cricket" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -418,7 +418,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieM-tX-4NH">
-                                        <rect key="frame" x="109.66666666666669" y="320.33333333333331" width="69.333333333333314" height="68"/>
+                                        <rect key="frame" x="109.66666666666669" y="320.33333333333331" width="69.333333333333314" height="71"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="football" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -435,7 +435,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-SB-bXt">
-                                        <rect key="frame" x="108.66666666666669" y="714.66666666666663" width="71.333333333333314" height="70"/>
+                                        <rect key="frame" x="108.66666666666669" y="735.66666666666663" width="71.333333333333314" height="72.666666666666629"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="basketball" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -452,10 +452,10 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bup-0Q-7jE">
-                                        <rect key="frame" x="16" y="503.99999999999994" width="85.333333333333329" height="85.333333333333314"/>
+                                        <rect key="frame" x="16" y="525" width="85.333333333333329" height="85.333333333333371"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basketball" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwC-Mf-EuK">
-                                        <rect key="frame" x="188" y="734.66666666666663" width="150" height="30"/>
+                                        <rect key="frame" x="188" y="757" width="150" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="J77-yz-9WC"/>
                                             <constraint firstAttribute="height" constant="30" id="b8X-3y-JSe"/>
@@ -493,7 +493,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKf-t5-fHP">
-                                        <rect key="frame" x="208" y="604.66666666666663" width="71.333333333333314" height="69.666666666666629"/>
+                                        <rect key="frame" x="208" y="601.66666666666663" width="71.333333333333314" height="72.666666666666629"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="tennis" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
@@ -517,7 +517,7 @@
                                     <constraint firstItem="4My-ME-5yI" firstAttribute="leading" secondItem="lBL-3c-DSb" secondAttribute="leading" constant="8" id="4zf-zA-qO9"/>
                                     <constraint firstItem="RKf-t5-fHP" firstAttribute="height" secondItem="ieM-tX-4NH" secondAttribute="height" multiplier="1.02564" id="7cj-7p-CX8"/>
                                     <constraint firstItem="LwV-XA-Jke" firstAttribute="leading" secondItem="a6w-Qm-wYy" secondAttribute="trailing" constant="8" symbolic="YES" id="A5b-sA-XSf"/>
-                                    <constraint firstItem="2Wi-SB-bXt" firstAttribute="top" secondItem="ieM-tX-4NH" secondAttribute="bottom" multiplier="1.84" id="Ckz-3M-iIe"/>
+                                    <constraint firstItem="2Wi-SB-bXt" firstAttribute="top" secondItem="ieM-tX-4NH" secondAttribute="bottom" multiplier="1.88" id="Ckz-3M-iIe"/>
                                     <constraint firstItem="a6w-Qm-wYy" firstAttribute="height" secondItem="ieM-tX-4NH" secondAttribute="height" multiplier="1.02564" id="E80-Ac-t8V"/>
                                     <constraint firstItem="4My-ME-5yI" firstAttribute="centerY" secondItem="adN-3m-3jl" secondAttribute="centerY" constant="15" id="EoC-Dl-pjX"/>
                                     <constraint firstItem="Bup-0Q-7jE" firstAttribute="leading" secondItem="lBL-3c-DSb" secondAttribute="leading" constant="16" id="HGH-Yf-Iwv"/>
@@ -528,7 +528,7 @@
                                     <constraint firstItem="Upo-Ra-kJi" firstAttribute="centerY" secondItem="RKf-t5-fHP" secondAttribute="centerY" id="Omv-4P-Nia"/>
                                     <constraint firstItem="Upo-Ra-kJi" firstAttribute="leading" secondItem="RKf-t5-fHP" secondAttribute="trailing" constant="8" symbolic="YES" id="RES-Ob-V1Z"/>
                                     <constraint firstItem="a6w-Qm-wYy" firstAttribute="centerX" secondItem="RKf-t5-fHP" secondAttribute="centerX" id="RLj-XU-Hgo"/>
-                                    <constraint firstAttribute="bottom" secondItem="UI6-Mg-cNr" secondAttribute="bottom" constant="-5" id="Sbo-9r-3II"/>
+                                    <constraint firstAttribute="bottom" secondItem="UI6-Mg-cNr" secondAttribute="bottom" constant="-40" id="Sbo-9r-3II"/>
                                     <constraint firstItem="XwC-Mf-EuK" firstAttribute="leading" secondItem="2Wi-SB-bXt" secondAttribute="trailing" constant="8" symbolic="YES" id="TTK-Z8-Erj"/>
                                     <constraint firstItem="2Wi-SB-bXt" firstAttribute="height" secondItem="ieM-tX-4NH" secondAttribute="height" multiplier="1.02564" id="TpR-ai-n2n"/>
                                     <constraint firstItem="ieM-tX-4NH" firstAttribute="width" secondItem="UI6-Mg-cNr" secondAttribute="width" multiplier="0.16" id="VbK-BI-AGq"/>
@@ -543,7 +543,7 @@
                                     <constraint firstItem="adN-3m-3jl" firstAttribute="top" secondItem="lBL-3c-DSb" secondAttribute="top" constant="80" id="tSZ-bs-2xu"/>
                                     <constraint firstItem="XwC-Mf-EuK" firstAttribute="centerY" secondItem="2Wi-SB-bXt" secondAttribute="centerY" id="wcG-hx-0LJ"/>
                                     <constraint firstItem="adN-3m-3jl" firstAttribute="leading" secondItem="lBL-3c-DSb" secondAttribute="leading" constant="50" id="wtR-ww-Uxf"/>
-                                    <constraint firstItem="Bup-0Q-7jE" firstAttribute="centerY" secondItem="lBL-3c-DSb" secondAttribute="centerY" multiplier="1.3" id="wyf-y8-09a"/>
+                                    <constraint firstItem="Bup-0Q-7jE" firstAttribute="centerY" secondItem="lBL-3c-DSb" secondAttribute="centerY" multiplier="1.35" id="wyf-y8-09a"/>
                                     <constraint firstAttribute="trailing" secondItem="adN-3m-3jl" secondAttribute="trailing" constant="35" id="ya5-aW-2se"/>
                                 </constraints>
                             </view>
@@ -565,7 +565,7 @@
                             <constraint firstItem="lBL-3c-DSb" firstAttribute="top" secondItem="7X4-k1-XqJ" secondAttribute="top" id="ifc-ol-XP9"/>
                             <constraint firstItem="JXA-eB-t8Z" firstAttribute="top" secondItem="7X4-k1-XqJ" secondAttribute="top" id="qbZ-Jz-UtQ"/>
                             <constraint firstItem="NNR-9m-zSK" firstAttribute="trailing" secondItem="Uov-1Y-dsH" secondAttribute="trailing" id="tE2-w7-cg5"/>
-                            <constraint firstItem="OeI-sJ-SNU" firstAttribute="bottom" secondItem="Uov-1Y-dsH" secondAttribute="bottom" id="vJX-S2-PvK"/>
+                            <constraint firstItem="OeI-sJ-SNU" firstAttribute="bottom" secondItem="Uov-1Y-dsH" secondAttribute="bottom" constant="40" id="vJX-S2-PvK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FfK-Vg-aYL"/>
@@ -634,20 +634,20 @@
             </objects>
             <point key="canvasLocation" x="9.7674418604651159" y="31.545064377682404"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Barvc-->
         <scene sceneID="are-Ab-T9J">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="JFY-xt-km6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="JFY-xt-km6" customClass="CustomTabBarvc" customModule="SportsSquad" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="7CM-Fh-9iA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="7CM-Fh-9iA" customClass="TabBarVC" customModule="SportsSquad" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="TabBar"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="greyish"/>
-                        <color key="barTintColor" name="TabBar"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.61563879249999998" green="0.70316916699999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="value" red="0.61568627450980395" green="0.70196078431372544" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -1474,6 +1474,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="7CM-Fh-9iA">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
         <designable name="qxb-Nc-2qM"/>
     </designables>
     <resources>

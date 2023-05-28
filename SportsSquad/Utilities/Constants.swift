@@ -50,6 +50,7 @@ struct K {
     static let BLACK = "Black"
     static let WHITE = "White"
     static let FAV_COLOR = "favColor"
+    static let TAB_BAR_TINT = "tabBarTint"
     
     
 }

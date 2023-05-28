@@ -14,7 +14,9 @@ class LeaguesViewModel {
         self.sportType = sportType
     }
     var isSearching: Bool = false
+    
     var bindListToLeagueTableViewController: (() -> Void)?
+    
     var bindNetworkIndicator: ((Bool) -> Void)?
     
     func getLeaguesAPI() {

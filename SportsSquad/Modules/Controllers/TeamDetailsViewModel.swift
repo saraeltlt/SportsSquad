@@ -28,6 +28,7 @@ class TeamDetailsViewModel {
                 self?.team = list[0]
                 self?.bindTeamsListToTeamDetailsVC?()
                 self?.bindNetworkIndicator?(false)
+                
             }
         }
     }

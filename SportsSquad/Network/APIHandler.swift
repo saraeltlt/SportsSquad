@@ -67,7 +67,7 @@ class APIHandler : APIHandlerProtocol{
     
     
     func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (EventsModel) -> Void) {
-        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-06-01&to=\(APIHandler.yesterdayString!)&leagueId=\(leagueId)"
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-8-01&to=\(APIHandler.yesterdayString!)&leagueId=\(leagueId)"
         print("latest events -> \(url) \n")
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
             switch response.result{
