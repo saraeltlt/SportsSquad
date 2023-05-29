@@ -96,9 +96,6 @@ class TeamsDetailsViewController: UIViewController {
     // MARK: - Latest events
     
     func playersSection() -> NSCollectionLayoutSection {
-        // section consists of a group of items...
-        
-        // item
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.5),
@@ -107,7 +104,7 @@ class TeamsDetailsViewController: UIViewController {
         )
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
         
-        // group
+
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -117,9 +114,7 @@ class TeamsDetailsViewController: UIViewController {
         )
         group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
         
-        // section
         let section = NSCollectionLayoutSection(group: group)
-        
         return section
     }
     

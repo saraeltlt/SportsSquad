@@ -7,9 +7,9 @@
 
 import Foundation
 import Alamofire
-class APIHandler : APIHandlerProtocol{
+class NetworkManeger : NetworkManegerProtocol{
     
-    static var sharedInstance = APIHandler()
+    static var sharedInstance = NetworkManeger()
     static var todayString: String!
     static var yesterdayString: String!
 
@@ -18,14 +18,14 @@ class APIHandler : APIHandlerProtocol{
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         if let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) {
-            APIHandler.yesterdayString = dateFormatter.string(from: yesterday)
+            NetworkManeger.yesterdayString = dateFormatter.string(from: yesterday)
         }
-        APIHandler.todayString = dateFormatter.string(from: Date())
+        NetworkManeger.todayString = dateFormatter.string(from: Date())
     
-        print(APIHandler.todayString!)
-        print(APIHandler.yesterdayString!)
+        print(NetworkManeger.todayString!)
+        print(NetworkManeger.yesterdayString!)
     }
-    static func getInstance() -> APIHandler{
+    static func getInstance() -> NetworkManeger{
         return sharedInstance
     }
     func getLeagues(sportType: String , completionHandler : @escaping(_ leagues:LeaguesModel)  -> (Void) ) {
@@ -47,7 +47,7 @@ class APIHandler : APIHandlerProtocol{
     func getUpComingEvents(sportType: String ,leagueId: Int, completionHandler : @escaping(_ UpComingEvents:EventsModel)  -> (Void) ) {
         
         
-        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=\(APIHandler.todayString!)&to=2025-01-01&APIkey=\(K.API_KEY)"
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=\(NetworkManeger.todayString!)&to=2025-01-01&APIkey=\(K.API_KEY)"
         print("upcoming events -> \(url) \n")
         
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
@@ -67,7 +67,7 @@ class APIHandler : APIHandlerProtocol{
     
     
     func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (EventsModel) -> Void) {
-        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-8-01&to=\(APIHandler.yesterdayString!)&leagueId=\(leagueId)"
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-8-01&to=\(NetworkManeger.yesterdayString!)&leagueId=\(leagueId)"
         print("latest events -> \(url) \n")
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: nil, interceptor: nil).response{ response in
             switch response.result{

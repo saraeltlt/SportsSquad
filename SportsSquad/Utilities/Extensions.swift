@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SwiftToast
-import SCLAlertView
+
 //MARK: - change mood
 extension AppDelegate {
     func overrideApplicationThemeStyle() {

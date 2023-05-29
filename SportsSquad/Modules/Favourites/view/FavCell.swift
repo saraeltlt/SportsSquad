@@ -13,10 +13,7 @@ class FavCell: UITableViewCell {
     @IBOutlet weak var bgView: UIView!
     let gradientLayer = CAGradientLayer()
     
-    func configure(with team: Team) {
-            teamImage.sd_setImage(with: URL(string: team.team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-            teamName.text = team.team_name
-        }
+
     
     
     override func awakeFromNib() {
@@ -34,11 +31,12 @@ class FavCell: UITableViewCell {
         
         bgView.addGradient(with: gradientLayer, colorSet: colorSet, locations: location)
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    func configure(with team: Team) {
+            teamImage.sd_setImage(with: URL(string: team.team_logo ?? ""), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+            teamName.text = team.team_name
+        }
 
-        // Configure the view for the selected state
-    }
 
 }
 

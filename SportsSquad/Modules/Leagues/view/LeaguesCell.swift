@@ -29,5 +29,12 @@ class LeaguesCell: UITableViewCell {
 
         bgView.addGradient(with: gradientLayer, colorSet: colorSet, locations: location)
     }
+    
+    func configure (league: LeagueStructView){
+        LeagueName.text = league.league_name
+        leagueImage.sd_setImage(with: URL(string: league.league_logo), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
+        layer.cornerRadius = 40
+        layer.masksToBounds = true
+    }
 
 }

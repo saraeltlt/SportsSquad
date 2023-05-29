@@ -23,7 +23,7 @@ class TeamDetailsViewModel {
     
     func fetchTeamDetails() {
         bindNetworkIndicator?(true)
-        APIHandler.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] players in
+        NetworkManeger.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] players in
             if let list = players.result{
                 self?.team = list[0]
                 self?.bindTeamsListToTeamDetailsVC?()

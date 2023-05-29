@@ -25,7 +25,7 @@ class LeagueDetailsViewModel {
     
     func fetchUpcomingEvents() {
         bindNetworkIndicator?(i)
-        APIHandler.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) {  [weak self]  UpComingEvents in
+        NetworkManeger.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) {  [weak self]  UpComingEvents in
             self?.i=self!.i+1;
             self?.bindNetworkIndicator?(self!.i)
             if let list = UpComingEvents.result{
@@ -37,7 +37,7 @@ class LeagueDetailsViewModel {
     
     func fetchLatestEvents() {
         bindNetworkIndicator?(i)
-        APIHandler.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] latest in
+        NetworkManeger.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] latest in
             self?.i=self!.i+1;
             self?.bindNetworkIndicator?(self!.i)
             if let list = latest.result{
@@ -51,7 +51,7 @@ class LeagueDetailsViewModel {
         bindNetworkIndicator?(i)
         if sportType == K.sportsType.tennis.rawValue{
        
-            APIHandler.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] teams in
+            NetworkManeger.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] teams in
                 self?.i=self!.i+1;
                 self?.bindNetworkIndicator?(self!.i)
 
@@ -72,7 +72,7 @@ class LeagueDetailsViewModel {
             }
         }
         else{
-            APIHandler.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] teams in
+            NetworkManeger.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] teams in
                 self?.i=self!.i+1;
                 self?.bindNetworkIndicator?(self!.i)
                 if let list = teams.result{

@@ -82,71 +82,7 @@ private func configNavigationBar() {
 }
 
 
-//MARK: - Table View Controller
-extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaguesViewModel.numberOfLeagues
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.LEAGUES_CELL, for: indexPath) as! LeaguesCell
-        let league = leaguesViewModel.getLeague(at: indexPath.row)
-        
-        cell.LeagueName.text = league.league_name
-        cell.leagueImage.sd_setImage(with: URL(string: league.league_logo), placeholderImage: UIImage(named: K.LEAGUES_PLACEHOLDER_IMAGE))
-        cell.layer.cornerRadius = 40 
-        cell.layer.masksToBounds = true
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let detailsVC = self.storyboard!.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
-        
-        detailsVC.detailsViewModel = leaguesViewModel.navigationConfig(for: indexPath.row)
-
-        self.navigationController?.pushViewController(detailsVC, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
-        cell.layer.transform = rotationTransform
-        cell.alpha=0.5
-        UIView.animate(withDuration: 1.0) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha=1.0
-        }
-    }
-    
-    
-}
 
 
-//MARK: - search bar
-extension LeaguesViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        leaguesViewModel?.filterLeagues(with: searchText)
-        if searchBar.text!.isEmpty{
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
-        }
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    private func updateNoSearchResultVisibility() {
-        if leaguesViewModel.numberOfLeagues == 0 {
-            noSearchResult.isHidden = false
-        } else {
-            noSearchResult.isHidden = true
-        }
-    }
-}
+
 

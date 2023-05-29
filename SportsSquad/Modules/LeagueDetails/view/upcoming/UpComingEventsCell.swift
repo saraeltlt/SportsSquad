@@ -17,6 +17,16 @@ class UpComingEventsCell: UICollectionViewCell {
     @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var timeAndDateText: UILabel!
     
+    override func layoutSublayers(of layer: CALayer) {
+        gradientLayer.frame = bgView.bounds
+        let colorSet = [UIColor(named: K.BLUE)!,
+                        UIColor(named:K.MEDIUM_PURPLE)!]
+        let location = [0.2, 1.0]
+        
+        bgView.layer.insertSublayer(gradientLayer, at: 0)
+        bgView.addGradient(with: gradientLayer, colorSet: colorSet, locations: location)
+    }
+    
     func configure(with event: UpComingStructView) {
          awayTeamName.text = event.event_away_team
          homeTeamName.text = event.event_home_team
@@ -26,21 +36,7 @@ class UpComingEventsCell: UICollectionViewCell {
          timeAndDateText.text = "\(event.event_date ?? "")  ⎟  \(event.event_time ?? "")"
      }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func layoutSublayers(of layer: CALayer) {
-        gradientLayer.frame = bgView.bounds
-        let colorSet = [UIColor(named: K.BLUE)!,
-                        UIColor(named:K.MEDIUM_PURPLE)!]
-        let location = [0.2, 1.0]
-        
-        bgView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        bgView.addGradient(with: gradientLayer, colorSet: colorSet, locations: location)
-    }
+
     
 
 }

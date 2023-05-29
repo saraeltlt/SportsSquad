@@ -85,7 +85,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
         
         do {
             let results = try context.fetch(fetchRequest)
-            return !results.isEmpty // Return true if the team with the given ID exists, indicating it is a favorite
+            return !results.isEmpty // Return true if the team with the given ID exists
         } catch {
             print("Error checking favorite status: \(error)")
             return false

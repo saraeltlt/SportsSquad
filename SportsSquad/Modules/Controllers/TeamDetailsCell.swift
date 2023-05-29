@@ -21,6 +21,7 @@ class TeamDetailsCell: UICollectionViewCell {
          playerNumber.text = player.player_number
          playerImg.sd_setImage(with: URL(string: player.player_image ?? " "), placeholderImage: UIImage(named: K.Player_PLACEHOLDER_IMAGE))
      }
+    
     override func awakeFromNib() {
         playerImg.layer.borderColor = UIColor(named: K.MEDIUM_PURPLE)?.cgColor
         self.layer.borderColor = UIColor(named: K.WHITE)?.cgColor
