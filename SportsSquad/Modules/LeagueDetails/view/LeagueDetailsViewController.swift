@@ -71,26 +71,34 @@ class LeagueDetailsViewController: UIViewController {
               }
           }
      
-        detailsViewModel.bindUpcomingListToLeagueDetailsVC = { [weak self] in
-            DispatchQueue.main.async {
+        detailsViewModel.bindUpcomingListToLeagueDetailsVC.bind {  [weak self] isLoading in
+            if let _ = isLoading{
+                DispatchQueue.main.async {
 
-                self?.upcomingCollectionView.reloadData()
+                    self?.upcomingCollectionView.reloadData()
+                }
             }
         }
+        
 
-        detailsViewModel.bindLatestEventListToLeagueDetailsVC = { [weak self] in
-            DispatchQueue.main.async {
-             
-                self?.latestCollectionView.reloadData()
+        detailsViewModel.bindLatestEventListToLeagueDetailsVC.bind {  [weak self] isLoading in
+            if let _ = isLoading{
+                DispatchQueue.main.async {
+
+                    self?.latestCollectionView.reloadData()
+                }
             }
         }
-     
-        detailsViewModel.bindTeamsListToLeagueDetailsVC = { [weak self] in
-            DispatchQueue.main.async {
+        
+        detailsViewModel.bindTeamsListToLeagueDetailsVC.bind {  [weak self] isLoading in
+            if let _ = isLoading{
+                DispatchQueue.main.async {
 
-                self?.teamsCollectionView.reloadData()
+                    self?.teamsCollectionView.reloadData()
+                }
             }
         }
+        
     }
     
     // MARK: - Fetch Data

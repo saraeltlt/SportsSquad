@@ -12,8 +12,7 @@ class TeamDetailsViewModel {
      DataBaseManeger.shared().isFav(teamId: teamId)
     }
     var team = Team()
-    var bindTeamsListToTeamDetailsVC: (() -> Void)?
-    var bindNetworkIndicator: ((Bool) -> Void)?
+    var bindTeamsListToTeamDetailsVC:Observable<Bool>=Observable(false)
     
     init(teamId: Int, teamName: String) {
         self.teamId = teamId
@@ -22,13 +21,14 @@ class TeamDetailsViewModel {
     }
     
     func fetchTeamDetails() {
-        bindNetworkIndicator?(true)
-        NetworkManeger.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] players in
-            if let list = players.result{
-                self?.team = list[0]
-                self?.bindTeamsListToTeamDetailsVC?()
-                self?.bindNetworkIndicator?(false)
-                
+        NetworkManeger.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] result in
+            switch result {
+            case .success(let team):
+                self?.team = team.result![0]
+                self?.bindTeamsListToTeamDetailsVC.value=true
+            case .failure(let error):
+                self?.bindTeamsListToTeamDetailsVC.value=false
+                print("Failed to fetch team details: \(error)")
             }
         }
     }

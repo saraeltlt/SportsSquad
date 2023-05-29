@@ -6,9 +6,10 @@ class LeagueDetailsViewModel {
     private let sportType: String
     private let leagueName: String
     
-    var bindUpcomingListToLeagueDetailsVC: (() -> Void)?
-    var bindLatestEventListToLeagueDetailsVC: (() -> Void)?
-    var bindTeamsListToLeagueDetailsVC: (() -> Void)?
+    var bindUpcomingListToLeagueDetailsVC:Observable<Bool>=Observable(false)
+    var bindLatestEventListToLeagueDetailsVC:Observable<Bool>=Observable(false)
+    var bindTeamsListToLeagueDetailsVC:Observable<Bool>=Observable(false)
+    
     var bindNetworkIndicator: ((Int) -> Void)?
     var i = 0
     var upcomingList = [Event]()
@@ -25,63 +26,84 @@ class LeagueDetailsViewModel {
     
     func fetchUpcomingEvents() {
         bindNetworkIndicator?(i)
-        NetworkManeger.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) {  [weak self]  UpComingEvents in
-            self?.i=self!.i+1;
-            self?.bindNetworkIndicator?(self!.i)
-            if let list = UpComingEvents.result{
-                self?.upcomingList = list
-                self?.bindUpcomingListToLeagueDetailsVC?()
+        NetworkManeger.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) { [weak self] result in
+            switch result {
+            case .success(let upcomingEvents):
+                self?.i += 1
+                self?.bindNetworkIndicator?(self?.i ?? 0)
+                if let list = upcomingEvents.result {
+                    self?.upcomingList = list
+                    self?.bindUpcomingListToLeagueDetailsVC.value=true
+                }
+            case .failure(let error):
+                // Handle error
+                print(error)
             }
         }
     }
     
     func fetchLatestEvents() {
         bindNetworkIndicator?(i)
-        NetworkManeger.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] latest in
-            self?.i=self!.i+1;
-            self?.bindNetworkIndicator?(self!.i)
-            if let list = latest.result{
-                self?.latestEventsList = list.reversed()
-                self?.bindLatestEventListToLeagueDetailsVC?()
+        NetworkManeger.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] result in
+            switch result {
+            case .success(let latest):
+                self?.i += 1
+                self?.bindNetworkIndicator?(self?.i ?? 0)
+                if let list = latest.result {
+                    print (list[0].event_final_result)
+                    self?.latestEventsList = list.reversed()
+                    self?.bindLatestEventListToLeagueDetailsVC.value=true
+                }
+            case .failure(let error):
+                // Handle error
+                print(error)
             }
         }
     }
-    
+
     func fetchTeams() {
         bindNetworkIndicator?(i)
-        if sportType == K.sportsType.tennis.rawValue{
-       
-            NetworkManeger.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] teams in
-                self?.i=self!.i+1;
-                self?.bindNetworkIndicator?(self!.i)
+        if sportType == K.sportsType.tennis.rawValue {
+            NetworkManeger.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] result in
+                switch result {
+                case .success(let teams):
+                    self?.i += 1
+                    self?.bindNetworkIndicator?(self?.i ?? 0)
 
-                if let list = teams.result{
-
-                    for team in list{
-                        let player1 = Team()
-                        player1.team_name = team.event_first_player
-                        player1.team_logo = team.event_first_player_logo
-                        self?.teamsList.append(player1)
-                        let player2 = Team()
-                        player2.team_name = team.event_second_player
-                        player2.team_logo = team.event_second_player
-                        self?.teamsList.append(player2)
+                    if let list = teams.result {
+                        for team in list {
+                            let player1 = Team()
+                            player1.team_name = team.event_first_player
+                            player1.team_logo = team.event_first_player_logo
+                            self?.teamsList.append(player1)
+                            let player2 = Team()
+                            player2.team_name = team.event_second_player
+                            player2.team_logo = team.event_second_player
+                            self?.teamsList.append(player2)
+                        }
+                        self?.bindTeamsListToLeagueDetailsVC.value=true
                     }
-                    self?.bindTeamsListToLeagueDetailsVC?()
+                case .failure(let error):
+                    // Handle error
+                    print(error)
+                }
+            }
+        } else {
+            NetworkManeger.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] result in
+                switch result {
+                case .success(let teams):
+                    self?.i += 1
+                    self?.bindNetworkIndicator?(self?.i ?? 0)
+                    if let list = teams.result {
+                        self?.teamsList = list
+                        self?.bindTeamsListToLeagueDetailsVC.value=true
+                    }
+                case .failure(let error):
+                    // Handle error
+                    print(error)
                 }
             }
         }
-        else{
-            NetworkManeger.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] teams in
-                self?.i=self!.i+1;
-                self?.bindNetworkIndicator?(self!.i)
-                if let list = teams.result{
-                    self?.teamsList = list
-                    self?.bindTeamsListToLeagueDetailsVC?()
-                }
-            }
-        }
-       
     }
     
    

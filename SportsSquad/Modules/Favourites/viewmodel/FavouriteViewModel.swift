@@ -8,8 +8,7 @@
 import Foundation
 
 class FavouriteViewModel {
-    var bindFavListToFavouriteTableViewController: (() -> Void)?
-    var bindNetworkIndicator: ((Bool) -> Void)?
+    var bindFavListToFavouriteTableViewController:Observable<Bool>=Observable(false)
 
     private var teamsList: [Team] = []
 
@@ -19,14 +18,14 @@ class FavouriteViewModel {
 
     func fetchTeams() {
         teamsList = DataBaseManeger.shared().getData()
-        bindFavListToFavouriteTableViewController?()
+        bindFavListToFavouriteTableViewController.value=true
     }
 
     func deleteTeam(at index: Int) {
         let teamId = teamsList[index].team_key ?? 0
         DataBaseManeger.shared().deleteData(teamId: teamId)
         teamsList.remove(at: index)
-        bindFavListToFavouriteTableViewController?()
+        bindFavListToFavouriteTableViewController.value=true
     }
 
     func team(at index: Int) -> Team {

@@ -9,16 +9,15 @@ import Foundation
 protocol NetworkManegerProtocol  {
     
     
-    func getLeagues(sportType: String , completionHandler : @escaping(_ leagues:LeaguesModel)  -> (Void) )
+    func getLeagues(sportType: String, completionHandler: @escaping (Result<LeaguesModel, Error>) -> Void)
     
-    func getUpComingEvents(sportType: String ,leagueId: Int, completionHandler : @escaping(_ UpComingEvents:EventsModel) -> Void)
+    func getUpComingEvents(sportType: String, leagueId: Int, completionHandler: @escaping (Result<EventsModel, Error>) -> Void)
     
-    func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (EventsModel) -> Void)
+    func getLatestEvents(sportType: String, leagueId: Int, completionHandler: @escaping (Result<EventsModel, Error>) -> Void)
+    func getTeams(sportType: String, leagueId: Int, completionHandler: @escaping (Result<TeamsModel, Error>) -> Void)
     
-    func getTeams(sportType: String ,leagueId: Int , completionHandler: @escaping (TeamsModel) -> Void )
-    
-    func getTennisPlayers(sportType: String, leagueId: Int, completionHandler: @escaping (TeamsModel) -> Void)
+    func getTennisPlayers(sportType: String, leagueId: Int, completionHandler: @escaping (Result<TeamsModel, Error>) -> Void)
    
-    func getTeamDetails(teamId: Int , completionHandler: @escaping (TeamsModel) -> Void )
+    func getTeamDetails(teamId: Int, completionHandler: @escaping (Result<TeamsModel, Error>) -> Void)
     
 }

@@ -26,11 +26,15 @@ class FavouriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.bindFavListToFavouriteTableViewController = { [weak self] in
-            DispatchQueue.main.async {
-                self?.favTableView.reloadData()
+        
+        viewModel.bindFavListToFavouriteTableViewController.bind {  [weak self] isLoading in
+            if let _ = isLoading{
+                DispatchQueue.main.async {
+                    self?.favTableView.reloadData()
+                }
             }
         }
+
         viewModel.fetchTeams()
         setupAnimation()
     }

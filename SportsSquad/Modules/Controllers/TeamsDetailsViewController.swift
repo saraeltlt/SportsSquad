@@ -32,22 +32,22 @@ class TeamsDetailsViewController: UIViewController {
            showToast(text: "No Internet Connection", imageName: K.NO_WIFI)
         }
         
-        viewModel?.bindNetworkIndicator = { [weak self] isLoading in
-              DispatchQueue.main.async {
-                  if isLoading {
-                      self?.networkIndecator.startAnimating()
-            
-                  } else {
-                      self?.networkIndecator.stopAnimating()
-                  }
-              }
-          }
-        viewModel?.bindTeamsListToTeamDetailsVC = { [weak self] in
-            DispatchQueue.main.async {
-                self?.playersCollectionView.reloadData()
-                self?.updateUI()
+        viewModel?.bindTeamsListToTeamDetailsVC.bind({ [weak self] isLoading in
+            if let data = isLoading{
+                DispatchQueue.main.async {
+                    if data == false {
+                        self?.networkIndecator.startAnimating()
+              
+                    } else {
+                        self?.playersCollectionView.reloadData()
+                        self?.updateUI()
+                        self?.networkIndecator.stopAnimating()
+                    }
+                }
             }
-        }
+       
+        })
+        
         viewModel.fetchTeamDetails()
         
         let layout = UICollectionViewCompositionalLayout { _, _ in

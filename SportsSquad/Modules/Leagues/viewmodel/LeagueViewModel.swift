@@ -21,9 +21,15 @@ class LeaguesViewModel {
     
     func getLeaguesAPI() {
         bindNetworkIndicator?(true)
-        NetworkManeger.getInstance().getLeagues(sportType: sportType) { [weak self] leagues in
-            self?.leagueList = leagues.result!
-            self?.bindListToLeagueTableViewController?()
+        NetworkManeger.getInstance().getLeagues(sportType: sportType) { [weak self] result in
+            switch result {
+            case .success(let leagues):
+                self?.leagueList = leagues.result!
+                self?.bindListToLeagueTableViewController?()
+            case .failure(let error):
+                // Handle error
+                print(error)
+            }
             self?.bindNetworkIndicator?(false)
         }
     }
