@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol Mockable: AnyObject {
     var bundle: Bundle { get }
     func loadJSON<T: Decodable>(filename: String, type: T.Type) throws -> T
