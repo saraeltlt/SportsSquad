@@ -7,7 +7,7 @@
 
 import Foundation
 class LeaguesViewModel {
-    private var sportType: String! 
+    private var sportType: String
     private var leagueList: [League] = []
     private var searchArray: [League] = []
     init( sportType: String){
@@ -19,20 +19,25 @@ class LeaguesViewModel {
     
     var bindNetworkIndicator: ((Bool) -> Void)?
     
+    
     func getLeaguesAPI() {
         bindNetworkIndicator?(true)
-        NetworkManeger.getInstance().getLeagues(sportType: sportType) { [weak self] result in
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Leagues&APIkey=\(K.API_KEY)"
+        
+        NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<LeaguesModel, Error>) in
             switch result {
             case .success(let leagues):
                 self?.leagueList = leagues.result!
                 self?.bindListToLeagueTableViewController?()
+                print(leagues)
             case .failure(let error):
-                // Handle error
                 print(error)
             }
             self?.bindNetworkIndicator?(false)
         }
     }
+    
+    
     
     func filterLeagues(with searchText: String) {
         if searchText.isEmpty {

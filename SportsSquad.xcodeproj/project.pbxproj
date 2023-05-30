@@ -13,7 +13,7 @@
 		8F1D97FE2A238D9300513462 /* LeaguesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D97FD2A238D9300513462 /* LeaguesSearch.swift */; };
 		8F1D98002A23922200513462 /* LeaguesDetailsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D97FF2A23922200513462 /* LeaguesDetailsCollectionView.swift */; };
 		8F1D98022A24B94C00513462 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D98012A24B94C00513462 /* Observable.swift */; };
-		8F1D98042A24B9A600513462 /* MockJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D98032A24B9A600513462 /* MockJson.json */; };
+		8F1D98042A24B9A600513462 /* EventResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D98032A24B9A600513462 /* EventResponse.json */; };
 		8F2CAFC92A19FBFD004BE9CC /* TeamsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2CAFC82A19FBFD004BE9CC /* TeamsDetailsViewController.swift */; };
 		8F4E666C2A1FDD3900634E80 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E666B2A1FDD3900634E80 /* CustomAlertViewController.swift */; };
 		8F4E666E2A20012200634E80 /* CustomTabBarvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E666D2A20012200634E80 /* CustomTabBarvc.swift */; };
@@ -35,6 +35,9 @@
 		8F56E1482A19367C00624EDC /* TeamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F56E1462A19367C00624EDC /* TeamsCell.swift */; };
 		8F56E1492A19367C00624EDC /* TeamsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F56E1472A19367C00624EDC /* TeamsCell.xib */; };
 		8F75694F2A1EC6340067C353 /* favorite.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F75694E2A1EC6340067C353 /* favorite.json */; };
+		8F8E86A42A24FBFB005596D5 /* TeamResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E86A32A24FBFB005596D5 /* TeamResponse.json */; };
+		8F8E86A62A24FD0B005596D5 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E86A52A24FD0B005596D5 /* Mockable.swift */; };
+		8F8E86A82A24FD2D005596D5 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E86A72A24FD2D005596D5 /* MockNetworkManager.swift */; };
 		8F95E2EB2A167CE60028D6BB /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */; };
 		8F95E2EF2A1698490028D6BB /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */; };
 		8F95E2F32A16B15F0028D6BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95E2F22A16B15F0028D6BB /* Extensions.swift */; };
@@ -85,7 +88,7 @@
 		8F1D97FD2A238D9300513462 /* LeaguesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesSearch.swift; sourceTree = "<group>"; };
 		8F1D97FF2A23922200513462 /* LeaguesDetailsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsCollectionView.swift; sourceTree = "<group>"; };
 		8F1D98012A24B94C00513462 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		8F1D98032A24B9A600513462 /* MockJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockJson.json; sourceTree = "<group>"; };
+		8F1D98032A24B9A600513462 /* EventResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EventResponse.json; sourceTree = "<group>"; };
 		8F2CAFC82A19FBFD004BE9CC /* TeamsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDetailsViewController.swift; sourceTree = "<group>"; };
 		8F4E666B2A1FDD3900634E80 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		8F4E666D2A20012200634E80 /* CustomTabBarvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarvc.swift; sourceTree = "<group>"; };
@@ -111,6 +114,9 @@
 		8F56E1462A19367C00624EDC /* TeamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCell.swift; sourceTree = "<group>"; };
 		8F56E1472A19367C00624EDC /* TeamsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsCell.xib; sourceTree = "<group>"; };
 		8F75694E2A1EC6340067C353 /* favorite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorite.json; sourceTree = "<group>"; };
+		8F8E86A32A24FBFB005596D5 /* TeamResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamResponse.json; sourceTree = "<group>"; };
+		8F8E86A52A24FD0B005596D5 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		8F8E86A72A24FD2D005596D5 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		8F95E2EA2A167CE60028D6BB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		8F95E2EE2A1698490028D6BB /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		8F95E2F22A16B15F0028D6BB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -300,9 +306,12 @@
 		8F5608D92A167018009DBD2D /* SportsSquadTests */ = {
 			isa = PBXGroup;
 			children = (
+				8F1D98032A24B9A600513462 /* EventResponse.json */,
+				8F8E86A32A24FBFB005596D5 /* TeamResponse.json */,
+				8F8E86A52A24FD0B005596D5 /* Mockable.swift */,
+				8F8E86A72A24FD2D005596D5 /* MockNetworkManager.swift */,
 				8FCC1CB32A24DB8A00DD344A /* NetworkManegerTest.swift */,
 				8F5608DA2A167018009DBD2D /* SportsSquadTests.swift */,
-				8F1D98032A24B9A600513462 /* MockJson.json */,
 			);
 			path = SportsSquadTests;
 			sourceTree = "<group>";
@@ -633,7 +642,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F1D98042A24B9A600513462 /* MockJson.json in Resources */,
+				8F1D98042A24B9A600513462 /* EventResponse.json in Resources */,
+				8F8E86A42A24FBFB005596D5 /* TeamResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +808,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FCC1CB42A24DB8A00DD344A /* NetworkManegerTest.swift in Sources */,
+				8F8E86A62A24FD0B005596D5 /* Mockable.swift in Sources */,
+				8F8E86A82A24FD2D005596D5 /* MockNetworkManager.swift in Sources */,
 				8F5608DB2A167018009DBD2D /* SportsSquadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

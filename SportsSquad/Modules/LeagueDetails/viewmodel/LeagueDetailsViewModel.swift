@@ -5,12 +5,13 @@ class LeagueDetailsViewModel {
     private let leagueId: Int
     private let sportType: String
     private let leagueName: String
+    var todayString: String
+    var yesterdayString: String
     
     var bindUpcomingListToLeagueDetailsVC:Observable<Bool>=Observable(false)
     var bindLatestEventListToLeagueDetailsVC:Observable<Bool>=Observable(false)
     var bindTeamsListToLeagueDetailsVC:Observable<Bool>=Observable(false)
-    
-    var bindNetworkIndicator: ((Int) -> Void)?
+    var bindNetworkIndicator:Observable<Int>=Observable(0)
     var i = 0
     var upcomingList = [Event]()
     var latestEventsList = [Event]()
@@ -22,15 +23,23 @@ class LeagueDetailsViewModel {
         self.leagueId = leagueId
         self.sportType = sportType
         self.leagueName = leagueName
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+       yesterdayString = dateFormatter.string(from: yesterday!)
+        todayString = dateFormatter.string(from: Date())
     }
     
     func fetchUpcomingEvents() {
-        bindNetworkIndicator?(i)
-        NetworkManeger.sharedInstance.getUpComingEvents(sportType: sportType, leagueId: leagueId) { [weak self] result in
+        bindNetworkIndicator.value=i
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=\(todayString)&to=2025-01-01&APIkey=\(K.API_KEY)"
+        NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<EventsModel, Error>) in
             switch result {
             case .success(let upcomingEvents):
                 self?.i += 1
-                self?.bindNetworkIndicator?(self?.i ?? 0)
+                self?.bindNetworkIndicator.value=self?.i
                 if let list = upcomingEvents.result {
                     self?.upcomingList = list
                     self?.bindUpcomingListToLeagueDetailsVC.value=true
@@ -43,32 +52,34 @@ class LeagueDetailsViewModel {
     }
     
     func fetchLatestEvents() {
-        bindNetworkIndicator?(i)
-        NetworkManeger.sharedInstance.getLatestEvents(sportType: sportType, leagueId: leagueId) { [weak self] result in
+        bindNetworkIndicator.value=i
+        let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&APIkey=\(K.API_KEY)&from=2022-8-01&to=\(yesterdayString)&leagueId=\(leagueId)"
+        
+        NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<EventsModel, Error>) in
             switch result {
             case .success(let latest):
                 self?.i += 1
-                self?.bindNetworkIndicator?(self?.i ?? 0)
+                self?.bindNetworkIndicator.value=self?.i
                 if let list = latest.result {
-                    print (list[0].event_final_result)
                     self?.latestEventsList = list.reversed()
                     self?.bindLatestEventListToLeagueDetailsVC.value=true
                 }
             case .failure(let error):
-                // Handle error
                 print(error)
             }
         }
     }
 
     func fetchTeams() {
-        bindNetworkIndicator?(i)
+        bindNetworkIndicator.value=i
         if sportType == K.sportsType.tennis.rawValue {
-            NetworkManeger.sharedInstance.getTennisPlayers(sportType: sportType, leagueId: leagueId) { [weak self] result in
+            let url = "\(K.BASIC_URL)\(sportType)/?met=Fixtures&leagueId=\(leagueId)&from=2021-01-23&to=2023-12-30&APIkey=\(K.API_KEY)"
+            
+            NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<TeamsModel, Error>) in
                 switch result {
                 case .success(let teams):
                     self?.i += 1
-                    self?.bindNetworkIndicator?(self?.i ?? 0)
+                    self?.bindNetworkIndicator.value=self?.i
 
                     if let list = teams.result {
                         for team in list {
@@ -89,11 +100,13 @@ class LeagueDetailsViewModel {
                 }
             }
         } else {
-            NetworkManeger.sharedInstance.getTeams(sportType: sportType, leagueId: leagueId) { [weak self] result in
+            let url = "\(K.BASIC_URL)\(sportType)/?met=Teams&?met=Leagues&leagueId=\(leagueId)&APIkey=\(K.API_KEY)"
+
+            NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<TeamsModel, Error>) in
                 switch result {
                 case .success(let teams):
                     self?.i += 1
-                    self?.bindNetworkIndicator?(self?.i ?? 0)
+                    self?.bindNetworkIndicator.value=self?.i
                     if let list = teams.result {
                         self?.teamsList = list
                         self?.bindTeamsListToLeagueDetailsVC.value=true

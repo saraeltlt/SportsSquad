@@ -55,18 +55,20 @@ class LeagueDetailsViewController: UIViewController {
     // MARK: - View Model Binding
     
     private func bindViewModel() {
-        detailsViewModel?.bindNetworkIndicator = { [weak self] isLoading in
+        detailsViewModel?.bindNetworkIndicator.bind { [weak self] isLoading in
               DispatchQueue.main.async {
-                  if isLoading < 3 {
-                      self?.networkIndecator.startAnimating()
-
-                  } else {
-                     
-                      self?.networkIndecator.stopAnimating()
-                      self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
-                      self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
-                      self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
-                     
+                  if let loading = isLoading{
+                      if loading < 3 {
+                          self?.networkIndecator.startAnimating()
+                          
+                      } else {
+                          
+                          self?.networkIndecator.stopAnimating()
+                          self?.noUpcoming.isHidden = !(self?.detailsViewModel.upcomingList.isEmpty ?? true)
+                          self?.noLatest.isHidden = !(self?.detailsViewModel.latestEventsList.isEmpty ?? true)
+                          self?.noTeams.isHidden = !(self?.detailsViewModel.teamsList.isEmpty ?? true)
+                          
+                      }
                   }
               }
           }

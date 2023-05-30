@@ -9,7 +9,7 @@ class TeamDetailsViewModel {
     var teamId: Int
     var teamName: String
     var isFav: Bool {
-     DataBaseManeger.shared().isFav(teamId: teamId)
+     DataBaseManeger.shared.isFav(teamId: teamId)
     }
     var team = Team()
     var bindTeamsListToTeamDetailsVC:Observable<Bool>=Observable(false)
@@ -21,7 +21,8 @@ class TeamDetailsViewModel {
     }
     
     func fetchTeamDetails() {
-        NetworkManeger.sharedInstance.getTeamDetails(teamId: teamId) { [weak self] result in
+        let url = "\(K.BASIC_URL)football/?&met=Teams&teamId=\(teamId)&APIkey=\(K.API_KEY)"
+        NetworkManeger.shared.getApiData(url: url) { [weak self] (result: Result<TeamsModel, Error>) in
             switch result {
             case .success(let team):
                 self?.team = team.result![0]
@@ -35,9 +36,9 @@ class TeamDetailsViewModel {
     
     func toggleFavorite() {
         if isFav {
-            DataBaseManeger.shared().deleteData(teamId: teamId)
+            DataBaseManeger.shared.deleteData(teamId: teamId)
         } else {
-            DataBaseManeger.shared().saveData(teamData: team)
+            DataBaseManeger.shared.saveData(teamData: team)
         }
     }
 }

@@ -8,7 +8,7 @@ import CoreData
 import UIKit
 
 class DataBaseManeger : DatabaseServiceProtocol{
-    private static var sharedInstance = DataBaseManeger()
+    static let shared = DataBaseManeger()
     private var appDelegate : AppDelegate!
     private var context : NSManagedObjectContext!
     private var entity : NSEntityDescription!
@@ -20,10 +20,7 @@ class DataBaseManeger : DatabaseServiceProtocol{
             context = appDelegate.persistentContainer.viewContext
             context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         }
-    
-    static func shared() -> DataBaseManeger {
-        return sharedInstance
-    }
+
     
     func saveData(teamData : Team) {
         entity = NSEntityDescription.entity(forEntityName: K.ENTITY_NAME, in: context)

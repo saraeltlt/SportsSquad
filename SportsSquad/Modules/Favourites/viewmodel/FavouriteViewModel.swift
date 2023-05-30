@@ -17,13 +17,13 @@ class FavouriteViewModel {
     }
 
     func fetchTeams() {
-        teamsList = DataBaseManeger.shared().getData()
+        teamsList = DataBaseManeger.shared.getData()
         bindFavListToFavouriteTableViewController.value=true
     }
 
     func deleteTeam(at index: Int) {
         let teamId = teamsList[index].team_key ?? 0
-        DataBaseManeger.shared().deleteData(teamId: teamId)
+        DataBaseManeger.shared.deleteData(teamId: teamId)
         teamsList.remove(at: index)
         bindFavListToFavouriteTableViewController.value=true
     }
