@@ -61,7 +61,7 @@ class LeagueDetailsViewModel {
                 self?.i += 1
                 self?.bindNetworkIndicator.value=self?.i
                 if let list = latest.result {
-                    self?.latestEventsList = list.reversed()
+                    self?.latestEventsList = list
                     self?.bindLatestEventListToLeagueDetailsVC.value=true
                 }
             case .failure(let error):

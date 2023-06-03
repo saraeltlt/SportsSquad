@@ -5,7 +5,7 @@
 //  Created by Sara Eltlt on 25/05/2023.
 //
 
-import UIKit
+/*import UIKit
 class CustomTabBarvc: UITabBarController, UITabBarControllerDelegate {
 
     required init?(coder: NSCoder) {
@@ -21,13 +21,12 @@ class CustomTabBarvc: UITabBarController, UITabBarControllerDelegate {
     }
     
     func setupMiddleButton() {
-        let middleButtonSize: CGFloat = self.tabBar.frame.height*1.45
-        let bottomMargin: CGFloat = 30
+        let middleButtonSize: CGFloat = self.tabBar.frame.height*1.2
+        let bottomMargin: CGFloat = self.tabBar.safeAreaInsets.top
         
         let middleButton = UIButton()
         middleButton.translatesAutoresizingMaskIntoConstraints = false
         middleButton.setBackgroundImage(UIImage(named: "Logo"), for: .normal)
-        //middleButton.layer.shadowColor = UIColor.black.cgColor
         middleButton.layer.shadowOpacity = 0.1
         middleButton.layer.backgroundColor = UIColor.clear.cgColor
         middleButton.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -42,3 +41,4 @@ class CustomTabBarvc: UITabBarController, UITabBarControllerDelegate {
         ])
     }
 }
+*/

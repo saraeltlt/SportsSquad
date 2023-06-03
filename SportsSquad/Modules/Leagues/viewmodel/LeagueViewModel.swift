@@ -29,7 +29,6 @@ class LeaguesViewModel {
             case .success(let leagues):
                 self?.leagueList = leagues.result!
                 self?.bindListToLeagueTableViewController?()
-                print(leagues)
             case .failure(let error):
                 print(error)
             }

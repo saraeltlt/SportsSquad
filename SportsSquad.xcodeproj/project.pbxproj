@@ -250,9 +250,9 @@
 			children = (
 				8F75694E2A1EC6340067C353 /* favorite.json */,
 				8FE37A222A17D2F00066B431 /* NetworkStatusChecker.swift */,
-				8F1D98012A24B94C00513462 /* Observable.swift */,
 				8F5608F72A167117009DBD2D /* Constants.swift */,
 				8F95E2F22A16B15F0028D6BB /* Extensions.swift */,
+				8F1D98012A24B94C00513462 /* Observable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
