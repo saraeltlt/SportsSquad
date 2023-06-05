@@ -23,7 +23,7 @@ class NetworkManeger : NetworkManegerProtocol{
                     let jsonData = try JSONDecoder().decode(T.self, from: data!)
                     completionHandler(.success(jsonData))
                 } catch {
-                    completionHandler(.failure(error))
+                    completionHandler(.failure(error)) //test this
                 }
             case .failure(let error):
                 completionHandler(.failure(error))

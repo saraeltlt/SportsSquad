@@ -25,7 +25,7 @@ class NetworkManegerTest: XCTestCase {
     //MARK: - should pass
     
     func testGetApiData_ShouldPass() {
-        let url = "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=3&from=2023-05-30&to=2025-01-01&APIkey=097bcb5d95f937c824bc73356efa4f56d12446d32e8245d2ad36950c16294ab7"
+        let url = "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=3&from=2023-05-30&to=2025-01-01&APIkey=c0bddea4fa8a6125d9d6a00001e9ecd71e7107a99aeef4d1154c551d2feb96e8"
         let expectation = self.expectation(description: "API response")
         
         networkManager.getApiData(url: url) { (result: Result<EventsModel, Error>) in

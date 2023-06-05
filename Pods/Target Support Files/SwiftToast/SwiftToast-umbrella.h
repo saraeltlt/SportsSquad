@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double IQKeyboardManagerSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char IQKeyboardManagerSwiftVersionString[];
+FOUNDATION_EXPORT double SwiftToastVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftToastVersionString[];
 
